@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="dist/svg/star-filled.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Quicksand&display=swap" rel="stylesheet" />
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/theme-change@2.0.2/index.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
+    <link rel="stylesheet" href="dist/css/style.css" />
+    <title>Wisnu's Portfolio</title>
+</head>
+
+<header>
+    <div class="drawer drawer-end font-quicksand">
+        <input id="sidebar-menu" type="checkbox" class="drawer-toggle" />
+
+        <div class="drawer-content">
+            <nav class="navbar bg-base-100">
+                <div class="navbar-start">
+                    <a class="btn btn-ghost text-xl normal-case">Portfolio</a>
+                </div>
+                <div class="navbar-center hidden lg:flex">
+                    <ul class="menu menu-horizontal px-1 text-lg font-extrabold">
+                        <li><a class="hover:-translate-x-6">About</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a class="hover:translate-x-6">Contacts</a></li>
+                    </ul>
+                </div>
+                <div class="navbar-end">
+                    <div data-toggle-theme="night" data-act-class="swap-active" class="btn btn-ghost swap swap-rotate tooltip tooltip-bottom mx-5 hidden transition-all lg:inline-grid" data-tip="Theme">
+                        <i class="ti ti-sun swap-off fill-current text-3xl"></i>
+                        <i class="ti ti-moon swap-on fill-current text-3xl"></i>
+                    </div>
+                    <label for="sidebar-menu" class="swap btn btn-ghost lg:hidden">
+                        <i class="ti ti-menu-2 text-2xl swap-off"></i>
+                        <i class="ti ti-x text-2xl swap-on"></i>
+                    </label>
+                </div>
+            </nav>
+        </div>
+
+        <div class="drawer-side z-10 lg:hidden">
+            <div class="drawer-overlay"></div>
+            <div class="menu min-h-full w-full bg-base-100 p-4 text-base-content">
+                <div class="justify-between flex">
+                    <div data-toggle-theme="night" data-act-class="swap-active" class="swap-rotate swap transition-all btn btn-ghost">
+                        <i class="ti ti-sun swap-off fill-current text-3xl"></i>
+                        <i class="ti ti-moon swap-on fill-current text-3xl"></i>
+                    </div>
+                    <label for="sidebar-menu" class="btn btn-ghost">
+                        <i class="ti ti-x text-2xl"></i>
+                    </label>
+                </div>
+                <ul class="menu px-1 text-center text-lg font-extrabold">
+                    <label for="sidebar-menu">
+                        <a class="btn btn-ghost text-xl">About</a>
+                        <a href="#projects" class="btn btn-ghost text-xl">Projects</a>
+                        <a class="btn btn-ghost text-xl">Contacts</a>
+                    </label>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</header>
+
+<body class="font-poppins">
+    <section id="about" class="my-10">
+        <div class="mx-5 my-5 grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-0">
+            <div class="card-cols lg:pl-36">
+                <img src="dist/img/profile.png" class="mask mask-hexagon mx-auto bg-gradient sm:w-[50%] md:w-[70%]" alt="hero profile" />
+            </div>
+
+            <div class="card-cols lg:pr-36">
+                <h1 class="mb-5 text-4xl font-semibold">
+                    Halo semuanya, nama saya
+                    <span class="block text-6xl font-bold text-gradient">
+                        Wisnu Wirayuda
+                    </span>
+                </h1>
+                <p class="text-lg">
+                    Saya adalah seorang mahasiswa yang memiliki cita-cita
+                    ingin menjadi seorang Back-End Developer handal
+                </p>
+                <div class="btn btn-ghost w-full hover:drop-shadow-lg sm:w-2/5">
+                    Hubungi Saya
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="my-10 lg:mx-10">
+        <h1 class="text-center lg:text-6xl md:text-5xl text-4xl text-gradient divider !m-auto !h-auto">MY PROJECTS</h1>
+        <div class="mx-5 my-5 grid grid-flow-row grid-cols-1 gap-5 lg:grid-cols-3 md:grid-cols-2">
+            <div class="card overflow-hidden w-full h-full bg-base-100 shadow-xl">
+                <img src="https://picsum.photos/seed/picsum/640/360" class="aspect-video object-cover z-0" alt="Shoes" />
+                <div class="card-body">
+                    <h2 class="card-title">
+                        Shoes!
+                        <div class="badge badge-secondary">NEW</div>
+                    </h2>
+                    <p>If a dog chews shoes whose shoes does he choose?</p>
+                    <div class="card-actions justify-end">
+                        <div class="badge badge-outline">Fashion</div>
+                        <div class="badge badge-outline">Products</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Animation -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Custom JS -->
+    <script src="dist/js/main.js"></script>
+</body>
+
+<footer class="footer bg-base-200 p-10 text-base-content">
+    <nav>
+        <header class="footer-title">Services</header>
+        <a class="link-hover link">Branding</a>
+        <a class="link-hover link">Design</a>
+        <a class="link-hover link">Marketing</a>
+        <a class="link-hover link">Advertisement</a>
+    </nav>
+    <nav>
+        <header class="footer-title">Company</header>
+        <a class="link-hover link">About us</a>
+        <a class="link-hover link">Contact</a>
+        <a class="link-hover link">Jobs</a>
+        <a class="link-hover link">Press kit</a>
+    </nav>
+    <nav>
+        <header class="footer-title">Legal</header>
+        <a class="link-hover link">Terms of use</a>
+        <a class="link-hover link">Privacy policy</a>
+        <a class="link-hover link">Cookie policy</a>
+    </nav>
+    <form>
+        <header class="footer-title">Newsletter</header>
+        <fieldset class="form-control w-80">
+            <label class="label">
+                <span class="label-text">Enter your email address</span>
+            </label>
+            <div class="relative">
+                <input type="text" placeholder="username@site.com" class="input input-bordered w-full pr-16" />
+                <button class="btn btn-primary absolute right-0 top-0 rounded-l-none">
+                    Subscribe
+                </button>
+            </div>
+        </fieldset>
+    </form>
+</footer>
+
+</html>
