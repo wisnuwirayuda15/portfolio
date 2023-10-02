@@ -1,15 +1,34 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-    content: ['index.html'],
+    content: ["index.html"],
     theme: {
         fontFamily: {
-            quicksand: ['Quicksand', 'sans-serif'],
-            poppins: ['Poppins', 'sans-serif'],
+            quicksand: ["Quicksand", "sans-serif"],
+            poppins: ["Poppins", "sans-serif"],
         },
-        extend: {},
+        transitionDuration: {
+            DEFAULT: "500ms",
+        },
+        extend: {
+            animation: {
+                gradient: "gradient 2s linear infinite",
+            },
+            keyframes: {
+                gradient: {
+                    "0%, 100%": {
+                        "background-size": "200% 200%",
+                        "background-position": "left center",
+                    },
+                    "50%": {
+                        "background-size": "200% 200%",
+                        "background-position": "right center",
+                    },
+                },
+            },
+        },
     },
     daisyui: {
-        themes: ['cupcake', 'night'],
+        themes: ["cupcake", "night"],
     },
-    plugins: [require('daisyui')],
+    plugins: [require("daisyui")],
 };

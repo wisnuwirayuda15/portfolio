@@ -2,18 +2,42 @@
 @tailwind components;
 @tailwind utilities;
 
-.btn {
-    @apply normal-case;
+@layer components {
+    .animate-underline {
+        @apply relative inline-block cursor-pointer transition-all before:absolute before:-bottom-2 before:rounded-full before:bg-gradient-to-r before:from-primary before:via-secondary before:to-accent before:opacity-0 before:transition-all before:content-[''] hover:before:w-full hover:before:opacity-100;
+    }
+    .underline-from-left {
+        @apply before:left-0 before:h-1.5 before:w-0;
+    }
+    .underline-from-right {
+        @apply before:right-0 before:h-1.5 before:w-0;
+    }
+    .underline-from-mid {
+        @apply before:left-1/2 before:h-1.5 before:w-0 before:-translate-x-1/2;
+    }
+    .card-cols {
+        @apply card w-full items-center justify-center gap-5 overflow-hidden text-center md:items-start md:text-start;
+    }
+    .bg-gradient {
+        @apply bg-gradient-to-r from-primary via-secondary to-accent;
+    }
+    .text-gradient {
+        @apply bg-gradient bg-clip-text text-transparent;
+    }
+
+    /* .btn {
+        @apply normal-case;
+    } */
+
+    .tech-badge{
+        @apply w-20 rounded-full;
+    }
 }
 
-.card-cols {
-    @apply overflow-hidden card w-full items-center justify-center gap-5 text-center md:items-start md:text-start;
+html {
+    @apply scroll-smooth;
 }
 
-.text-gradient {
-    @apply bg-[linear-gradient(90deg,hsl(var(--s))_0%,hsl(var(--sf))_9%,hsl(var(--pf))_42%,hsl(var(--p))_47%,hsl(var(--a))_100%)] bg-clip-text [-webkit-text-fill-color:transparent] [&::selection]:bg-blue-700/20 [&::selection]:text-base-content [@supports(color:oklch(0_0_0))]:bg-[linear-gradient(90deg,hsl(var(--s))_4%,color-mix(in_oklch,hsl(var(--sf)),hsl(var(--pf)))_22%,hsl(var(--p))_45%,color-mix(in_oklch,hsl(var(--p)),hsl(var(--a)))_67%,hsl(var(--a))_100.2%)];
-}
-
-.bg-gradient {
-    @apply bg-gradient-to-r from-primary via-secondary to-accent;
-}
+/* * {
+    @apply border border-red-600;
+} */

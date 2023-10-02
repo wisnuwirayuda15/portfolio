@@ -8,7 +8,7 @@
     <link rel="icon" href="dist/svg/star-filled.svg" type="image/svg+xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Quicksand&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Quicksand:wght@400;700&display=swap" rel="stylesheet" />
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/theme-change@2.0.2/index.js"></script>
@@ -24,23 +24,22 @@
         <div class="drawer-content">
             <nav class="navbar bg-base-100">
                 <div class="navbar-start">
-                    <a class="btn btn-ghost text-xl normal-case">Portfolio</a>
+                    <div class="text-gradient btn btn-ghost text-3xl font-black">
+                        Wisnu Wirayuda
+                    </div>
                 </div>
-                <div class="navbar-center hidden lg:flex">
-                    <ul class="menu menu-horizontal px-1 text-lg font-extrabold">
-                        <li><a class="hover:-translate-x-6">About</a></li>
-                        <li><a href="#projects">Projects</a></li>
-                        <li><a class="hover:translate-x-6">Contacts</a></li>
-                    </ul>
+                <div class="navbar-center hidden justify-center gap-10 text-xl font-black lg:flex">
+                    <a href="#about" class="animate-underline underline-from-left">About</a>
+                    <a href="#projects" class="animate-underline underline-from-mid">Projects</a>
+                    <a href="#contacts" class="animate-underline underline-from-right">Contacts</a>
                 </div>
                 <div class="navbar-end">
-                    <div data-toggle-theme="night" data-act-class="swap-active" class="btn btn-ghost swap swap-rotate tooltip tooltip-bottom mx-5 hidden transition-all lg:inline-grid" data-tip="Theme">
+                    <div data-toggle-theme="night" data-act-class="swap-active" class="normal-case btn btn-ghost swap swap-rotate tooltip tooltip-left mx-5 hidden transition-all lg:inline-grid" data-tip="Toggle dark mode">
                         <i class="ti ti-sun swap-off fill-current text-3xl"></i>
                         <i class="ti ti-moon swap-on fill-current text-3xl"></i>
                     </div>
-                    <label for="sidebar-menu" class="swap btn btn-ghost lg:hidden">
-                        <i class="ti ti-menu-2 text-2xl swap-off"></i>
-                        <i class="ti ti-x text-2xl swap-on"></i>
+                    <label for="sidebar-menu" class="btn btn-ghost lg:hidden">
+                        <i class="ti ti-menu-2 text-2xl"></i>
                     </label>
                 </div>
             </nav>
@@ -49,8 +48,8 @@
         <div class="drawer-side z-10 lg:hidden">
             <div class="drawer-overlay"></div>
             <div class="menu min-h-full w-full bg-base-100 p-4 text-base-content">
-                <div class="justify-between flex">
-                    <div data-toggle-theme="night" data-act-class="swap-active" class="swap-rotate swap transition-all btn btn-ghost">
+                <div class="flex justify-between">
+                    <div data-toggle-theme="night" data-act-class="swap-active" class="swap-rotate btn btn-ghost swap transition-all">
                         <i class="ti ti-sun swap-off fill-current text-3xl"></i>
                         <i class="ti ti-moon swap-on fill-current text-3xl"></i>
                     </div>
@@ -60,28 +59,35 @@
                 </div>
                 <ul class="menu px-1 text-center text-lg font-extrabold">
                     <label for="sidebar-menu">
-                        <a class="btn btn-ghost text-xl">About</a>
-                        <a href="#projects" class="btn btn-ghost text-xl">Projects</a>
-                        <a class="btn btn-ghost text-xl">Contacts</a>
+                        <li>
+                            <a href="#about" class="btn btn-ghost text-xl">About</a>
+                        </li>
+                        <li>
+                            <a href="#projects" class="btn btn-ghost text-xl">Projects</a>
+                        </li>
+                        <li>
+                            <a href="#contacts" class="btn btn-ghost text-xl">Contacts</a>
+                        </li>
                     </label>
                 </ul>
             </div>
         </div>
     </div>
-
 </header>
 
 <body class="font-poppins">
     <section id="about" class="my-10">
-        <div class="mx-5 my-5 grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-0">
+        <div class="m-5 grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-0">
             <div class="card-cols lg:pl-36">
-                <img src="dist/img/profile.png" class="mask mask-hexagon mx-auto bg-gradient sm:w-[50%] md:w-[70%]" alt="hero profile" />
+                <div class="bg-gradient mask mask-hexagon flex justify-center transition ease-in-out hover:animate-gradient">
+                    <img src="dist/img/profile.png" class="translate-y-5 transition ease-in-out hover:-translate-y-0 sm:w-[50%] md:w-[70%]" alt="hero profile" />
+                </div>
             </div>
 
-            <div class="card-cols lg:pr-36">
+            <div class="card-cols max-w-xl">
                 <h1 class="mb-5 text-4xl font-semibold">
-                    Halo semuanya, nama saya
-                    <span class="block text-6xl font-bold text-gradient">
+                    Hello my friends, I'm
+                    <span class="text-gradient block animate-gradient text-6xl font-bold">
                         Wisnu Wirayuda
                     </span>
                 </h1>
@@ -89,27 +95,42 @@
                     Saya adalah seorang mahasiswa yang memiliki cita-cita
                     ingin menjadi seorang Back-End Developer handal
                 </p>
-                <div class="btn btn-ghost w-full hover:drop-shadow-lg sm:w-2/5">
-                    Hubungi Saya
+                <div class="btn btn-primary text-base-100 w-full hover:drop-shadow-lg sm:w-2/5">
+                    Contact Me <i class="ti ti-mail text-2xl"></i>
                 </div>
             </div>
         </div>
     </section>
 
     <section id="projects" class="my-10 lg:mx-10">
-        <h1 class="text-center lg:text-6xl md:text-5xl text-4xl text-gradient divider !m-auto !h-auto">MY PROJECTS</h1>
-        <div class="mx-5 my-5 grid grid-flow-row grid-cols-1 gap-5 lg:grid-cols-3 md:grid-cols-2">
-            <div class="card overflow-hidden w-full h-full bg-base-100 shadow-xl">
-                <img src="https://picsum.photos/seed/picsum/640/360" class="aspect-video object-cover z-0" alt="Shoes" />
+        <h1 class="text-gradient divider !py-7 text-center text-4xl font-extrabold md:text-5xl lg:text-6xl lg:!py-10">
+            My Projects
+        </h1>
+
+        <div class="m-5 grid grid-flow-row grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
+            <div class="card h-full w-full overflow-hidden bg-base-200 shadow-xl transition ease-in-out">
+                <a href="https://youtu.be/065LOIBn_nk?si=0XBjiky5qyTCAUAr" class="overflow-hidden" target="_blank">
+                    <div class="aspect-video h-full w-full bg-[url('https://raw.githubusercontent.com/SI-RPL-2023/SI4406_A_BidjiCourse/wisnu/public/img/screenshots/landing-page.png')] bg-cover transition hover:scale-110"></div>
+                    <!-- <img src="https://raw.githubusercontent.com/SI-RPL-2023/SI4406_A_BidjiCourse/wisnu/public/img/screenshots/landing-page.png" class="aspect-[16/9] object-cover object-center hover:scale-110 transition" alt="Shoes" /> -->
+                </a>
                 <div class="card-body">
-                    <h2 class="card-title">
-                        Shoes!
-                        <div class="badge badge-secondary">NEW</div>
-                    </h2>
-                    <p>If a dog chews shoes whose shoes does he choose?</p>
-                    <div class="card-actions justify-end">
-                        <div class="badge badge-outline">Fashion</div>
-                        <div class="badge badge-outline">Products</div>
+                    <h2 class="card-title">Bidji Course</h2>
+                    <div class="flex gap-1">
+                        <img src="https://img.shields.io/badge/laravel-%23FF2D20.svg?style=for-the-badge&logo=laravel&logoColor=white" class="tech-badge" alt="">
+                        <img src="https://img.shields.io/badge/bootstrap-%238511FA.svg?style=for-the-badge&logo=bootstrap&logoColor=whitee" class="tech-badge" alt="">
+                    </div>
+                    <p>
+                        📚 Bidji Course adalah sebuah website pembelajaran
+                        untuk siswa-siswi Indonesia terutama siswa-siswi
+                        sekolah SD, SMP, SMA, SMK sederajat. Bidji Course
+                        menyediakan berbagai macam materi dan video
+                        pembelajaran yang dapat diakses secara gratis!
+                    </p>
+                    <div class="card-actions justify-end" ">
+                        <a href=" https://github.com/wisnuwirayuda15/Bidji-Course" class="btn btn-primary" target="_blank">
+                        View More
+                        <i class="ti ti-brand-github text-2xl"></i>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -122,41 +143,29 @@
     <script src="dist/js/main.js"></script>
 </body>
 
-<footer class="footer bg-base-200 p-10 text-base-content">
-    <nav>
-        <header class="footer-title">Services</header>
-        <a class="link-hover link">Branding</a>
-        <a class="link-hover link">Design</a>
-        <a class="link-hover link">Marketing</a>
-        <a class="link-hover link">Advertisement</a>
+<footer class="footer footer-center p-10 bg-base-200 text-base-content rounded">
+    <nav class="grid grid-flow-col gap-4">
+        <a class="link link-hover">About us</a>
+        <a class="link link-hover">Contact</a>
+        <a class="link link-hover">Jobs</a>
+        <a class="link link-hover">Press kit</a>
     </nav>
     <nav>
-        <header class="footer-title">Company</header>
-        <a class="link-hover link">About us</a>
-        <a class="link-hover link">Contact</a>
-        <a class="link-hover link">Jobs</a>
-        <a class="link-hover link">Press kit</a>
+        <div class="grid grid-flow-col gap-4">
+            <a><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="fill-current">
+                    <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"></path>
+                </svg></a>
+            <a><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="fill-current">
+                    <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"></path>
+                </svg></a>
+            <a><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="fill-current">
+                    <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"></path>
+                </svg></a>
+        </div>
     </nav>
-    <nav>
-        <header class="footer-title">Legal</header>
-        <a class="link-hover link">Terms of use</a>
-        <a class="link-hover link">Privacy policy</a>
-        <a class="link-hover link">Cookie policy</a>
-    </nav>
-    <form>
-        <header class="footer-title">Newsletter</header>
-        <fieldset class="form-control w-80">
-            <label class="label">
-                <span class="label-text">Enter your email address</span>
-            </label>
-            <div class="relative">
-                <input type="text" placeholder="username@site.com" class="input input-bordered w-full pr-16" />
-                <button class="btn btn-primary absolute right-0 top-0 rounded-l-none">
-                    Subscribe
-                </button>
-            </div>
-        </fieldset>
-    </form>
+    <aside>
+        <p>Copyright © 2023 - All right reserved by ACME Industries Ltd</p>
+    </aside>
 </footer>
 
 </html>
