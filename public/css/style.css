@@ -2251,10 +2251,6 @@ html {
   margin: 1.25rem;
 }
 
-.m-10 {
-  margin: 2.5rem;
-}
-
 .mx-5 {
   margin-left: 1.25rem;
   margin-right: 1.25rem;
@@ -2267,30 +2263,6 @@ html {
 
 .mb-5 {
   margin-bottom: 1.25rem;
-}
-
-.mt-5 {
-  margin-top: 1.25rem;
-}
-
-.mt-10 {
-  margin-top: 2.5rem;
-}
-
-.mb-10 {
-  margin-bottom: 2.5rem;
-}
-
-.\!mt-10 {
-  margin-top: 2.5rem !important;
-}
-
-.mt-\[100px\] {
-  margin-top: 100px;
-}
-
-.mt-auto {
-  margin-top: auto;
 }
 
 .block {
@@ -2394,10 +2366,6 @@ html {
   gap: 1.25rem;
 }
 
-.gap-3 {
-  gap: 0.75rem;
-}
-
 .overflow-hidden {
   overflow: hidden;
 }
@@ -2454,10 +2422,6 @@ html {
 .px-1 {
   padding-left: 0.25rem;
   padding-right: 0.25rem;
-}
-
-.pt-10 {
-  padding-top: 2.5rem;
 }
 
 .text-center {
