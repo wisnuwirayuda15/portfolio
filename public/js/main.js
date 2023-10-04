@@ -12,7 +12,9 @@ $(document).ready(function () {
             $("#navbar").removeClass("navbar-fixed");
         }
     });
+});
 
+$(window).on("load", function () {
     var typewriterHeroText = new Typed("#typewriter-hero-text", {
         /**
          * @property {array} strings strings to be typed
