@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-    content: ["./public/*.{html,js}"],
+    content: ["./public/index.html"],
     theme: {
         fontFamily: {
             quicksand: ["Quicksand", "sans-serif"],
@@ -10,8 +10,12 @@ module.exports = {
             DEFAULT: "500ms",
         },
         extend: {
+            transitionProperty: {
+                wh: "width , height",
+            },
             animation: {
                 gradient: "gradient 2s linear infinite",
+                "spin-slow": "spin 5s linear infinite",
             },
             keyframes: {
                 gradient: {

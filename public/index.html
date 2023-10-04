@@ -5,167 +5,229 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="svg/star-filled.svg" type="image/svg+xml" />
+    <link rel="icon" href="svg/logo-light.svg" type="image/svg+xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Quicksand:wght@400;700&display=swap" rel="stylesheet" />
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/theme-change@2.0.2/index.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
     <link rel="stylesheet" href="css/style.css" />
     <title>Wisnu's Portfolio</title>
 </head>
 
-<header>
-    <div class="drawer drawer-end font-quicksand">
-        <input id="sidebar-menu" type="checkbox" class="drawer-toggle" />
+<!-- Body Section Start -->
 
-        <div class="drawer-content">
-            <nav class="navbar bg-base-100">
-                <div class="navbar-start">
-                    <div class="text-gradient btn btn-ghost text-3xl font-black">
-                        Wisnu Wirayuda
-                    </div>
-                </div>
-                <div class="navbar-center hidden justify-center gap-10 text-xl font-black lg:flex">
-                    <a href="#about" class="animate-underline underline-from-left">About</a>
-                    <a href="#projects" class="animate-underline underline-from-mid">Projects</a>
-                    <a href="#contacts" class="animate-underline underline-from-right">Contacts</a>
-                </div>
-                <div class="navbar-end">
-                    <div data-toggle-theme="night" data-act-class="swap-active" class="normal-case btn btn-ghost swap swap-rotate tooltip tooltip-left mx-5 hidden transition-all lg:inline-grid" data-tip="Toggle dark mode">
-                        <i class="ti ti-sun swap-off fill-current text-3xl"></i>
-                        <i class="ti ti-moon swap-on fill-current text-3xl"></i>
-                    </div>
-                    <label for="sidebar-menu" class="btn btn-ghost lg:hidden">
-                        <i class="ti ti-menu-2 text-2xl"></i>
-                    </label>
-                </div>
-            </nav>
-        </div>
-
-        <div class="drawer-side z-10 lg:hidden">
-            <div class="drawer-overlay"></div>
-            <div class="menu min-h-full w-full bg-base-100 p-4 text-base-content">
-                <div class="flex justify-between">
-                    <div data-toggle-theme="night" data-act-class="swap-active" class="swap-rotate btn btn-ghost swap transition-all">
-                        <i class="ti ti-sun swap-off fill-current text-3xl"></i>
-                        <i class="ti ti-moon swap-on fill-current text-3xl"></i>
-                    </div>
-                    <label for="sidebar-menu" class="btn btn-ghost">
-                        <i class="ti ti-x text-2xl"></i>
-                    </label>
-                </div>
-                <ul class="menu px-1 text-center text-lg font-extrabold">
-                    <label for="sidebar-menu">
-                        <li>
-                            <a href="#about" class="btn btn-ghost text-xl">About</a>
-                        </li>
-                        <li>
-                            <a href="#projects" class="btn btn-ghost text-xl">Projects</a>
-                        </li>
-                        <li>
-                            <a href="#contacts" class="btn btn-ghost text-xl">Contacts</a>
-                        </li>
-                    </label>
-                </ul>
-            </div>
-        </div>
-    </div>
-</header>
-
-<body class="font-poppins">
-    <section id="about" class="my-10">
-        <div class="m-5 grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-0">
-            <div class="card-cols lg:pl-36">
-                <div class="bg-gradient mask mask-hexagon flex justify-center transition ease-in-out hover:animate-gradient">
-                    <img src="img/profile.png" class="translate-y-5 transition ease-in-out hover:-translate-y-0 sm:w-[50%] md:w-[70%]" alt="hero profile" />
-                </div>
-            </div>
-
-            <div class="card-cols max-w-xl">
-                <h1 class="mb-5 text-4xl font-semibold">
-                    Hello my friends, I'm
-                    <span class="text-gradient block animate-gradient text-6xl font-bold">
-                        Wisnu Wirayuda
-                    </span>
-                </h1>
-                <p class="text-lg">
-                    Saya adalah seorang mahasiswa yang memiliki cita-cita
-                    ingin menjadi seorang Back-End Developer handal
-                </p>
-                <div class="btn btn-primary text-base-100 w-full hover:drop-shadow-lg sm:w-2/5">
-                    Contact Me <i class="ti ti-mail text-2xl"></i>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="projects" class="my-10 lg:mx-10">
-        <h1 class="text-gradient divider !py-7 text-center text-4xl font-extrabold md:text-5xl lg:text-6xl lg:!py-10">
-            My Projects
-        </h1>
-
-        <div class="m-5 grid grid-flow-row grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
-            <div class="card h-full w-full overflow-hidden bg-base-200 shadow-xl transition ease-in-out">
-                <a href="https://youtu.be/065LOIBn_nk?si=0XBjiky5qyTCAUAr" class="overflow-hidden" target="_blank">
-                    <div class="aspect-video h-full w-full bg-[url('https://raw.githubusercontent.com/SI-RPL-2023/SI4406_A_BidjiCourse/wisnu/public/img/screenshots/landing-page.png')] bg-cover transition hover:scale-110"></div>
-                    <!-- <img src="https://raw.githubusercontent.com/SI-RPL-2023/SI4406_A_BidjiCourse/wisnu/public/img/screenshots/landing-page.png" class="aspect-[16/9] object-cover object-center hover:scale-110 transition" alt="Shoes" /> -->
-                </a>
-                <div class="card-body">
-                    <h2 class="card-title">Bidji Course</h2>
-                    <div class="flex gap-1">
-                        <img src="https://img.shields.io/badge/laravel-%23FF2D20.svg?style=for-the-badge&logo=laravel&logoColor=white" class="tech-badge" alt="">
-                        <img src="https://img.shields.io/badge/bootstrap-%238511FA.svg?style=for-the-badge&logo=bootstrap&logoColor=whitee" class="tech-badge" alt="">
-                    </div>
-                    <p>
-                        📚 Bidji Course adalah sebuah website pembelajaran
-                        untuk siswa-siswi Indonesia terutama siswa-siswi
-                        sekolah SD, SMP, SMA, SMK sederajat. Bidji Course
-                        menyediakan berbagai macam materi dan video
-                        pembelajaran yang dapat diakses secara gratis!
-                    </p>
-                    <div class="card-actions justify-end mt-auto">
-                        <a href=" https://github.com/wisnuwirayuda15/Bidji-Course" class="btn btn-primary" target="_blank">
-                            View More
-                            <i class="ti ti-brand-github text-2xl"></i>
+<body>
+    <!--Navbar Section Start-->
+    <header class="font-quicksand">
+        <div class="drawer drawer-end">
+            <input id="sidebar-menu" type="checkbox" class="drawer-toggle" />
+            <div class="drawer-content">
+                <nav id="navbar" class="navbar fixed bg-base-100 px-3 font-quicksand transition-shadow lg:px-10">
+                    <div class="navbar-start">
+                        <a href="/" class="peer/logo z-20 flex items-center gap-5 transition hover:scale-110">
+                            <img src="svg/logo-light.svg" class="w-[50px] lg:w-[60px]" alt="" />
                         </a>
+                        <div class="text-gradient absolute left-10 hidden animate-gradient cursor-default text-3xl font-black opacity-0 transition peer-hover/logo:translate-x-20 peer-hover/logo:opacity-100 md:inline-flex">
+                            Wisnu Wirayuda
+                        </div>
                     </div>
+                    <div class="navbar-center hidden justify-center gap-10 text-xl font-black lg:flex">
+                        <a href="#about" class="animate-underline underline-from-left hover:text-gradient">About</a>
+                        <a href="#projects" class="animate-underline underline-from-mid hover:text-gradient">Projects</a>
+                        <a href="#contacts" class="animate-underline underline-from-right hover:text-gradient">Contacts</a>
+                    </div>
+                    <div class="navbar-end">
+                        <div data-toggle-theme="night" data-act-class="swap-active" class="btn btn-ghost swap swap-rotate tooltip tooltip-left hidden normal-case transition-all lg:inline-grid" data-tip="Toggle dark mode">
+                            <i class="ti ti-sun swap-off animate-spin-slow fill-current text-3xl"></i>
+                            <i class="ti ti-moon animate__animated animate__tada animate__infinite swap-on fill-current text-3xl"></i>
+                        </div>
+                        <label for="sidebar-menu" class="open-sidebar btn btn-ghost lg:hidden">
+                            <i class="ti ti-menu-2 text-2xl"></i>
+                        </label>
+                    </div>
+                </nav>
+            </div>
+            <div class="drawer-side z-50 lg:hidden">
+                <div class="drawer-overlay"></div>
+                <div class="menu min-h-full w-full bg-base-100 p-4 text-base-content">
+                    <div class="flex justify-between">
+                        <div data-toggle-theme="night" data-act-class="swap-active" class="swap-rotate btn btn-ghost swap transition-all">
+                            <i class="ti ti-sun swap-off animate-spin-slow fill-current text-3xl"></i>
+                            <i class="ti ti-moon animate__animated animate__tada animate__infinite swap-on fill-current text-3xl"></i>
+                        </div>
+                        <label for="sidebar-menu" class="close-sidebar btn btn-ghost">
+                            <i class="ti ti-x text-2xl"></i>
+                        </label>
+                    </div>
+                    <ul class="menu px-1 text-center text-lg font-extrabold">
+                        <label for="sidebar-menu">
+                            <li>
+                                <a href="#about" class="btn btn-ghost text-xl">About</a>
+                            </li>
+                            <li>
+                                <a href="#projects" class="btn btn-ghost text-xl">Projects</a>
+                            </li>
+                            <li>
+                                <a href="#contacts" class="btn btn-ghost text-xl">Contacts</a>
+                            </li>
+                        </label>
+                    </ul>
                 </div>
             </div>
         </div>
-    </section>
+    </header>
+    <!--Navbar Section End-->
 
+    <!-- Main Section Start -->
+    <main class="mx-3 font-poppins lg:mx-10">
+        <!--About Section Start-->
+        <section id="about" class="my-10 pt-24">
+            <div class="grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-0">
+                <!-- <div class="card w-full items-center justify-center overflow-hidden md:items-start lg:pl-36"> -->
+                <div class="card w-full items-center justify-center overflow-hidden py-5 lg:pl-36">
+                    <div class="bg-gradient mask mask-hexagon flex justify-center transition ease-in-out hover:animate-gradient">
+                        <img src="img/profile.png" class="translate-y-5 transition ease-in-out hover:-translate-y-0 sm:w-[50%] md:w-[70%]" alt="hero profile" />
+                    </div>
+                </div>
+
+                <div class="card w-full items-center justify-center gap-5 overflow-hidden py-5 text-center md:items-start md:text-start">
+                    <div class="">
+                        <!-- <div id="hero-text" class="text-4xl font-semibold">
+                            Hello folks, I'm
+                            <span id="hero-title" class="hero-title">Wisnu Wirayuda</span>
+                        </div> -->
+                        <div id="typewriter-hero-text" class="text-4xl font-semibold"></div>
+                    </div>
+
+                    <p id="typewriter-hero-desc" class="text-lg lg:max-w-xl"></p>
+                    <div class="btn btn-primary btn-block lg:!w-auto">
+                        <span class="center-all inline-flex gap-2 lg:!px-11">
+                            Contact Me <i class="ti ti-mail text-2xl"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--About Section Start-->
+
+        <!--Projects Section Start-->
+        <section id="projects" class="my-10 pt-24">
+            <h1 class="text-banner">My Projects</h1>
+            <!-- SM - MD Section Start-->
+            <div class="my-5 grid grid-cols-1 justify-center gap-7 md:grid-cols-2 lg:grid-cols-3 xl:mx-auto xl:w-10/12 xl:gap-16">
+                <div class="group card h-full w-full overflow-hidden border-2 border-base-300 bg-base-200 transition ease-in-out hover:shadow-lg">
+                    <a href="https://youtu.be/065LOIBn_nk?si=0XBjiky5qyTCAUAr" class="overflow-hidden" target="_blank">
+                        <div class="aspect-video h-full w-full bg-[url('https://raw.githubusercontent.com/SI-RPL-2023/SI4406_A_BidjiCourse/wisnu/public/img/screenshots/landing-page.png')] bg-cover transition group-hover:scale-110"></div>
+                        <!-- <div class="bg-red-300 w-1/2 h-1/2 absolute top-1/4 left-1/4 rounded-lg p-4">div</div> -->
+                        <!-- <div class="absolute inset-0 bg-gray-700 opacity-60 rounded-md"></div> -->
+                        <!-- <img src="https://raw.githubusercontent.com/SI-RPL-2023/SI4406_A_BidjiCourse/wisnu/public/img/screenshots/landing-page.png" class="aspect-[4/3] object-cover object-center hover:scale-110 transition" alt="Shoes" /> -->
+                    </a>
+                    <div class="card-body">
+                        <h2 class="card-title">Bidji Course</h2>
+                        <div class="flex gap-1">
+                            <img src="https://img.shields.io/badge/laravel-%23FF2D20.svg?style=for-the-badge&logo=laravel&logoColor=white" class="tech-badge" alt="" />
+                            <img src="https://img.shields.io/badge/bootstrap-%238511FA.svg?style=for-the-badge&logo=bootstrap&logoColor=whitee" class="tech-badge" alt="" />
+                        </div>
+                        <p>
+                            📚 Bidji Course adalah sebuah website
+                            pembelajaran untuk siswa-siswi Indonesia
+                            terutama siswa-siswi sekolah SD, SMP, SMA, SMK
+                            sederajat.
+                        </p>
+                        <div class="card-actions mt-5 grid">
+                            <a href=" https://github.com/wisnuwirayuda15/Bidji-Course" class="btn btn-primary" target="_blank">
+                                View Demo
+                                <i class="ti ti-player-play text-2xl"></i>
+                            </a>
+                            <a href=" https://github.com/wisnuwirayuda15/Bidji-Course" class="btn btn-accent" target="_blank">
+                                View More
+                                <i class="ti ti-brand-github text-2xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- SM - MD Section End-->
+
+            <!-- LG - XL Section Start-->
+            <!-- LG - XL Section End-->
+        </section>
+        <!--Projects Section Start-->
+
+        <!--Contacts Section Start-->
+        <section id="contacts" class="my-10 pt-24">
+            <h1 class="text-banner">Contacts</h1>
+            <div class="my-5 grid grid-cols-1 gap-10 md:gap-0 lg:grid-cols-2">
+                <div class="flex justify-center">
+                    <!-- <div class="w-full max-w-md grid gap-5"> -->
+                    <form action="" method="post" class="grid w-full max-w-xl gap-5">
+                        <div class="form-control">
+                            <label class="label label-text" for="email">Name</label>
+                            <input name="name" type="text" placeholder="Type your name..." class="input input-bordered focus:input-primary" />
+                        </div>
+                        <div class="form-control">
+                            <label class="label label-text" for="email">Email</label>
+                            <input name="email" type="email" placeholder="Type your email..." class="input input-bordered focus:input-primary" />
+                        </div>
+                        <div class="form-control">
+                            <label class="label label-text" for="messages">Email</label>
+                            <textarea name="messages" class="textarea textarea-bordered resize-none focus:textarea-primary" placeholder="Write your messages..." rows="8"></textarea>
+                        </div>
+                        <button class="btn btn-primary mt-5">
+                            Submit <i class="ti ti-send text-lg"></i>
+                        </button>
+                    </form>
+                    <!-- </div> -->
+                </div>
+
+                <div class="container w-full items-center justify-center"></div>
+            </div>
+        </section>
+        <!--Contacts Section Start-->
+    </main>
+    <!-- Main Section End -->
+
+    <!--Footer Section Start-->
+    <footer class="footer footer-center rounded bg-base-200 p-10 font-quicksand text-base-content">
+        <nav class="grid grid-flow-col gap-4">
+            <a class="link-hover link">About us</a>
+            <a class="link-hover link">Contact</a>
+            <a class="link-hover link">Jobs</a>
+            <a class="link-hover link">Press kit</a>
+        </nav>
+        <nav>
+            <div class="grid grid-flow-col gap-4">
+                <a><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="fill-current">
+                        <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"></path>
+                    </svg></a>
+                <a><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="fill-current">
+                        <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"></path>
+                    </svg></a>
+                <a><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="fill-current">
+                        <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"></path>
+                    </svg></a>
+            </div>
+        </nav>
+        <aside>
+            <p>
+                Copyright © 2023 - All right reserved by ACME Industries
+                Ltd
+            </p>
+        </aside>
+    </footer>
+    <!--Footer Section Start-->
+
+    <!-- Typewriter -->
+    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
     <!-- Animation -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <!-- Custom JS -->
-    <script src="dist/js/main.js"></script>
+    <script src="js/main.js"></script>
 </body>
-
-<footer class="footer footer-center p-10 bg-base-200 text-base-content rounded">
-    <nav class="grid grid-flow-col gap-4">
-        <a class="link link-hover">About us</a>
-        <a class="link link-hover">Contact</a>
-        <a class="link link-hover">Jobs</a>
-        <a class="link link-hover">Press kit</a>
-    </nav>
-    <nav>
-        <div class="grid grid-flow-col gap-4">
-            <a><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="fill-current">
-                    <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"></path>
-                </svg></a>
-            <a><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="fill-current">
-                    <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"></path>
-                </svg></a>
-            <a><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="fill-current">
-                    <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"></path>
-                </svg></a>
-        </div>
-    </nav>
-    <aside>
-        <p>Copyright © 2023 - All right reserved by ACME Industries Ltd</p>
-    </aside>
-</footer>
+<!-- Body Section End -->
 
 </html>
