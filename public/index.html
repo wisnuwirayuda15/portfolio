@@ -32,7 +32,7 @@
                     <div class="navbar-start">
                         <a href="/" class="peer/logo z-20 flex items-center gap-5 transition hover:scale-110">
                             <!-- <img src="svg/logo-light.svg" class="w-[50px] lg:w-[60px]" alt="" /> -->
-                            <svg class="h-[50px] w-[50px] lg:h-[60px] lg:w-[60px]" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0,0,256,256" width="480px" height="480px">
+                            <svg class="h-[40px] w-[40px] lg:h-[50px] lg:w-[50px]" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0,0,256,256" width="480px" height="480px">
                                 <g transform="">
                                     <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
                                         <g transform="scale(5.33333,5.33333)">
@@ -104,7 +104,7 @@
             <div class="grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-0">
                 <!-- card w-full items-center justify-center overflow-hidden md:items-start lg:pl-36 > -->
                 <div class="card w-full items-center justify-center overflow-hidden py-5 xl:pl-36">
-                    <div class="tooltip bg-gradient group mask mask-hexagon flex cursor-pointer justify-center transition ease-in-out hover:animate-gradient" data-tip="Hello :)">
+                    <div class="bg-gradient group mask mask-hexagon flex cursor-pointer justify-center transition ease-in-out hover:animate-gradient" title="Hello :)">
                         <img src="img/profile.webp" class="group translate-y-5 grayscale transition ease-in-out group-hover:-translate-y-0 group-hover:grayscale-0 sm:w-[50%] md:w-[70%]" alt="hero profile" />
                     </div>
                 </div>
@@ -130,15 +130,15 @@
         <!--Projects Section Start-->
         <section id="projects" class="container mx-auto my-10 pt-24">
             <h1 class="text-banner">My Projects</h1>
-            <!-- SM - MD Section Start-->
+            <p class="text-lg text-center">This is my project</p>
             <!-- <div class="my-5 grid grid-cols-1 justify-center gap-7 md:grid-cols-2 lg:grid-cols-3 xl:mx-auto xl:w-10/12 xl:gap-16"> -->
             <div class="mx-auto place-items-center my-5 flex xl:w-10/12">
                 <!-- Carousel Start -->
-                <button data-tip="Previous  " class="tooltip center-all owl-prev btn btn-primary absolute left-5 xl:left-20 z-[2] hidden h-14 w-14 rounded-full md:flex">
+                <button data-tip="Previous" class="tooltip owl-btn owl-custom-prev">
                     <i class="ti ti-chevron-left text-4xl"></i>
                 </button>
                 <div class="owl-carousel owl-theme">
-                    <div class="group card-project">
+                    <div id="bidji-course" class="group card-project">
                         <a href="https://youtu.be/065LOIBn_nk?si=0XBjiky5qyTCAUAr" class="overflow-hidden" target="_blank">
                             <div class="center-all absolute z-[1] flex aspect-video w-full bg-gradient-to-t from-base-200">
                                 <div class="tooltip opacity-0 transition delay-200 group-hover:scale-125 group-hover:opacity-100" data-tip="View demo on YouTube">
@@ -178,7 +178,7 @@
                                     </svg>
                                 </div>
                             </div>
-                            <img src="https://raw.githubusercontent.com/SI-RPL-2023/SI4406_A_BidjiCourse/wisnu/public/img/screenshots/landing-page.png" class="aspect-video object-cover object-center transition group-hover:rotate-2 group-hover:scale-125" alt="Shoes" />
+                            <img src="https://raw.githubusercontent.com/SI-RPL-2023/SI4406_A_BidjiCourse/wisnu/public/img/screenshots/landing-page.png" class="aspect-video object-cover object-center transition group-hover:rotate-2 group-hover:scale-125" alt="bidji-course" />
                         </a>
                         <div class="card-body">
                             <h2 class="card-title">Bidji Course</h2>
@@ -191,13 +191,9 @@
                                 </div>
                             </div>
                             <p>
-                                A
+                                A free educational website providing diverse learning materials and instructional videos for Indonesian students, spanning from elementary to high school levels.
                             </p>
-                            <div class="card-actions mt-5">
-                                <!-- <a href=" https://github.com/wisnuwirayuda15/Bidji-Course" class="btn btn-primary" target="_blank">
-                                View Demo
-                                <i class="ti ti-player-play text-2xl"></i>
-                            </a> -->
+                            <div class="card-actions">
                                 <div class="tooltip w-full" data-tip="View on Github">
                                     <a href=" https://github.com/wisnuwirayuda15/Bidji-Course" class="btn btn-primary btn-block" target="_blank">
                                         View More
@@ -207,50 +203,14 @@
                             </div>
                         </div>
                     </div>
-                    <div class="group card-project">
-                        <a href="https://youtu.be/065LOIBn_nk?si=0XBjiky5qyTCAUAr" class="overflow-hidden" target="_blank">
-                            <div class="center-all absolute z-[1] flex aspect-video w-full bg-gradient-to-t from-base-200">
-                                <div class="tooltip opacity-0 transition delay-200 group-hover:scale-125 group-hover:opacity-100" data-tip="View demo on YouTube">
-                                    <svg class="h-16 w-16" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="256" height="256" viewBox="0 0 256 256" xml:space="preserve">
-                                        <g style="
-                                                    stroke: none;
-                                                    stroke-width: 0;
-                                                    stroke-dasharray: none;
-                                                    stroke-linecap: butt;
-                                                    stroke-linejoin: miter;
-                                                    stroke-miterlimit: 10;
-                                                    fill: none;
-                                                    fill-rule: nonzero;
-                                                    opacity: 1;
-                                                " transform="translate(1.4065934065934016 1.4065934065934016) scale(2.81 2.81)">
-                                            <path class="fill-primary" d="M 45 90 C 20.187 90 0 69.813 0 45 C 0 20.187 20.187 0 45 0 c 24.813 0 45 20.187 45 45 C 90 69.813 69.813 90 45 90 z M 45 10 c -19.299 0 -35 15.701 -35 35 s 15.701 35 35 35 s 35 -15.701 35 -35 S 64.299 10 45 10 z" style="
-                                                        stroke: none;
-                                                        stroke-width: 1;
-                                                        stroke-dasharray: none;
-                                                        stroke-linecap: butt;
-                                                        stroke-linejoin: miter;
-                                                        stroke-miterlimit: 10;
-                                                        fill-rule: nonzero;
-                                                        opacity: 1;
-                                                    " transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
-                                            <path class="fill-primary" d="M 61.806 47.026 c 1.559 -0.9 1.559 -3.151 0 -4.051 l -12.91 -7.453 l -12.91 -7.453 c -1.559 -0.9 -3.509 0.225 -3.509 2.026 V 45 v 14.907 c 0 1.801 1.949 2.926 3.509 2.026 l 12.91 -7.453 L 61.806 47.026 z" style="
-                                                        stroke: none;
-                                                        stroke-width: 1;
-                                                        stroke-dasharray: none;
-                                                        stroke-linecap: butt;
-                                                        stroke-linejoin: miter;
-                                                        stroke-miterlimit: 10;
-                                                        fill-rule: nonzero;
-                                                        opacity: 1;
-                                                    " transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
-                                        </g>
-                                    </svg>
-                                </div>
+                    <div id="swiftwalk" class="group card-project">
+                        <div class="overflow-hidden">
+                            <div class="center-all absolute z-[1] flex aspect-video w-full bg-gradient-to-t from-base-200 peer">
                             </div>
-                            <img src="https://raw.githubusercontent.com/SI-RPL-2023/SI4406_A_BidjiCourse/wisnu/public/img/screenshots/landing-page.png" class="aspect-video object-cover object-center transition group-hover:rotate-2 group-hover:scale-125" alt="Shoes" />
-                        </a>
+                            <img src="https://raw.githubusercontent.com/wisnuwirayuda15/Swiftwalk/master/public/img/screenshots/homepage.png" class="aspect-video object-cover object-center transition peer-hover:rotate-2 peer-hover:scale-125" alt="swiftwalk" />
+                        </div>
                         <div class="card-body">
-                            <h2 class="card-title">Bidji Course</h2>
+                            <h2 class="card-title">Swiftwalk</h2>
                             <div class="flex items-center gap-2">
                                 <div class="tooltip" data-tip="Laravel">
                                     <i class="ti ti-brand-laravel text-3xl text-red-600"></i>
@@ -260,18 +220,11 @@
                                 </div>
                             </div>
                             <p>
-                                📚 Bidji Course adalah sebuah website
-                                pembelajaran untuk siswa-siswi Indonesia
-                                terutama siswa-siswi sekolah SD, SMP, SMA,
-                                SMK sederajat.
+                                A simple e-commerce shoe-selling website with CRUD (Create, Read, Update, Delete) functionality.
                             </p>
-                            <div class="card-actions mt-5">
-                                <!-- <a href=" https://github.com/wisnuwirayuda15/Bidji-Course" class="btn btn-primary" target="_blank">
-                                View Demo
-                                <i class="ti ti-player-play text-2xl"></i>
-                            </a> -->
+                            <div class="card-actions">
                                 <div class="tooltip w-full" data-tip="View on Github">
-                                    <a href=" https://github.com/wisnuwirayuda15/Bidji-Course" class="btn btn-primary btn-block" target="_blank">
+                                    <a href="https://github.com/wisnuwirayuda15/Swiftwalk" class="btn btn-primary btn-block" target="_blank">
                                         View More
                                         <i class="ti ti-brand-github text-2xl"></i>
                                     </a>
@@ -279,71 +232,25 @@
                             </div>
                         </div>
                     </div>
-                    <div class="group card-project">
-                        <a href="https://youtu.be/065LOIBn_nk?si=0XBjiky5qyTCAUAr" class="overflow-hidden" target="_blank">
-                            <div class="center-all absolute z-[1] flex aspect-video w-full bg-gradient-to-t from-base-200">
-                                <div class="tooltip opacity-0 transition delay-200 group-hover:scale-125 group-hover:opacity-100" data-tip="View demo on YouTube">
-                                    <svg class="h-16 w-16" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="256" height="256" viewBox="0 0 256 256" xml:space="preserve">
-                                        <g style="
-                                                    stroke: none;
-                                                    stroke-width: 0;
-                                                    stroke-dasharray: none;
-                                                    stroke-linecap: butt;
-                                                    stroke-linejoin: miter;
-                                                    stroke-miterlimit: 10;
-                                                    fill: none;
-                                                    fill-rule: nonzero;
-                                                    opacity: 1;
-                                                " transform="translate(1.4065934065934016 1.4065934065934016) scale(2.81 2.81)">
-                                            <path class="fill-primary" d="M 45 90 C 20.187 90 0 69.813 0 45 C 0 20.187 20.187 0 45 0 c 24.813 0 45 20.187 45 45 C 90 69.813 69.813 90 45 90 z M 45 10 c -19.299 0 -35 15.701 -35 35 s 15.701 35 35 35 s 35 -15.701 35 -35 S 64.299 10 45 10 z" style="
-                                                        stroke: none;
-                                                        stroke-width: 1;
-                                                        stroke-dasharray: none;
-                                                        stroke-linecap: butt;
-                                                        stroke-linejoin: miter;
-                                                        stroke-miterlimit: 10;
-                                                        fill-rule: nonzero;
-                                                        opacity: 1;
-                                                    " transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
-                                            <path class="fill-primary" d="M 61.806 47.026 c 1.559 -0.9 1.559 -3.151 0 -4.051 l -12.91 -7.453 l -12.91 -7.453 c -1.559 -0.9 -3.509 0.225 -3.509 2.026 V 45 v 14.907 c 0 1.801 1.949 2.926 3.509 2.026 l 12.91 -7.453 L 61.806 47.026 z" style="
-                                                        stroke: none;
-                                                        stroke-width: 1;
-                                                        stroke-dasharray: none;
-                                                        stroke-linecap: butt;
-                                                        stroke-linejoin: miter;
-                                                        stroke-miterlimit: 10;
-                                                        fill-rule: nonzero;
-                                                        opacity: 1;
-                                                    " transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
-                                        </g>
-                                    </svg>
-                                </div>
+                    <div id="aero-reserve" class="group card-project">
+                        <div class="overflow-hidden" title="Image from Unsplash by Benjamin Wong">
+                            <div class="center-all absolute z-[1] flex aspect-video w-full bg-gradient-to-t from-base-200 peer">
                             </div>
-                            <img src="https://raw.githubusercontent.com/SI-RPL-2023/SI4406_A_BidjiCourse/wisnu/public/img/screenshots/landing-page.png" class="aspect-video object-cover object-center transition group-hover:rotate-2 group-hover:scale-125" alt="Shoes" />
-                        </a>
+                            <img src="https://images.unsplash.com/photo-1512389810321-de6db6e2aba7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1969&q=80" class="aspect-video object-cover object-center transition peer-hover:rotate-2 peer-hover:scale-125" alt="aero-reserve" />
+                        </div>
                         <div class="card-body">
-                            <h2 class="card-title">Bidji Course</h2>
+                            <h2 class="card-title">Aero Reserve</h2>
                             <div class="flex items-center gap-2">
                                 <div class="tooltip" data-tip="Laravel">
                                     <i class="ti ti-brand-laravel text-3xl text-red-600"></i>
                                 </div>
-                                <div class="tooltip" data-tip="Bootstrap">
-                                    <i class="ti ti-brand-bootstrap text-3xl text-purple-700"></i>
-                                </div>
                             </div>
                             <p>
-                                📚 Bidji Course adalah sebuah website
-                                pembelajaran untuk siswa-siswi Indonesia
-                                terutama siswa-siswi sekolah SD, SMP, SMA,
-                                SMK sederajat.
+                                A restful API service that offers flight ticket data from various airlines.
                             </p>
-                            <div class="card-actions mt-5">
-                                <!-- <a href=" https://github.com/wisnuwirayuda15/Bidji-Course" class="btn btn-primary" target="_blank">
-                                View Demo
-                                <i class="ti ti-player-play text-2xl"></i>
-                            </a> -->
-                                <div class="tooltip w-full" data-tip="View on Github">
-                                    <a href=" https://github.com/wisnuwirayuda15/Bidji-Course" class="btn btn-primary btn-block" target="_blank">
+                            <div class="card-actions">
+                                <div class="tooltip w-full" data-tip="View documentation on Github">
+                                    <a href="https://github.com/wisnuwirayuda15/aero-reserve" class="btn btn-primary btn-block" target="_blank">
                                         View More
                                         <i class="ti ti-brand-github text-2xl"></i>
                                     </a>
@@ -351,71 +258,34 @@
                             </div>
                         </div>
                     </div>
-                    <div class="group card-project">
-                        <a href="https://youtu.be/065LOIBn_nk?si=0XBjiky5qyTCAUAr" class="overflow-hidden" target="_blank">
-                            <div class="center-all absolute z-[1] flex aspect-video w-full bg-gradient-to-t from-base-200">
-                                <div class="tooltip opacity-0 transition delay-200 group-hover:scale-125 group-hover:opacity-100" data-tip="View demo on YouTube">
-                                    <svg class="h-16 w-16" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="256" height="256" viewBox="0 0 256 256" xml:space="preserve">
-                                        <g style="
-                                                    stroke: none;
-                                                    stroke-width: 0;
-                                                    stroke-dasharray: none;
-                                                    stroke-linecap: butt;
-                                                    stroke-linejoin: miter;
-                                                    stroke-miterlimit: 10;
-                                                    fill: none;
-                                                    fill-rule: nonzero;
-                                                    opacity: 1;
-                                                " transform="translate(1.4065934065934016 1.4065934065934016) scale(2.81 2.81)">
-                                            <path class="fill-primary" d="M 45 90 C 20.187 90 0 69.813 0 45 C 0 20.187 20.187 0 45 0 c 24.813 0 45 20.187 45 45 C 90 69.813 69.813 90 45 90 z M 45 10 c -19.299 0 -35 15.701 -35 35 s 15.701 35 35 35 s 35 -15.701 35 -35 S 64.299 10 45 10 z" style="
-                                                        stroke: none;
-                                                        stroke-width: 1;
-                                                        stroke-dasharray: none;
-                                                        stroke-linecap: butt;
-                                                        stroke-linejoin: miter;
-                                                        stroke-miterlimit: 10;
-                                                        fill-rule: nonzero;
-                                                        opacity: 1;
-                                                    " transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
-                                            <path class="fill-primary" d="M 61.806 47.026 c 1.559 -0.9 1.559 -3.151 0 -4.051 l -12.91 -7.453 l -12.91 -7.453 c -1.559 -0.9 -3.509 0.225 -3.509 2.026 V 45 v 14.907 c 0 1.801 1.949 2.926 3.509 2.026 l 12.91 -7.453 L 61.806 47.026 z" style="
-                                                        stroke: none;
-                                                        stroke-width: 1;
-                                                        stroke-dasharray: none;
-                                                        stroke-linecap: butt;
-                                                        stroke-linejoin: miter;
-                                                        stroke-miterlimit: 10;
-                                                        fill-rule: nonzero;
-                                                        opacity: 1;
-                                                    " transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
-                                        </g>
-                                    </svg>
-                                </div>
+                    <div id="portfolio-web" class="group card-project">
+                        <div class="overflow-hidden">
+                            <div class="center-all absolute z-[1] flex aspect-video w-full bg-gradient-to-t from-base-200 peer">
                             </div>
-                            <img src="https://raw.githubusercontent.com/SI-RPL-2023/SI4406_A_BidjiCourse/wisnu/public/img/screenshots/landing-page.png" class="aspect-video object-cover object-center transition group-hover:rotate-2 group-hover:scale-125" alt="Shoes" />
-                        </a>
+                            <img src="https://images.placeholders.dev/?width=1280height=720&text=no%20image%20:(&bgColor=%23f7f6f6&textColor=%236d6e71" class="aspect-video object-cover object-center transition peer-hover:rotate-2 peer-hover:scale-125" alt="Shoes" />
+                        </div>
                         <div class="card-body">
-                            <h2 class="card-title">Bidji Course</h2>
+                            <h2 class="card-title">Portfolio Website</h2>
                             <div class="flex items-center gap-2">
-                                <div class="tooltip" data-tip="Laravel">
-                                    <i class="ti ti-brand-laravel text-3xl text-red-600"></i>
+                                <div class="tooltip" data-tip="HTML">
+                                    <i class="ti ti-brand-html5 text-3xl text-orange-500"></i>
                                 </div>
-                                <div class="tooltip" data-tip="Bootstrap">
-                                    <i class="ti ti-brand-bootstrap text-3xl text-purple-700"></i>
+                                <div class="tooltip" data-tip="JavaScript">
+                                    <i class="ti ti-brand-javascript text-3xl text-yellow-400"></i>
+                                </div>
+                                <div class="tooltip" data-tip="Tailwind CSS">
+                                    <i class="ti ti-brand-tailwind text-3xl text-sky-500"></i>
+                                </div>
+                                <div class="tooltip" data-tip="DaisyUI">
+                                    <i class="ti ti-flower text-3xl text-[#1ad1a5]"></i>
                                 </div>
                             </div>
                             <p>
-                                📚 Bidji Course adalah sebuah website
-                                pembelajaran untuk siswa-siswi Indonesia
-                                terutama siswa-siswi sekolah SD, SMP, SMA,
-                                SMK sederajat.
+                                A restful API service that offers flight ticket data from various airlines.
                             </p>
-                            <div class="card-actions mt-5">
-                                <!-- <a href=" https://github.com/wisnuwirayuda15/Bidji-Course" class="btn btn-primary" target="_blank">
-                                View Demo
-                                <i class="ti ti-player-play text-2xl"></i>
-                            </a> -->
-                                <div class="tooltip w-full" data-tip="View on Github">
-                                    <a href=" https://github.com/wisnuwirayuda15/Bidji-Course" class="btn btn-primary btn-block" target="_blank">
+                            <div class="card-actions">
+                                <div class="tooltip w-full" data-tip="View documentation on Github">
+                                    <a href="https://github.com/wisnuwirayuda15/aero-reserve" class="btn btn-primary btn-block" target="_blank">
                                         View More
                                         <i class="ti ti-brand-github text-2xl"></i>
                                     </a>
@@ -424,16 +294,12 @@
                         </div>
                     </div>
                 </div>
-                <button data-tip="Next" class="tooltip center-all owl-next btn btn-primary absolute right-5 xl:right-20 z-[2] hidden h-14 w-14 rounded-full md:flex">
+                <button data-tip="Next" class="tooltip owl-btn owl-custom-next">
                     <i class="ti ti-chevron-right text-4xl"></i>
                 </button>
 
                 <!-- Carousel End -->
             </div>
-            <!-- SM - MD Section End-->
-
-            <!-- LG - XL Section Start-->
-            <!-- LG - XL Section End-->
         </section>
         <!--Projects Section Start-->
 
@@ -469,6 +335,12 @@
             </div>
         </section>
         <!--Contacts Section Start-->
+
+        <section class="container mx-auto my-10 pt-24">
+            <div class="card bg-base-200">
+                aawaw
+            </div>
+        </section>
     </main>
     <!-- Main Section End -->
 

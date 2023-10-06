@@ -17,11 +17,12 @@ $(document).ready(function () {
 
     owl.owlCarousel({
         margin: 20,
-        autoHeight: true,
+        center: true,
+        // autoHeight: true,
+        loop: true,
         responsive: {
             0: {
                 items: 1,
-                loop: true,
             },
             768: {
                 items: 2,
@@ -32,22 +33,19 @@ $(document).ready(function () {
         },
     });
 
-    $(".owl-next").click(function () {
+    $(".owl-custom-next").click(function () {
         owl.trigger("next.owl.carousel");
     });
 
-    $(".owl-prev").click(function () {
+    $(".owl-custom-prev").click(function () {
         owl.trigger("prev.owl.carousel");
     });
 
-    // owl.on("mousewheel", ".owl-stage", function (e) {
-    //     if (e.deltaY > 0) {
-    //         owl.trigger("next.owl");
-    //     } else {
-    //         owl.trigger("prev.owl");
-    //     }
-    //     e.preventDefault();
-    // });
+    $(document).on("click", ".owl-item", function () {
+        owlIndex = $(this).index();
+        count = document.querySelectorAll(".owl-item.active").length;
+        $(".owl-stage-outer").trigger("to.owl.carousel", owlIndex - count);
+    });
 });
 
 $(window).on("load", function () {
@@ -60,12 +58,13 @@ $(window).on("load", function () {
             "Hello folks,^1000 my name is <span class='hero-title'>Wisnu Wirayuda</span>",
             "I'm from <span class='hero-title'>Indonesia</span>",
             "I'm a student at <a href='https://telkomuniversity.ac.id/' target='_blank' class='hero-title'>Telkom University</a>",
-            "I'm a <span class='hero-title'>Software Developer</span>",
+            "I'm a <span class='hero-title'>Web Developer</span>",
+            "I'm a <span class='hero-title'>Laravel Developer</span>",
             "I'm a <span class='hero-title'>Back-End Developer</span>",
             "I'm a <span class='hero-title'>Front-End Developer</span>",
             "I'm a <span class='hero-title'>Tech Enthusiast</span>",
-            "My hobby is <span class='hero-title'>Playing Video Games</span>",
             "My hobby is <span class='hero-title'>Learning Computer Stuff</span>",
+            "My hobby is <span class='hero-title'>Playing Video Games</span>",
             // "But sadly,^1000 I'm still <span class='hero-title'>SINGLE :(</span>",
             // "Nah,^1000 just kidding.^2000 I'm happy the way I am  <span class='hero-title'>(｡◕‿◕｡)</span>",
             "Let's be <span class='hero-title'>Friends ^_^</span>",

@@ -60,7 +60,7 @@
         @apply text-gradient divider animate-gradient !py-7 text-center text-4xl font-extrabold md:text-5xl lg:!py-10 lg:text-6xl;
     }
     .center-all {
-        @apply content-center items-center justify-center text-center;
+        @apply place-items-center content-center items-center justify-center justify-items-center text-center;
     }
 
     .btn {
@@ -83,7 +83,19 @@
     }
 
     .card-project {
-        @apply card m-3 h-full w-auto overflow-hidden border-2 border-base-200 bg-base-200 shadow-primary ring-primary transition ease-in-out hover:ring-2 hover:drop-shadow-md;
+        @apply card m-3 h-full w-auto cursor-pointer overflow-hidden border-2 border-base-200 bg-base-200 shadow-primary ring-primary transition ease-in-out hover:ring-2 hover:drop-shadow-md;
+    }
+
+    .owl-btn {
+        @apply center-all btn btn-primary absolute z-[2] hidden h-14 w-14 rounded-full md:flex;
+    }
+
+    .owl-custom-prev {
+        @apply left-5 xl:left-20;
+    }
+
+    .owl-custom-next {
+        @apply right-5 xl:right-20;
     }
 }
 
@@ -101,6 +113,18 @@
     @apply block bg-gradient-to-t from-white to-red-600 bg-clip-text py-3 text-6xl font-bold text-transparent;
 }
 
-.owl-dot.active span{
+.owl-dot.active span {
     @apply !w-8 !bg-primary transition-all;
+}
+
+.owl-stage {
+    @apply mb-12 mt-7 flex;
+}
+
+.owl-item.active.center {
+    @apply scale-105 !opacity-100;
+}
+
+.owl-item {
+    @apply opacity-50 transition-all;
 }
