@@ -12,32 +12,73 @@ $(document).ready(function () {
             $("#navbar").removeClass("navbar-fixed");
         }
     });
+
+    const owl = $(".owl-carousel");
+
+    owl.owlCarousel({
+        margin: 20,
+        autoHeight: true,
+        responsive: {
+            0: {
+                items: 1,
+                loop: true,
+            },
+            768: {
+                items: 2,
+            },
+            1280: {
+                items: 3,
+            },
+        },
+    });
+
+    $(".owl-next").click(function () {
+        owl.trigger("next.owl.carousel");
+    });
+
+    $(".owl-prev").click(function () {
+        owl.trigger("prev.owl.carousel");
+    });
+
+    // owl.on("mousewheel", ".owl-stage", function (e) {
+    //     if (e.deltaY > 0) {
+    //         owl.trigger("next.owl");
+    //     } else {
+    //         owl.trigger("prev.owl");
+    //     }
+    //     e.preventDefault();
+    // });
 });
 
 $(window).on("load", function () {
-    var typewriterHeroText = new Typed("#typewriter-hero-text", {
+    const typewriterHeroText = new Typed("#typewriter-hero-text", {
         /**
          * @property {array} strings strings to be typed
          * @property {string} stringsElement ID of element containing string children
          */
         strings: [
             "Hello folks,^1000 my name is <span class='hero-title'>Wisnu Wirayuda</span>",
-            "I'm a <span class='hero-title'>Student</span>",
+            "I'm from <span class='hero-title'>Indonesia</span>",
+            "I'm a student at <a href='https://telkomuniversity.ac.id/' target='_blank' class='hero-title'>Telkom University</a>",
             "I'm a <span class='hero-title'>Software Developer</span>",
             "I'm a <span class='hero-title'>Back-End Developer</span>",
             "I'm a <span class='hero-title'>Front-End Developer</span>",
             "I'm a <span class='hero-title'>Tech Enthusiast</span>",
             "My hobby is <span class='hero-title'>Playing Video Games</span>",
             "My hobby is <span class='hero-title'>Learning Computer Stuff</span>",
-            "But sadly,^1000 I'm still <span class='hero-title'>SINGLE :(</span>",
+            // "But sadly,^1000 I'm still <span class='hero-title'>SINGLE :(</span>",
+            // "Nah,^1000 just kidding.^2000 I'm happy the way I am  <span class='hero-title'>(｡◕‿◕｡)</span>",
             "Let's be <span class='hero-title'>Friends ^_^</span>",
+            "^1000.^1000.^1000.^1000.^1000.",
+            "Why are you still here?",
+            "Scroll down and go see the <span class='hero-title'>other section :D</span>^2000",
         ],
         stringsElement: null,
 
         /**
          * @property {number} typeSpeed type speed in milliseconds
          */
-        typeSpeed: 50,
+        typeSpeed: 30,
 
         /**
          * @property {number} startDelay time before typing starts in milliseconds
@@ -178,11 +219,21 @@ $(window).on("load", function () {
         onDestroy: (self) => {},
     });
 
-    var typewriterHeroDesc = new Typed("#typewriter-hero-desc", {
+    // $("#contact-me").mouseenter(function () {
+    //     typewriterHeroText.stop();
+    //     console.log('stoped');
+    // });
+
+    // $("#contact-me").mouseleave(function () {
+    //     typewriterHeroText.start();
+    //     console.log('started');
+    // });
+
+    const typewriterHeroDesc = new Typed("#typewriter-hero-desc", {
         strings: [
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore sunt id iusto quas assumenda magnam fugit temporibus sequi facere obcaecati, laboriosam labore ducimus eligendi libero saepe expedita, aperiam ad eos?",
         ],
-        typeSpeed: 10,
+        typeSpeed: 5,
         showCursor: false,
     });
 });

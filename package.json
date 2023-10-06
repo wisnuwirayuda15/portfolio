@@ -4,7 +4,7 @@
   "description": "My personal portfolio landing page ✨",
   "main": "index.js",
   "scripts": {
-    "dev": "npx tailwindcss -i ./src/css/style.css -o ./public/css/style.css --watch"
+    "dev": "npx tailwindcss -i ./src/css/input.css -o ./public/css/style.css --watch"
   },
   "keywords": [],
   "author": "",

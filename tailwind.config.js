@@ -32,7 +32,16 @@ module.exports = {
         },
     },
     daisyui: {
-        themes: ["cupcake", "night"],
+        themes: [
+            "cupcake",
+            {
+                night: {
+                    ...require("daisyui/src/theming/themes")["[data-theme=night]"],
+                    neutral: "#4b5563",
+                    "base-100": "#1d283a",
+                },
+            },
+        ],
     },
     plugins: [require("daisyui")],
 };
