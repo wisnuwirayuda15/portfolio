@@ -9,8 +9,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Quicksand:wght@400;700&display=swap" rel="stylesheet" />
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+    <!-- <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/theme-change@2.0.2/index.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
@@ -23,6 +23,12 @@
 <!-- Body Section Start -->
 
 <body>
+    <!--Preloader Section Start-->
+    <div id="preloader" class="fixed inset-0 flex justify-center items-center bg-base-200 z-50">
+        <span class="loading loading-bars loading-lg"></span>
+    </div>
+    <!--Preloader Section End-->
+
     <!--Navbar Section Start-->
     <header class="font-quicksand">
         <div class="drawer drawer-end">
@@ -50,23 +56,23 @@
                             Wisnu Wirayuda
                         </div>
                     </div>
-                    <div class="navbar-center hidden justify-center gap-10 text-xl font-black lg:flex">
+                    <div class="navbar-center hidden justify-center gap-10 text-xl font-black md:flex">
                         <a href="#about" class="animate-underline underline-from-left hover:text-gradient">About</a>
                         <a href="#projects" class="animate-underline underline-from-mid hover:text-gradient">Projects</a>
                         <a href="#contacts" class="animate-underline underline-from-right hover:text-gradient">Contacts</a>
                     </div>
                     <div class="navbar-end">
-                        <div data-toggle-theme="night" data-act-class="swap-active" class="btn btn-ghost swap swap-rotate tooltip tooltip-left hidden transition-all lg:inline-grid" data-tip="Toggle theme">
+                        <div data-toggle-theme="night" data-act-class="swap-active" class="btn btn-ghost swap swap-rotate tooltip tooltip-left hidden transition-all md:inline-grid" data-tip="Toggle theme">
                             <i class="ti ti-sun swap-off animate-spin-slow fill-current text-3xl"></i>
                             <i class="ti ti-moon animate__animated animate__tada animate__infinite swap-on fill-current text-3xl"></i>
                         </div>
-                        <label for="sidebar-menu" class="open-sidebar btn btn-ghost lg:hidden">
+                        <label for="sidebar-menu" class="open-sidebar btn btn-ghost md:hidden">
                             <i class="ti ti-menu-2 text-2xl"></i>
                         </label>
                     </div>
                 </nav>
             </div>
-            <div class="drawer-side z-50 lg:hidden">
+            <div class="drawer-side z-40 md:hidden">
                 <div class="drawer-overlay"></div>
                 <div class="menu min-h-full w-full bg-base-100 p-4 text-base-content">
                     <div class="flex justify-between">
@@ -100,16 +106,16 @@
     <!-- Main Section Start -->
     <main class="mx-3 font-poppins lg:mx-10">
         <!--About Section Start-->
-        <section id="about" class="container mx-auto my-10 pt-20">
-            <div class="grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-0">
+        <section id="about" class="container mx-auto my-10 pt-24">
+            <div class="grid grid-cols-1 gap-10 lg:grid-cols-2 lg:gap-0 md:center-all">
                 <!-- card w-full items-center justify-center overflow-hidden md:items-start lg:pl-36 > -->
-                <div class="card w-full items-center justify-center overflow-hidden py-5 xl:pl-36">
-                    <div class="bg-gradient group mask mask-hexagon flex cursor-pointer justify-center transition ease-in-out hover:animate-gradient" title="Hello :)">
-                        <img src="img/profile.webp" class="group translate-y-5 grayscale transition ease-in-out group-hover:-translate-y-0 group-hover:grayscale-0 sm:w-[50%] md:w-[70%]" alt="hero profile" />
+                <div data-tilt data-tilt-perspective="1500" data-tilt-scale="1.05" class="container mx-auto w-full h-full flex border-none stroke-none">
+                    <div class="ring-4 bg-gradient group mask mask-hexagon flex cursor-grabbing justify-center transition ease-in-out hover:animate-gradient" title="Hello :)">
+                        <img src="img/profile.webp" class="group translate-y-5 grayscale transition ease-in-out group-hover:-translate-y-0 group-hover:grayscale-0 sm:w-[50%] lg:w-[60%]" alt="hero profile" />
                     </div>
                 </div>
 
-                <div class="card w-full items-center justify-center gap-5 overflow-hidden py-5 text-center md:items-start md:text-start">
+                <div id="hero-text" class="card w-full justify-center gap-5 py-5 px-2 text-center lg:items-start lg:text-start">
                     <!-- <div class="h-auto flex place-items-end"> -->
                     <!-- <div id="hero-text" class="text-4xl font-semibold">
                             Hello folks, I'm
@@ -118,8 +124,8 @@
                     <h1 id="typewriter-hero-text" class="text-4xl font-semibold"></h1>
                     <!-- </div> -->
 
-                    <p id="typewriter-hero-desc" class="text-lg lg:max-w-xl"></p>
-                    <div id="contact-me" class="btn btn-primary btn-block lg:!w-auto lg:!px-11">
+                    <p id="typewriter-hero-desc" class="text-lg"></p>
+                    <div id="contact-me" class="btn btn-primary btn-block md:!w-auto md:!px-11">
                         Contact Me <i class="ti ti-mail text-2xl"></i>
                     </div>
                 </div>
@@ -129,8 +135,8 @@
 
         <!--Projects Section Start-->
         <section id="projects" class="container mx-auto my-10 pt-24">
-            <h1 class="text-banner">My Projects</h1>
-            <p class="text-lg text-center">This is my project</p>
+            <h1 class="text-banner">Projects</h1>
+            <p class="text-lg text-center">Some things I've worked on</p>
             <!-- <div class="my-5 grid grid-cols-1 justify-center gap-7 md:grid-cols-2 lg:grid-cols-3 xl:mx-auto xl:w-10/12 xl:gap-16"> -->
             <div class="mx-auto place-items-center my-5 flex xl:w-10/12">
                 <!-- Carousel Start -->
@@ -281,7 +287,7 @@
                                 </div>
                             </div>
                             <p>
-                                A restful API service that offers flight ticket data from various airlines.
+                                My personal portfolio website, created with Tailwind CSS and DaisyUI.
                             </p>
                             <div class="card-actions">
                                 <div class="tooltip w-full" data-tip="View documentation on Github">
@@ -312,15 +318,15 @@
                     <form action="" method="post" class="grid w-full max-w-xl gap-5">
                         <div class="form-control">
                             <label class="label label-text" for="email">Name</label>
-                            <input name="name" type="text" placeholder="Type your name..." class="input input-bordered" autocomplete="off" />
+                            <input name="name" type="text" placeholder="Type your name..." class="input input-bordered" autocomplete="off" required/>
                         </div>
                         <div class="form-control">
                             <label class="label label-text" for="email">Email</label>
-                            <input name="email" type="email" placeholder="Type your email..." class="input input-bordered" autocomplete="off" />
+                            <input name="email" type="email" placeholder="Type your email..." class="input input-bordered" autocomplete="off" required/>
                         </div>
                         <div class="form-control">
                             <label class="label label-text" for="messages">Messages</label>
-                            <textarea name="messages" class="textarea textarea-bordered textarea-lg resize-none" placeholder="Write your messages..." rows="8"></textarea>
+                            <textarea name="messages" class="textarea textarea-bordered textarea-lg resize-none" placeholder="Write your messages..." rows="8" required></textarea>
                         </div>
                         <div class="tooltip mt-5 w-full" data-tip="Send your messages to my email">
                             <button class="btn btn-primary btn-block">
@@ -379,6 +385,7 @@
     <!-- Animation -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tilt.js/1.2.1/tilt.jquery.min.js"></script>
     <!-- Custom JS -->
     <script src="js/main.js"></script>
 </body>

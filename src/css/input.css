@@ -14,6 +14,21 @@
     /* * {
         @apply border border-red-600;
     } */
+
+    body,
+    html {
+        overflow: hidden;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p {
+        @apply cursor-default;
+    }
 }
 
 @layer components {
@@ -57,7 +72,7 @@
     }
 
     .text-banner {
-        @apply text-gradient divider animate-gradient !py-7 text-center text-4xl font-extrabold md:text-5xl lg:!py-10 lg:text-6xl;
+        @apply text-gradient divider animate-gradient !py-7 text-center text-4xl font-extrabold uppercase transition-all hover:tracking-wider md:text-5xl md:hover:tracking-widest lg:!py-10 lg:text-6xl;
     }
     .center-all {
         @apply place-items-center content-center items-center justify-center justify-items-center text-center;
@@ -118,13 +133,13 @@
 }
 
 .owl-stage {
-    @apply mb-12 mt-7 flex;
+    @apply mb-9 md:mb-12 mt-7 flex;
 }
 
 .owl-item.active.center {
-    @apply scale-105 !opacity-100;
+    @apply scale-105 md:scale-110 !opacity-100;
 }
 
 .owl-item {
-    @apply opacity-50 transition-all;
+    @apply opacity-50 transition;
 }

@@ -9,6 +9,15 @@ module.exports = {
         transitionDuration: {
             DEFAULT: "500ms",
         },
+        letterSpacing: {
+            tightest: "-.075em",
+            tighter: "-.05em",
+            tight: "-.025em",
+            normal: "0",
+            wide: ".025em",
+            wider: ".5rem",
+            widest: "1rem",
+        },
         extend: {
             transitionProperty: {
                 wh: "width , height",
@@ -36,7 +45,9 @@ module.exports = {
             "cupcake",
             {
                 night: {
-                    ...require("daisyui/src/theming/themes")["[data-theme=night]"],
+                    ...require("daisyui/src/theming/themes")[
+                        "[data-theme=night]"
+                    ],
                     neutral: "#4b5563",
                     "base-100": "#1d283a",
                 },
