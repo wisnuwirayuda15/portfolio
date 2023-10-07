@@ -4,7 +4,8 @@
   "description": "My personal portfolio landing page ✨",
   "main": "index.js",
   "scripts": {
-    "dev": "npx tailwindcss -i ./src/css/input.css -o ./public/css/style.css --watch"
+    "dev": "npx tailwindcss -i ./src/css/input.css -o ./public/css/style.css --watch",
+    "min": "npx tailwindcss -o ./public/css/style.min.css --minify"
   },
   "keywords": [],
   "author": "",
@@ -13,6 +14,7 @@
     "daisyui": "^3.8.2",
     "prettier": "^3.0.3",
     "prettier-plugin-tailwindcss": "^0.5.4",
+    "tailwind-scrollbar": "^3.0.5",
     "tailwindcss": "^3.3.3"
   }
 }

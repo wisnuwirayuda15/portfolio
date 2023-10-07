@@ -19,9 +19,6 @@ module.exports = {
             widest: "1rem",
         },
         extend: {
-            transitionProperty: {
-                wh: "width , height",
-            },
             animation: {
                 gradient: "gradient 2s linear infinite",
                 "spin-slow": "spin 5s linear infinite",
@@ -54,5 +51,5 @@ module.exports = {
             },
         ],
     },
-    plugins: [require("daisyui")],
+    plugins: [require("daisyui"), require("tailwind-scrollbar")],
 };
