@@ -6,26 +6,30 @@ $(document).ready(function () {
     });
 
     $(window).scroll(function () {
-        console.log($(this).scrollTop());
-        if ($(this).scrollTop() > 100) {
-            // $("#back-to-top").addClass("show");
+        // console.log($(this).scrollTop());
+        if ($(this).scrollTop() > 1) {
             $("#navbar").addClass("navbar-fixed");
         } else {
-            // $("#back-to-top").removeClass("show");
             $("#navbar").removeClass("navbar-fixed");
+        }
+
+        if ($(this).scrollTop() > 500) {
+            $("#back-to-top").removeClass("hidden");
+        } else {
+            $("#back-to-top").addClass("hidden");
         }
     });
 
-    const owl = $(".owl-carousel");
+    $("#back-to-top").click(function () {
+        document.body.scrollTop = 0; // For Safari
+        document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE, and Opera
+    });
 
+    const owl = $("#projects-carousel");
     owl.owlCarousel({
         margin: 40,
         center: true,
         smartSpeed: 500,
-        // autoplay: true,
-        // autoplayTimeout: 5000,
-        // autoplayHoverPause: true,
-        // autoHeight: true,
         loop: true,
         responsive: {
             0: {
@@ -39,56 +43,21 @@ $(document).ready(function () {
             },
         },
     });
-
     $(".owl-custom-next").click(function () {
         owl.trigger("next.owl.carousel");
         console.log("INFO: next button pressed, go to the next item");
     });
-
     $(".owl-custom-prev").click(function () {
         owl.trigger("prev.owl.carousel");
         console.log("INFO: previous button pressed, go to the previous item");
     });
 
-    // $(".owl-custom-next, .owl-custom-prev").mouseenter(function () {
-    //     owl.trigger("stop.owl.autoplay");
-    //     console.log('INFO: owl autoplay started');
-    // });
-
-    // $(".owl-custom-next, .owl-custom-prev").mouseleave(function () {
-    //     owl.trigger("play.owl.autoplay");
-    //     console.log('INFO: owl autoplay stopped');
-    // });
-
-    if ($(window).width() >= 640) {
-        //run the code only on device that has bigger screen than mobile phone
-        $(".owl-carousel").on("click", ".owl-item", function () {
-            owlIndex = $(this).index();
-            count = $(".owl-item.active").length;
-            $(".owl-stage-outer").trigger("to.owl.carousel", owlIndex - count);
-            console.log(`INFO: item ${owlIndex} selected`);
-        });
-
-        const techDrag = dragula([document.querySelector("#tech-list")]);
-        $("#tech-draggable-text").text(
-            $("#tech-draggable-text").text() + " It's draggable by the way 😀",
-        );
-
-        $("#hero-profile").tilt({
-            scale: 1.05,
-            perspective: 1500,
-        });
-
-        $(".card-tech").tilt({
-            scale: 1.2,
-            perspective: 300,
-        });
-    }
-
     $("#contact-form").submit(function (event) {
         event.preventDefault();
         const formSubmit = $("#form-submit");
-        const html = formSubmit.html();
+        const formModal = $("#form_modal");
+        const submitHtml = formSubmit.html();
+        const modaltHtml = formModal.html();
         formSubmit.html('<span class="submit-loading"></span>');
         const formData = $(this).serialize();
         $.ajax({
@@ -100,7 +69,7 @@ $(document).ready(function () {
             },
             success: function (response) {
                 console.log("INFO: form submitted.");
-                formSubmit.html(html);
+                formSubmit.html(submitHtml);
                 $("#contact-form")[0].reset();
                 $("#form-modal-icon").html(
                     '<i class="ti ti-circle-check alert-success"></i>',
@@ -113,7 +82,7 @@ $(document).ready(function () {
             },
             error: function (xhr, status, error) {
                 console.error("ERROR: form submit failed. " + error);
-                formSubmit.html(html);
+                formSubmit.html(submitHtml);
                 $("#form-modal-icon").html(
                     '<i class="ti ti-circle-x alert-failed"></i>',
                 );
@@ -123,14 +92,63 @@ $(document).ready(function () {
             },
         });
     });
+
+    $("#lol-btn").mouseenter(function () {
+        $("#warn-text").css("opacity", 100);
+    });
+    $("#lol-btn").mouseleave(function () {
+        $("#warn-text").css("opacity", 0);
+    });
+    $("#lol-btn").click(function () {
+        window.open(
+            "https://youtu.be/dQw4w9WgXcQ?si=6_hkLXumriYlFpfj",
+            "_blank",
+        );
+    });
 });
 
 $(window).on("load", function () {
-    $("#preloader").fadeOut(500, function () {
-        $(this).remove();
-        $("html").css("overflow", "auto");
-        window.scrollTo({ top: 0 });
-        console.log(`INFO: preloader end`);
+    // window.scrollTo({ top: 0, behavior: "instant" });
+
+    $("#preloader-content").fadeOut(500, function () {
+        $("#preloader").slideUp(500, function () {
+            $(this).remove();
+            $("html").css("overflow", "auto");
+            console.log(`INFO: preloader end`);
+            sal();
+        });
+    });
+
+    //run the code only on device that has bigger screen than mobile phone
+    if ($(window).width() >= 640) {
+        $(".owl-carousel").on("click", ".owl-item", function () {
+            owlIndex = $(this).index();
+            count = $(".owl-item.active").length;
+            $(".owl-stage-outer").trigger("to.owl.carousel", owlIndex - count);
+            console.log(
+                `INFO: #${$(this).children().attr("id")} selected on #${$(this)
+                    .closest(".owl-carousel")
+                    .attr("id")}`,
+            );
+        });
+
+        // $("#hero-profile").tilt({
+        //     perspective: 1500,
+        // });
+
+        const techDrag = dragula([document.querySelector("#tech-list")]);
+        $("#tech-draggable-text").text(
+            $("#tech-draggable-text").text() + " It's draggable by the way 😀",
+        );
+    } else {
+        $("#tech-draggable-text").text(
+            $("#tech-draggable-text").text() + " Click to see the detail 😉",
+        );
+    }
+
+    $(".card-tech").tilt({
+        scale: 1.2,
+        perspective: 300,
     });
 
     const typewriterHeroText = new Typed("#typewriter-hero-text", {
@@ -161,17 +179,17 @@ $(window).on("load", function () {
         /**
          * @property {number} typeSpeed type speed in milliseconds
          */
-        typeSpeed: 30,
+        typeSpeed: 50,
 
         /**
          * @property {number} startDelay time before typing starts in milliseconds
          */
-        startDelay: 0,
+        startDelay: 1000,
 
         /**
          * @property {number} backSpeed backspacing speed in milliseconds
          */
-        backSpeed: 30,
+        backSpeed: 50,
 
         /**
          * @property {boolean} smartBackspace only backspace what doesn't match the previous string
@@ -186,7 +204,7 @@ $(window).on("load", function () {
         /**
          * @property {number} backDelay time before backspacing in milliseconds
          */
-        backDelay: 3000,
+        backDelay: 5000,
 
         /**
          * @property {boolean} fadeOut Fade out instead of backspace
@@ -304,11 +322,24 @@ $(window).on("load", function () {
 
     const typewriterHeroDesc = new Typed("#typewriter-hero-desc", {
         strings: [
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore sunt id iusto quas assumenda magnam fugit temporibus sequi facere obcaecati, laboriosam labore ducimus eligendi libero saepe expedita, aperiam ad eos?",
+            "I am a final-year undergraduate student at Telkom University. My passion lies in the field of web development, with a strong focus on the backend. I am deeply enthusiastic about pursuing a career as a web developer, where I can leverage my skills and knowledge to create innovative and efficient web solutions.",
         ],
-        typeSpeed: 5,
+        typeSpeed: 1,
         showCursor: false,
+        startDelay: 1000,
     });
+
+    const element = document.getElementById("hero-text");
+
+    // element.addEventListener("sal:in", ({ detail }) => {
+    //     typewriterHeroText.start();
+    //     console.log("entering", detail.target);
+    // });
+
+    // element.addEventListener("sal:out", ({ detail }) => {
+    //     typewriterHeroText.stop();
+    //     console.log("exiting", detail.target);
+    // });
 
     function typewriterIntersect(entries, observer) {
         entries.forEach((entry) => {

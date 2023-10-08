@@ -5,15 +5,28 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@wisnuwirayuda15" />
+    <meta name="twitter:title" content="Wisnu Wirayuda" />
+    <meta name="twitter:description" content="My personal portfolio landing page ✨" />
+    <meta name="twitter:image" content="svg/logo-light.svg" />
+    <meta name="description" content="My personal portfolio landing page ✨" />
+    <meta name="keywords" content="portfolio" />
+    <meta name="author" content="Wisnu Wirayuda" />
+    <meta name="robots" content="index, follow" />
+    <meta name="googlebot" content="index, follow" />
+    <meta name="theme-color" content="#faf7f5" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <link rel="icon" href="svg/logo-light.svg" type="image/svg+xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Quicksand:wght@400;700&display=swap" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sal.js@0.8.5/dist/sal.min.css">
     <script src="https://cdn.jsdelivr.net/npm/theme-change@2.0.2/index.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dragula/3.7.3/dragula.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dragula/3.7.3/dragula.min.css" />
-    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" />
@@ -22,21 +35,50 @@
     <title>Wisnu Wirayuda</title>
 </head>
 
+
 <!-- Body Section Start -->
 
 <body>
     <div id="preloader" class="center-all fixed inset-0 z-50 flex bg-base-200 font-poppins">
-        <div class="container mx-5">
-            <span class="loading loading-bars loading-lg"></span>
-            <h2 id="blocked-js-warning" class="mt-5 text-lg">
-                JavaScript is disabled in your browser. Please enable
-                JavaScript to access this website :)
-            </h2>
+        <div id="preloader-content" class="grid grid-cols-1 mx-5 center-all h-full gap-10">
+            <div aria-label="Orange and tan hamster running in a metal wheel" role="img" class="wheel-and-hamster">
+                <div class="wheel"></div>
+                <div class="hamster">
+                    <div class="hamster__body">
+                        <div class="hamster__head">
+                            <div class="hamster__ear"></div>
+                            <div class="hamster__eye"></div>
+                            <div class="hamster__nose"></div>
+                        </div>
+                        <div class="hamster__limb hamster__limb--fr"></div>
+                        <div class="hamster__limb hamster__limb--fl"></div>
+                        <div class="hamster__limb hamster__limb--br"></div>
+                        <div class="hamster__limb hamster__limb--bl"></div>
+                        <div class="hamster__tail"></div>
+                    </div>
+                </div>
+                <div class="spoke"></div>
+            </div>
+            <p id="loading-text" class="absolute text-lg text-red-500 top-3 max-w-xl">
+                JavaScript is disabled in your browser, please enable it to access this website. If you don't want to, you can enjoy this orange hamster running in a metal wheel instead:)
+            </p>
             <script>
-                document.getElementById("blocked-js-warning").remove();
+                const loadingText = document.getElementById("loading-text");
+                loadingText.style.display = "none";
+                setTimeout(function () {
+                    loadingText.innerHTML = "If it takes too long, check your internet connection or use another browser. Chrome or Firefox is recommended by me."
+                    loadingText.style.display = "block";
+                }, 20000);
             </script>
+            <p class="absolute bottom-3">
+                Animation by <a class="link text-primary" href="https://uiverse.io/Nawsome/wet-mayfly-23" target="_blank">Nawsome</a>
+            </p>
         </div>
     </div>
+
+    <button id="back-to-top" class="z-30 fixed h-14 w-14 center-all bottom-2 right-3 btn btn-primary rounded-full animate-bounce hidden">
+        <i class="ti ti-chevrons-up text-4xl"></i>
+    </button>
 
     <!--Navbar Section Start-->
     <header class="font-quicksand">
@@ -118,25 +160,17 @@
     <!-- Main Section Start -->
     <main class="mx-3 font-poppins lg:mx-10">
         <!--About Section Start-->
-        <section id="about" class="container mx-auto my-10 pt-24">
+        <section id="about" class="container mx-auto my-10 pt-12">
             <div class="md:center-all grid grid-cols-1 gap-10 lg:grid-cols-2 lg:gap-0">
-                <!-- card w-full items-center justify-center overflow-hidden md:items-start lg:pl-36 > -->
-                <div id="hero-profile" class="container mx-auto flex h-full w-full border-none stroke-none">
-                    <div class="bg-gradient group mask mask-hexagon flex cursor-grabbing justify-center ring-4 transition ease-in-out hover:animate-gradient" title="Hello :)">
-                        <img src="img/profile.webp" class="group translate-y-5 grayscale transition ease-in-out group-hover:-translate-y-0 group-hover:grayscale-0 sm:w-[50%] lg:w-[60%]" alt="hero profile" />
+                <div id="hero-profile" class="justify-center flex h-full w-full lg:justify-end lg:pr-10">
+                    <div class="w-[350px] md:w-[450px] xl:w-[500px] h-auto bg-gradient group mask mask-hexagon flex justify-center ring-4 transition ease-in-out hover:animate-gradient" title="Hello :)">
+                        <img src="img/profile.webp" class="group translate-y-16 grayscale transition ease-in-out group-hover:translate-y-5 group-hover:grayscale-0 " alt="hero profile" />
                     </div>
                 </div>
-
-                <div id="hero-text" class="card w-full justify-center gap-5 px-2 py-5 text-center lg:items-start lg:text-start">
-                    <!-- <div class="h-auto flex place-items-end"> -->
-                    <!-- <div id="hero-text" class="text-4xl font-semibold">
-                            Hello folks, I'm
-                            <span id="hero-title" class="hero-title">Wisnu Wirayuda</span>
-                        </div> -->
+                <div id="hero-text" class="grid w-full justify-center gap-5 px-2 py-5 text-center lg:items-start lg:text-start lg:justify-start">
                     <h1 id="typewriter-hero-text" class="text-4xl font-semibold"></h1>
-                    <!-- </div> -->
-                    <p id="typewriter-hero-desc" class="text-lg"></p>
-                    <a href="doc/Resume.pdf" target="_blank">
+                    <p id="typewriter-hero-desc" class="text-lg lg:max-w-xl"></p>
+                    <a href="doc/resume.pdf" target="_blank">
                         <button id="contact-me" class="btn btn-primary btn-block md:!w-auto md:!px-11">
                             Download Resume
                             <i class="ti ti-download text-2xl"></i>
@@ -149,14 +183,14 @@
 
         <!--Projects Section Start-->
         <section id="projects" class="container mx-auto my-10 pt-24">
-            <h1 class="text-banner">Projects</h1>
-            <p class="text-center text-lg">Some things I've worked on 😎</p>
+            <h1 data-sal="fade" class="text-banner">Projects</h1>
+            <p data-sal="fade" class="text-center text-lg">Some things I've worked on 😎</p>
             <div class="mx-auto my-5 flex w-10/12 place-items-center">
                 <!-- Carousel Start -->
-                <button data-tip="Previous" class="owl-btn owl-custom-prev tooltip">
+                <button data-sal="slide-right" aria-label="Project Previous" data-tip="Previous" class="owl-btn owl-custom-prev tooltip">
                     <i class="ti ti-chevron-left text-4xl"></i>
                 </button>
-                <div class="owl-carousel owl-theme">
+                <div data-sal="fade" id="projects-carousel" class="owl-carousel owl-theme">
                     <div id="bidji-course" class="card-project group">
                         <div class="overflow-hidden">
                             <div class="center-all absolute z-[1] flex aspect-video w-full bg-gradient-to-t from-base-200">
@@ -286,7 +320,7 @@
                     <div id="portfolio-web" class="card-project group">
                         <div class="overflow-hidden">
                             <div class="center-all peer absolute z-[1] flex aspect-video w-full bg-gradient-to-t from-base-200"></div>
-                            <img loading="lazy" src="https://images.placeholders.dev/?width=1280height=720&text=coming%20soon%20:)&bgColor=%23f7f6f6&textColor=%236d6e71" class="aspect-video object-cover object-center transition peer-hover:rotate-2 peer-hover:scale-125" alt="Shoes" />
+                            <img loading="lazy" src="img/portfolio-web.webp" class="aspect-video object-cover object-center transition peer-hover:rotate-2 peer-hover:scale-125" alt="Shoes" />
                         </div>
                         <div class="card-body">
                             <h2 class="card-title">Portfolio Website</h2>
@@ -319,10 +353,9 @@
                         </div>
                     </div>
                 </div>
-                <button data-tip="Next" class="owl-btn owl-custom-next tooltip">
+                <button data-sal="slide-left" aria-label="Project Next" data-tip="Next" class="owl-btn owl-custom-next tooltip">
                     <i class="ti ti-chevron-right text-4xl"></i>
                 </button>
-
                 <!-- Carousel End -->
             </div>
         </section>
@@ -330,50 +363,53 @@
 
         <!--Skills Section Start-->
         <section id="skills" class="container mx-auto my-10 pt-24">
-            <h1 class="text-banner">Skills</h1>
-            <p id="tech-draggable-text" class="text-center text-lg">
+            <h1 data-sal="fade" class="text-banner">Skills</h1>
+            <p data-sal="fade" id="tech-draggable-text" class="text-center text-lg">
                 Some technologies and tools that I have used 😊
             </p>
-            <div id="tech-list" class="my-10 flex flex-wrap justify-center gap-14 xl:mx-10" title="Hold and click to drag the item">
-                <div class="card-tech tooltip tooltip-bottom ring-[#e44d26]" data-tip="HTML">
+            <div data-sal="fade" id="tech-list" class="my-10 flex flex-wrap justify-center gap-14 xl:mx-10" title="Hold and click to drag the item">
+                <div class="card-tech group tooltip tooltip-bottom ring-[#e44d26]" data-tip="HTML">
                     <img loading="lazy" src="img/brand/html.png" class="icon-tech w-20" alt="HTML" />
                 </div>
-                <div class="card-tech tooltip tooltip-bottom ring-[#264de4]" data-tip="CSS">
+                <div class="card-tech group tooltip tooltip-bottom ring-[#264de4]" data-tip="CSS">
                     <img loading="lazy" src="img/brand/css.png" class="icon-tech w-20" alt="CSS" />
                 </div>
-                <div class="card-tech tooltip tooltip-bottom ring-[#ffdf00]" data-tip="JavaScript">
+                <div class="card-tech group tooltip tooltip-bottom ring-[#ffdf00]" data-tip="JavaScript">
                     <img loading="lazy" src="img/brand/js.png" class="icon-tech w-20 rounded-xl" alt="JavaScript" />
                 </div>
-                <div class="card-tech tooltip tooltip-bottom ring-[#787cb4]" data-tip="PHP">
+                <div class="card-tech group tooltip tooltip-bottom ring-[#787cb4]" data-tip="PHP">
                     <img loading="lazy" src="img/brand/php.png" class="icon-tech w-20" alt="PHP" />
                 </div>
-                <div class="card-tech tooltip tooltip-bottom ring-[#ff2d20]" data-tip="Laravel">
+                <div class="card-tech group tooltip tooltip-bottom ring-[#ff2d20]" data-tip="Laravel">
                     <img loading="lazy" src="img/brand/laravel.png" class="icon-tech w-20" alt="Laravel" />
                 </div>
-                <div class="card-tech tooltip tooltip-bottom ring-[#35bef8]" data-tip="Tailwind CSS">
+                <div class="card-tech group tooltip tooltip-bottom ring-[#35bef8]" data-tip="Tailwind CSS">
                     <img loading="lazy" src="img/brand/tailwind.png" class="icon-tech w-20" alt="Tailwind CSS" />
                 </div>
-                <div class="card-tech tooltip tooltip-bottom ring-[#800af9]" data-tip="Bootstrap">
+                <div class="card-tech group tooltip tooltip-bottom ring-[#800af9]" data-tip="Bootstrap">
                     <img loading="lazy" src="img/brand/bootstrap.png" class="icon-tech w-20" alt="Bootstrap" />
                 </div>
-                <div class="card-tech tooltip tooltip-bottom ring-[#1169ae]" data-tip="jQuery">
+                <div class="card-tech group tooltip tooltip-bottom ring-[#1169ae]" data-tip="jQuery">
                     <img loading="lazy" src="img/brand/jquery.png" class="icon-tech w-20" alt="jQuery" />
                 </div>
-                <div class="card-tech tooltip tooltip-bottom ring-[#e48e00]" data-tip="MySQL">
+                <div class="card-tech group tooltip tooltip-bottom ring-[#e48e00]" data-tip="MySQL">
                     <img loading="lazy" src="img/brand/mysql.png" class="icon-tech w-20" alt="MySQL" />
                 </div>
-                <div class="card-tech tooltip tooltip-bottom ring-[#f05033]" data-tip="Git">
+                <div class="card-tech group tooltip tooltip-bottom ring-[#f05033]" data-tip="Git">
                     <img loading="lazy" src="img/brand/git.png" class="icon-tech w-20" alt="Git" />
                 </div>
-                <div class="card-tech tooltip tooltip-bottom ring-[#02d084]" data-tip="Figma">
+                <div class="card-tech group tooltip tooltip-bottom ring-[#02d084]" data-tip="Figma">
                     <img loading="lazy" src="img/brand/figma.png" class="icon-tech h-20" alt="Figma" />
                 </div>
-                <div class="card-tech tooltip tooltip-bottom ring-current" data-tip="GitHub">
+                <div class="card-tech group tooltip tooltip-bottom ring-[#45c6fb]" data-tip="Flutter">
+                    <img loading="lazy" src="img/brand/flutter.png" class="icon-tech h-20" alt="Flutter" />
+                </div>
+                <div class="card-tech group tooltip tooltip-bottom ring-current" data-tip="GitHub">
                     <svg class="icon-tech h-24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-                        <path class="fill-current" d="M32 6C17.641 6 6 17.641 6 32c0 12.277 8.512 22.56 19.955 25.286-.592-.141-1.179-.299-1.755-.479V50.85c0 0-.975.325-2.275.325-3.637 0-5.148-3.245-5.525-4.875-.229-.993-.827-1.934-1.469-2.509-.767-.684-1.126-.686-1.131-.92-.01-.491.658-.471.975-.471 1.625 0 2.857 1.729 3.429 2.623 1.417 2.207 2.938 2.577 3.721 2.577.975 0 1.817-.146 2.397-.426.268-1.888 1.108-3.57 2.478-4.774-6.097-1.219-10.4-4.716-10.4-10.4 0-2.928 1.175-5.619 3.133-7.792C19.333 23.641 19 22.494 19 20.625c0-1.235.086-2.751.65-4.225 0 0 3.708.026 7.205 3.338C28.469 19.268 30.196 19 32 19s3.531.268 5.145.738c3.497-3.312 7.205-3.338 7.205-3.338.567 1.474.65 2.99.65 4.225 0 2.015-.268 3.19-.432 3.697C46.466 26.475 47.6 29.124 47.6 32c0 5.684-4.303 9.181-10.4 10.4 1.628 1.43 2.6 3.513 2.6 5.85v8.557c-.576.181-1.162.338-1.755.479C49.488 54.56 58 44.277 58 32 58 17.641 46.359 6 32 6zM33.813 57.93C33.214 57.972 32.61 58 32 58 32.61 58 33.213 57.971 33.813 57.93zM37.786 57.346c-1.164.265-2.357.451-3.575.554C35.429 57.797 36.622 57.61 37.786 57.346zM32 58c-.61 0-1.214-.028-1.813-.07C30.787 57.971 31.39 58 32 58zM29.788 57.9c-1.217-.103-2.411-.289-3.574-.554C27.378 57.61 28.571 57.797 29.788 57.9z" />
+                        <path class="group-hover:fill-current fill-gray-500" d="M32 6C17.641 6 6 17.641 6 32c0 12.277 8.512 22.56 19.955 25.286-.592-.141-1.179-.299-1.755-.479V50.85c0 0-.975.325-2.275.325-3.637 0-5.148-3.245-5.525-4.875-.229-.993-.827-1.934-1.469-2.509-.767-.684-1.126-.686-1.131-.92-.01-.491.658-.471.975-.471 1.625 0 2.857 1.729 3.429 2.623 1.417 2.207 2.938 2.577 3.721 2.577.975 0 1.817-.146 2.397-.426.268-1.888 1.108-3.57 2.478-4.774-6.097-1.219-10.4-4.716-10.4-10.4 0-2.928 1.175-5.619 3.133-7.792C19.333 23.641 19 22.494 19 20.625c0-1.235.086-2.751.65-4.225 0 0 3.708.026 7.205 3.338C28.469 19.268 30.196 19 32 19s3.531.268 5.145.738c3.497-3.312 7.205-3.338 7.205-3.338.567 1.474.65 2.99.65 4.225 0 2.015-.268 3.19-.432 3.697C46.466 26.475 47.6 29.124 47.6 32c0 5.684-4.303 9.181-10.4 10.4 1.628 1.43 2.6 3.513 2.6 5.85v8.557c-.576.181-1.162.338-1.755.479C49.488 54.56 58 44.277 58 32 58 17.641 46.359 6 32 6zM33.813 57.93C33.214 57.972 32.61 58 32 58 32.61 58 33.213 57.971 33.813 57.93zM37.786 57.346c-1.164.265-2.357.451-3.575.554C35.429 57.797 36.622 57.61 37.786 57.346zM32 58c-.61 0-1.214-.028-1.813-.07C30.787 57.971 31.39 58 32 58zM29.788 57.9c-1.217-.103-2.411-.289-3.574-.554C27.378 57.61 28.571 57.797 29.788 57.9z" />
                     </svg>
                 </div>
-                <div class="card-tech tooltip tooltip-bottom ring-[#0b85d1]" data-tip="Visual Studio Code">
+                <div class="card-tech group tooltip tooltip-bottom ring-[#0b85d1]" data-tip="Visual Studio Code">
                     <img loading="lazy" src="img/brand/vscode.png" class="icon-tech w-20 fill-current" alt="Visual Studio Code" />
                 </div>
             </div>
@@ -382,43 +418,99 @@
 
         <!--Contacts Section Start-->
         <section id="contacts" class="container mx-auto my-10 pt-24">
-            <h1 class="text-banner">Contacts</h1>
-            <p class="text-center text-lg">
+            <h1 data-sal="fade" class="text-banner">Contacts</h1>
+            <p data-sal="fade" class="text-center text-lg">
                 Do you want to work with me, or just want to say hi? Send me
                 a message via this form 😉
             </p>
             <div class="my-5 grid grid-cols-1 gap-10 md:gap-0 lg:grid-cols-2">
-                <div class="flex justify-center xl:justify-end">
-                    <!-- <div class="w-full max-w-md grid gap-5"> -->
-                    <form id="contact-form" action="https://formspree.io/f/mpzgoerv" method="POST" class="grid w-full max-w-xl gap-5">
-                        <div class="form-control">
+                <div class="flex justify-center xl:justify-end lg:pr-10">
+                    <form id="contact-form" action="https://formspree.io/f/mpzgoerv" method="POST" class="grid w-full max-w-lg gap-5">
+                        <div data-sal="fade" class="form-control">
                             <label class="label label-text" for="email">Name</label>
                             <input name="Name" type="text" placeholder="What is your name?" class="input input-bordered" autocomplete="off" required />
                         </div>
-                        <div class="form-control">
+                        <div data-sal="fade" class="form-control">
                             <label class="label label-text" for="email">Email</label>
                             <input name="Email" type="email" placeholder="What is your active email?" class="input input-bordered" autocomplete="off" required />
                         </div>
-                        <div class="form-control">
+                        <div data-sal="fade" class="form-control">
                             <label class="label label-text" for="messages">Messages</label>
                             <textarea name="Messages" class="textarea textarea-bordered textarea-lg resize-none" placeholder="What's on your mind?" rows="8" required></textarea>
                         </div>
-                        <div class="tooltip mt-5 w-full" data-tip="Send your messages to me 😄">
+                        <div data-sal="fade" class="tooltip mt-5 w-full" data-tip="Send your messages to me 😄">
                             <button id="form-submit" class="btn btn-primary btn-block">
                                 Submit <i class="ti ti-send text-lg"></i>
                             </button>
                         </div>
                     </form>
-                    <!-- </div> -->
+                </div>
+
+                <div class="grid grid-cols-1 items-center justify-center lg:pl-10 h-full py-16 lg:py-0">
+                    <div class="container w-auto mx-auto lg:w-full">
+                        <div data-sal="fade" class="box-social group">
+                            <a href="mailto:wisnuwirayuda15@gmail.com" target="_blank" class="card-social ring-[#fbbc05]">
+                                <i class="ti ti-mail icon-social group-hover:text-[#fbbc05]"></i>
+                            </a>
+                            <div class="">
+                                <h3 class="text-xl font-black">Email</h3>
+                                <p>wisnuwirayuda15@gmail.com</p>
+                            </div>
+                        </div>
+                        <div data-sal="fade" class="box-social group">
+                            <a href="https://github.com/wisnuwirayuda15" target="_blank" class="card-social ring-current">
+                                <i class="ti ti-brand-github icon-social"></i>
+                            </a>
+                            <div class="">
+                                <h3 class="text-xl font-black">GitHub</h3>
+                                <p>wisnuwirayuda15</p>
+                            </div>
+                        </div>
+                        <div data-sal="fade" class="box-social group">
+                            <a href="https://www.linkedin.com/in/wisnuwirayuda" target="_blank" class="card-social ring-[#0077b5]">
+                                <i class="ti ti-brand-linkedin group-hover:text-[#0077b5] icon-social"></i>
+                            </a>
+                            <div class="">
+                                <h3 class="text-xl font-black">LinkedIn</h3>
+                                <p>Putu Wisnu Wirayuda Putra</p>
+                            </div>
+                        </div>
+                        <div data-sal="fade" class="box-social group">
+                            <a href="https://www.youtube.com/c/WisnuWirayuda" target="_blank" class="card-social ring-[#ff0000]">
+                                <i class="ti ti-brand-youtube group-hover:text-[#ff0000] icon-social"></i>
+                            </a>
+                            <div class="">
+                                <h3 class="text-xl font-black">YouTube</h3>
+                                <p>Wisnu Wirayuda</p>
+                            </div>
+                        </div>
+                        <div data-sal="fade" class="box-social group">
+                            <a href="https://www.instagram.com/puutuuu_/" target="_blank" class="card-social ring-[#f50283]">
+                                <i class="ti ti-brand-instagram group-hover:text-[#f50283] icon-social"></i>
+                            </a>
+                            <div class="">
+                                <h3 class="text-xl font-black">Instagram</h3>
+                                <p>@puutuuu_</p>
+                            </div>
+                        </div>
+                        <div data-sal="fade" class="box-social group">
+                            <a href="https://www.reddit.com/user/wisnuwirayuda" target="_blank" class="card-social ring-[#ff4500]">
+                                <i class="ti ti-brand-reddit group-hover:text-[#ff4500] icon-social"></i>
+                            </a>
+                            <div class="">
+                                <h3 class="text-xl font-black">Reddit</h3>
+                                <p>wisnuwirayuda</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-
             <dialog id="form_modal" class="modal">
                 <div class="modal-box text-center">
                     <div id="form-modal-icon"></div>
                     <div class="mt-10">
-                        <h3 id="form-modal-title" class="font-bold text-2xl">Thanks ^_^</h3>
-                        <p id="form-modal-text" class="py-4">Your messages have been submitted.</p>
+                        <h3 id="form-modal-title" class="font-bold text-2xl">Hey you 🫵</h3>
+                        <p id="form-modal-text" class="py-4">Don't you dare open this modal without my permission, okay? 😤</p>
                     </div>
                     <div class="modal-action justify-center">
                         <form method="dialog">
@@ -433,37 +525,58 @@
     <!-- Main Section End -->
 
     <!--Footer Section Start-->
-    <footer class="footer footer-center rounded bg-base-200 p-10 font-quicksand text-base-content">
-        <nav class="grid grid-flow-col gap-4">
-            <a class="link-hover link">About us</a>
-            <a class="link-hover link">Contact</a>
-            <a class="link-hover link">Jobs</a>
-            <a class="link-hover link">Press kit</a>
-        </nav>
-        <nav>
-            <div class="grid grid-flow-col gap-4">
-                <a><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="fill-current">
-                        <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"></path>
-                    </svg></a>
-                <a><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="fill-current">
-                        <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"></path>
-                    </svg></a>
-                <a><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="fill-current">
-                        <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"></path>
-                    </svg></a>
-            </div>
-        </nav>
-        <aside>
-            <p>
-                Copyright © 2023 - All right reserved by ACME Industries
-                Ltd
-            </p>
-        </aside>
+    <footer>
+        <svg class="translate-y-2 z-[-1] transition-transform" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+            <path class="fill-base-200 transition-none" fill-opacity="1" d="M0,128L60,122.7C120,117,240,107,360,128C480,149,600,203,720,218.7C840,235,960,213,1080,186.7C1200,160,1320,128,1380,112L1440,96L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path>
+        </svg>
+        <div class="footer footer-center bg-base-200 p-5 font-quicksand text-base-content !gap-5">
+            <nav data-sal="fade" class="grid grid-flow-col gap-4 font-bold">
+                <a href="#about" class="hover:text-gradient">About</a>
+                <a href="#projects" class="hover:text-gradient">Projects</a>
+                <a href="#skills" class="hover:text-gradient">Skills</a>
+                <a href="#contacts" class="hover:text-gradient">Contacts</a>
+            </nav>
+            <nav>
+                <div class="grid grid-flow-col gap-4">
+                    <p data-sal="fade" onclick="secret_modal.showModal()" class="ti ti-question-mark text-2xl cursor-help opacity-20"></p>
+                </div>
+                <dialog id="secret_modal" class="modal">
+                    <div class="modal-box text-center">
+                        <h3 class="font-bold text-2xl">Oh, so you finally found the "Secret Gate", congratulations 🎊🎉</h3>
+                        <p class="mt-4 text-lg">Are you sure you want to see the secret? 🤔</p>
+                        <p id="warn-text" class="text-sm mt-5 opacity-0 transition-opacity">Please don't, I warned you 🙈</p>
+                        <div class="modal-action justify-center">
+                            <form method="dialog" class="flex flex-wrap justify-center gap-5">
+                                <button class="btn btn-accent">No, thanks.</button>
+                                <div id="lol-btn" class="btn btn-primary">Yes sir, take me there!</div>
+                            </form>
+                        </div>
+                    </div>
+                </dialog>
+            </nav>
+            <aside>
+                <p data-sal="fade" class="text-base font-bold">
+                    Made with
+                    <i class="ti ti-heart-filled text-red-600 text-lg"></i>
+                    by
+                    <span class="text-gradient animate-gradient">Wisnu Wirayuda</span>
+                    using
+                    <a href="https://tailwindcss.com/" target="_blank" class="text-[#35bef8]">Tailwind CSS </a>
+                    and
+                    <a href="https://daisyui.com/" target="_blank" class="text-[#1ad1a5]">DaisyUI</a>
+                </p>
+            </aside>
+        </div>
     </footer>
     <!--Footer Section Start-->
 
+    <script>
+        $('[data-sal]').each(function () {
+            $(this).attr('data-sal-duration', '1000');
+        });
+    </script>
     <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sal.js@0.8.5/dist/sal.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tilt.js/1.2.1/tilt.jquery.min.js"></script>
     <script src="js/main.js"></script>
