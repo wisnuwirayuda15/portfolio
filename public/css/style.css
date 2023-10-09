@@ -3649,10 +3649,6 @@ path {
   justify-content: space-between;
 }
 
-.\!gap-5 {
-  gap: 1.25rem !important;
-}
-
 .gap-10 {
   gap: 2.5rem;
 }
