@@ -96,7 +96,6 @@
     .card-tech {
         @apply center-all card flex h-32 w-32 cursor-grabbing border-2 border-base-300 bg-base-200 transition-none hover:border-none hover:shadow-xl hover:ring-4;
         transform-style: preserve-3d;
-        /* transform: perspective(1000px); */
     }
 
     .card-social {

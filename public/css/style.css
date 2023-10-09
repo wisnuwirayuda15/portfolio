@@ -2898,7 +2898,6 @@ path {
 
 .card-tech {
   transform-style: preserve-3d;
-  /* transform: perspective(1000px); */
 }
 
 .card-social {
