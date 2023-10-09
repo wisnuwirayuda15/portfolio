@@ -5,19 +5,22 @@ $(document).ready(function () {
         $("#sidebar-close").click();
     });
 
-    $(window).scroll(function () {
-        // console.log($(this).scrollTop());
-        if ($(this).scrollTop() > 1) {
+    function scrollCheck() {
+        if ($(window).scrollTop() > 1) {
             $("#navbar").addClass("navbar-fixed");
         } else {
             $("#navbar").removeClass("navbar-fixed");
         }
-
-        if ($(this).scrollTop() > 500) {
-            $("#back-to-top").removeClass("hidden");
+        if ($(window).scrollTop() > 500) {
+            $("#back-to-top").fadeIn(500);
         } else {
-            $("#back-to-top").addClass("hidden");
+            $("#back-to-top").fadeOut(500);
         }
+    }
+    scrollCheck();
+
+    $(window).scroll(function () {
+        scrollCheck();
     });
 
     $("#back-to-top").click(function () {
@@ -131,11 +134,6 @@ $(window).on("load", function () {
                     .attr("id")}`,
             );
         });
-
-        // $("#hero-profile").tilt({
-        //     perspective: 1500,
-        // });
-
         const techDrag = dragula([document.querySelector("#tech-list")]);
         $("#tech-draggable-text").text(
             $("#tech-draggable-text").text() + " It's draggable by the way 😀",
@@ -146,7 +144,7 @@ $(window).on("load", function () {
         );
     }
 
-    $(".card-tech").tilt({
+    VanillaTilt.init(document.querySelectorAll(".card-tech"), {
         scale: 1.2,
         perspective: 300,
     });
@@ -329,7 +327,7 @@ $(window).on("load", function () {
         startDelay: 1000,
     });
 
-    const element = document.getElementById("hero-text");
+    // const element = document.getElementById("hero-text");
 
     // element.addEventListener("sal:in", ({ detail }) => {
     //     typewriterHeroText.start();
