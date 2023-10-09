@@ -204,7 +204,7 @@ $(window).on("load", function () {
         /**
          * @property {number} backDelay time before backspacing in milliseconds
          */
-        backDelay: 5000,
+        backDelay: 3000,
 
         /**
          * @property {boolean} fadeOut Fade out instead of backspace
