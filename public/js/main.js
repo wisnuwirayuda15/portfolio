@@ -57,6 +57,7 @@ $(document).ready(function () {
 
     $("#contact-form").submit(function (event) {
         event.preventDefault();
+        $("#refresh").addClass("hidden");
         const formSubmit = $("#form-submit");
         const formModal = $("#form_modal");
         const submitHtml = formSubmit.html();
@@ -90,7 +91,10 @@ $(document).ready(function () {
                     '<i class="ti ti-circle-x alert-failed"></i>',
                 );
                 $("#form-modal-title").text("Oops :(");
-                $("#form-modal-text").text("Your messages failed to submit.");
+                $("#form-modal-text").html(
+                    "Sorry, your messages failed to submit.<br>Please refresh this page or try again later.",
+                );
+                $("#refresh").removeClass("hidden");
                 form_modal.showModal();
             },
         });
