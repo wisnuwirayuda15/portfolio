@@ -23,7 +23,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Quicksand:wght@400;700&display=swap" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sal.js@0.8.5/dist/sal.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sal.js@0.8.5/dist/sal.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/theme-change@2.0.2/index.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dragula/3.7.3/dragula.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dragula/3.7.3/dragula.min.css" />
@@ -32,15 +32,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/loader.css" />
     <title>Wisnu Wirayuda</title>
 </head>
-
 
 <!-- Body Section Start -->
 
 <body>
     <div id="preloader" class="center-all fixed inset-0 z-50 flex bg-base-200 font-poppins">
-        <div id="preloader-content" class="grid grid-cols-1 mx-5 center-all h-full gap-10">
+        <div id="preloader-content" class="center-all mx-5 grid h-full grid-cols-1 gap-10">
             <div aria-label="Orange and tan hamster running in a metal wheel" role="img" class="wheel-and-hamster">
                 <div class="wheel"></div>
                 <div class="hamster">
@@ -59,25 +59,29 @@
                 </div>
                 <div class="spoke"></div>
             </div>
-            <p id="loading-text" class="absolute text-lg text-red-500 top-3 max-w-xl">
-                JavaScript is disabled in your browser, please enable it to access this website. If you don't want to, you can enjoy this orange hamster running in a metal wheel instead :)
+            <p id="loading-text" class="absolute top-3 max-w-xl text-lg text-red-500">
+                JavaScript is disabled in your browser, please enable it to
+                access this website. If you don't want to, you can enjoy
+                this orange hamster running in a metal wheel instead :)
             </p>
             <script>
                 const loadingText = document.getElementById("loading-text");
                 loadingText.style.display = "none";
                 setTimeout(function () {
-                    loadingText.innerHTML = "If it takes too long, check your internet connection or use another browser. Chrome or Firefox is recommended by me."
+                    loadingText.innerHTML =
+                        "If it takes too long, check your internet connection or use another browser. Chrome or Firefox is recommended by me.";
                     loadingText.style.display = "block";
                 }, 20000);
             </script>
             <p class="absolute bottom-3">
-                Animation by <a class="link text-primary" href="https://uiverse.io/Nawsome/wet-mayfly-23" target="_blank">Nawsome</a>
+                Animation by
+                <a class="link text-primary" href="https://uiverse.io/Nawsome/wet-mayfly-23" target="_blank">Nawsome</a>
             </p>
         </div>
     </div>
 
-    <button id="back-to-top" class="z-30 fixed h-12 w-12 center-all bottom-2 right-3 bg-primary rounded-full animate-bounce hidden border border-base-100 ring-primary hover:ring-4 transition-shadow">
-        <i class="ti ti-chevrons-up text-base-100 text-3xl"></i>
+    <button id="back-to-top" class="center-all fixed bottom-2 right-3 z-30 hidden h-12 w-12 animate-bounce rounded-full border border-base-100 bg-primary ring-primary transition-shadow hover:ring-4">
+        <i class="ti ti-chevrons-up text-3xl text-base-100"></i>
     </button>
 
     <!--Navbar Section Start-->
@@ -162,12 +166,12 @@
         <!--About Section Start-->
         <section id="about" class="container mx-auto my-10 pt-12">
             <div class="md:center-all grid grid-cols-1 gap-10 lg:grid-cols-2 lg:gap-0">
-                <div id="hero-profile" class="justify-center flex h-full w-full lg:justify-end lg:pr-10">
-                    <div class="w-[350px] md:w-[450px] xl:w-[500px] h-auto bg-gradient group mask mask-hexagon flex justify-center ring-4 transition ease-in-out hover:animate-gradient" title="Hello :)">
-                        <img src="img/profile.webp" class="group translate-y-16 grayscale transition ease-in-out group-hover:translate-y-5 group-hover:grayscale-0 " alt="hero profile" />
+                <div id="hero-profile" class="flex h-full w-full justify-center lg:justify-end lg:pr-10">
+                    <div class="bg-gradient group mask mask-hexagon flex h-auto w-[350px] justify-center ring-4 transition ease-in-out hover:animate-gradient md:w-[450px] xl:w-[500px]" title="Hello :)">
+                        <img src="img/profile.webp" class="group translate-y-16 grayscale transition ease-in-out group-hover:translate-y-5 group-hover:grayscale-0" alt="hero profile" />
                     </div>
                 </div>
-                <div id="hero-text" class="grid w-full justify-center gap-5 px-2 py-5 text-center lg:items-start lg:text-start lg:justify-start">
+                <div id="hero-text" class="grid w-full justify-center gap-5 px-2 py-5 text-center lg:items-start lg:justify-start lg:text-start">
                     <h1 id="typewriter-hero-text" class="text-4xl font-semibold"></h1>
                     <p id="typewriter-hero-desc" class="text-lg lg:max-w-xl"></p>
                     <a href="doc/Resume_Putu Wisnu Wirayuda Putra.pdf" target="_blank">
@@ -183,8 +187,10 @@
 
         <!--Projects Section Start-->
         <section id="projects" class="container mx-auto my-10 pt-24">
-            <h1 data-sal="fade" class="text-banner">Projects</h1>
-            <p data-sal="fade" class="text-center text-lg">Some things I've worked on 😎</p>
+            <h1 data-sal="fade" class="text-section-header">Projects</h1>
+            <p data-sal="fade" class="text-center text-lg">
+                Some things I've worked on 😎
+            </p>
             <div class="mx-auto my-5 flex w-10/12 place-items-center">
                 <!-- Carousel Start -->
                 <button data-sal="slide-right" aria-label="Project Previous" data-tip="Previous" class="owl-btn owl-custom-prev tooltip">
@@ -363,7 +369,7 @@
 
         <!--Skills Section Start-->
         <section id="skills" class="container mx-auto my-10 pt-24">
-            <h1 data-sal="fade" class="text-banner">Skills</h1>
+            <h1 data-sal="fade" class="text-section-header">Skills</h1>
             <p data-sal="fade" id="tech-draggable-text" class="text-center text-lg">
                 Some technologies and tools that I have used 😊
             </p>
@@ -406,7 +412,7 @@
                 </div>
                 <div class="card-tech group tooltip tooltip-bottom ring-current" data-tip="GitHub">
                     <svg class="icon-tech h-24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-                        <path class="group-hover:fill-current fill-gray-500" d="M32 6C17.641 6 6 17.641 6 32c0 12.277 8.512 22.56 19.955 25.286-.592-.141-1.179-.299-1.755-.479V50.85c0 0-.975.325-2.275.325-3.637 0-5.148-3.245-5.525-4.875-.229-.993-.827-1.934-1.469-2.509-.767-.684-1.126-.686-1.131-.92-.01-.491.658-.471.975-.471 1.625 0 2.857 1.729 3.429 2.623 1.417 2.207 2.938 2.577 3.721 2.577.975 0 1.817-.146 2.397-.426.268-1.888 1.108-3.57 2.478-4.774-6.097-1.219-10.4-4.716-10.4-10.4 0-2.928 1.175-5.619 3.133-7.792C19.333 23.641 19 22.494 19 20.625c0-1.235.086-2.751.65-4.225 0 0 3.708.026 7.205 3.338C28.469 19.268 30.196 19 32 19s3.531.268 5.145.738c3.497-3.312 7.205-3.338 7.205-3.338.567 1.474.65 2.99.65 4.225 0 2.015-.268 3.19-.432 3.697C46.466 26.475 47.6 29.124 47.6 32c0 5.684-4.303 9.181-10.4 10.4 1.628 1.43 2.6 3.513 2.6 5.85v8.557c-.576.181-1.162.338-1.755.479C49.488 54.56 58 44.277 58 32 58 17.641 46.359 6 32 6zM33.813 57.93C33.214 57.972 32.61 58 32 58 32.61 58 33.213 57.971 33.813 57.93zM37.786 57.346c-1.164.265-2.357.451-3.575.554C35.429 57.797 36.622 57.61 37.786 57.346zM32 58c-.61 0-1.214-.028-1.813-.07C30.787 57.971 31.39 58 32 58zM29.788 57.9c-1.217-.103-2.411-.289-3.574-.554C27.378 57.61 28.571 57.797 29.788 57.9z" />
+                        <path class="fill-gray-500 group-hover:fill-current" d="M32 6C17.641 6 6 17.641 6 32c0 12.277 8.512 22.56 19.955 25.286-.592-.141-1.179-.299-1.755-.479V50.85c0 0-.975.325-2.275.325-3.637 0-5.148-3.245-5.525-4.875-.229-.993-.827-1.934-1.469-2.509-.767-.684-1.126-.686-1.131-.92-.01-.491.658-.471.975-.471 1.625 0 2.857 1.729 3.429 2.623 1.417 2.207 2.938 2.577 3.721 2.577.975 0 1.817-.146 2.397-.426.268-1.888 1.108-3.57 2.478-4.774-6.097-1.219-10.4-4.716-10.4-10.4 0-2.928 1.175-5.619 3.133-7.792C19.333 23.641 19 22.494 19 20.625c0-1.235.086-2.751.65-4.225 0 0 3.708.026 7.205 3.338C28.469 19.268 30.196 19 32 19s3.531.268 5.145.738c3.497-3.312 7.205-3.338 7.205-3.338.567 1.474.65 2.99.65 4.225 0 2.015-.268 3.19-.432 3.697C46.466 26.475 47.6 29.124 47.6 32c0 5.684-4.303 9.181-10.4 10.4 1.628 1.43 2.6 3.513 2.6 5.85v8.557c-.576.181-1.162.338-1.755.479C49.488 54.56 58 44.277 58 32 58 17.641 46.359 6 32 6zM33.813 57.93C33.214 57.972 32.61 58 32 58 32.61 58 33.213 57.971 33.813 57.93zM37.786 57.346c-1.164.265-2.357.451-3.575.554C35.429 57.797 36.622 57.61 37.786 57.346zM32 58c-.61 0-1.214-.028-1.813-.07C30.787 57.971 31.39 58 32 58zM29.788 57.9c-1.217-.103-2.411-.289-3.574-.554C27.378 57.61 28.571 57.797 29.788 57.9z" />
                     </svg>
                 </div>
                 <div class="card-tech group tooltip tooltip-bottom ring-[#0b85d1]" data-tip="Visual Studio Code">
@@ -418,13 +424,13 @@
 
         <!--Contacts Section Start-->
         <section id="contacts" class="container mx-auto my-10 pt-24">
-            <h1 data-sal="fade" class="text-banner">Contacts</h1>
+            <h1 data-sal="fade" class="text-section-header">Contacts</h1>
             <p data-sal="fade" class="text-center text-lg">
                 Do you want to work with me, or just want to say hi? Send me
                 a message via this form 😉
             </p>
             <div class="my-5 grid grid-cols-1 gap-10 md:gap-0 lg:grid-cols-2">
-                <div class="flex justify-center xl:justify-end lg:pr-10">
+                <div class="flex justify-center lg:pr-10 xl:justify-end">
                     <form id="contact-form" action="https://formspree.io/f/mpzgoerv" method="POST" class="grid w-full max-w-lg gap-5">
                         <div data-sal="fade" class="form-control">
                             <label class="label label-text" for="email">Name</label>
@@ -446,8 +452,8 @@
                     </form>
                 </div>
 
-                <div class="grid grid-cols-1 items-center justify-center lg:pl-10 h-full py-16 lg:py-0">
-                    <div class="container w-auto mx-auto lg:w-full">
+                <div class="grid h-full grid-cols-1 items-center justify-center py-16 lg:py-0 lg:pl-10">
+                    <div class="container mx-auto w-auto lg:w-full">
                         <div data-sal="fade" class="box-social group">
                             <a href="mailto:wisnuwirayuda15@gmail.com" target="_blank" class="card-social ring-[#fbbc05]">
                                 <i class="ti ti-mail icon-social group-hover:text-[#fbbc05]"></i>
@@ -468,7 +474,7 @@
                         </div>
                         <div data-sal="fade" class="box-social group">
                             <a href="https://www.linkedin.com/in/wisnuwirayuda" target="_blank" class="card-social ring-[#0077b5]">
-                                <i class="ti ti-brand-linkedin group-hover:text-[#0077b5] icon-social"></i>
+                                <i class="ti ti-brand-linkedin icon-social group-hover:text-[#0077b5]"></i>
                             </a>
                             <div class="">
                                 <h1 class="text-xl font-black">LinkedIn</h1>
@@ -477,7 +483,7 @@
                         </div>
                         <div data-sal="fade" class="box-social group">
                             <a href="https://www.youtube.com/c/WisnuWirayuda" target="_blank" class="card-social ring-[#ff0000]">
-                                <i class="ti ti-brand-youtube group-hover:text-[#ff0000] icon-social"></i>
+                                <i class="ti ti-brand-youtube icon-social group-hover:text-[#ff0000]"></i>
                             </a>
                             <div class="">
                                 <h1 class="text-xl font-black">YouTube</h1>
@@ -486,16 +492,18 @@
                         </div>
                         <div data-sal="fade" class="box-social group">
                             <a href="https://www.instagram.com/puutuuu_/" target="_blank" class="card-social ring-[#f50283]">
-                                <i class="ti ti-brand-instagram group-hover:text-[#f50283] icon-social"></i>
+                                <i class="ti ti-brand-instagram icon-social group-hover:text-[#f50283]"></i>
                             </a>
                             <div class="">
-                                <h1 class="text-xl font-black">Instagram</h1>
+                                <h1 class="text-xl font-black">
+                                    Instagram
+                                </h1>
                                 <p>@puutuuu_</p>
                             </div>
                         </div>
                         <div data-sal="fade" class="box-social group">
                             <a href="https://www.reddit.com/user/wisnuwirayuda" target="_blank" class="card-social ring-[#ff4500]">
-                                <i class="ti ti-brand-reddit group-hover:text-[#ff4500] icon-social"></i>
+                                <i class="ti ti-brand-reddit icon-social group-hover:text-[#ff4500]"></i>
                             </a>
                             <div class="">
                                 <h1 class="text-xl font-black">Reddit</h1>
@@ -509,13 +517,20 @@
                 <div class="modal-box text-center">
                     <div id="form-modal-icon"></div>
                     <div class="mt-10">
-                        <h3 id="form-modal-title" class="font-bold text-2xl">Hey you 🫵</h3>
-                        <p id="form-modal-text" class="py-4">Don't you dare open this modal without my permission, okay? 😤</p>
+                        <h3 id="form-modal-title" class="text-2xl font-bold">
+                            Hey you 🫵
+                        </h3>
+                        <p id="form-modal-text" class="py-4">
+                            Don't you dare open this modal without my
+                            permission, okay? 😤
+                        </p>
                     </div>
                     <div class="modal-action justify-center">
                         <form method="dialog" class="flex flex-wrap justify-center gap-3">
                             <button class="btn btn-primary">OK</button>
-                            <div id="refresh" onclick="location.reload();" class="btn btn-accent hidden">Refresh now</div>
+                            <div id="refresh" onclick="location.reload();" class="btn btn-accent hidden">
+                                Refresh now
+                            </div>
                         </form>
                     </div>
                 </div>
@@ -527,7 +542,7 @@
 
     <!--Footer Section Start-->
     <footer>
-        <svg class="translate-y-2 z-[-1] transition-transform" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+        <svg class="z-[-1] translate-y-2 transition-transform" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
             <path class="fill-base-200 transition-none" fill-opacity="1" d="M0,128L60,122.7C120,117,240,107,360,128C480,149,600,203,720,218.7C840,235,960,213,1080,186.7C1200,160,1320,128,1380,112L1440,96L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path>
         </svg>
         <div class="footer footer-center bg-base-200 p-5 font-quicksand text-base-content">
@@ -540,17 +555,28 @@
                 </nav>
                 <nav>
                     <div class="grid grid-flow-col">
-                        <p onclick="secret_modal.showModal()" class="ti ti-question-mark text-2xl cursor-help opacity-20"></p>
+                        <p onclick="secret_modal.showModal()" class="ti ti-question-mark cursor-help text-2xl opacity-20"></p>
                     </div>
                     <dialog id="secret_modal" class="modal">
                         <div class="modal-box text-center">
-                            <h3 class="font-bold text-2xl">Oh, so you finally found the "Secret Gate", congratulations 🎊🎉</h3>
-                            <p class="mt-4 text-lg">Are you sure you want to see the secret? 🤔</p>
-                            <p id="warn-text" class="text-sm mt-5 opacity-0 transition-opacity">Please don't, I warned you 🙈</p>
+                            <h3 class="text-2xl font-bold">
+                                Oh, so you finally found the "Secret Gate",
+                                congratulations 🎊🎉
+                            </h3>
+                            <p class="mt-4 text-lg">
+                                Are you sure you want to see the secret? 🤔
+                            </p>
+                            <p id="warn-text" class="mt-5 text-sm opacity-0 transition-opacity">
+                                Please don't, I warned you 🙈
+                            </p>
                             <div class="modal-action justify-center">
                                 <form method="dialog" class="flex flex-wrap justify-center gap-5">
-                                    <button class="btn btn-accent">No, thanks.</button>
-                                    <div id="lol-btn" class="btn btn-primary">Yes sir, take me there!</div>
+                                    <button class="btn btn-accent">
+                                        No, thanks.
+                                    </button>
+                                    <div id="lol-btn" class="btn btn-primary">
+                                        Yes sir, take me there!
+                                    </div>
                                 </form>
                             </div>
                         </div>
@@ -559,11 +585,12 @@
                 <aside>
                     <p class="text-base font-bold">
                         Made with
-                        <i class="ti ti-heart-filled text-red-600 text-lg"></i>
+                        <i class="ti ti-heart-filled text-lg text-red-600"></i>
                         by
                         <span class="text-gradient animate-gradient">Wisnu Wirayuda</span>
                         using
-                        <a href="https://tailwindcss.com/" target="_blank" class="text-[#35bef8]">Tailwind CSS </a>
+                        <a href="https://tailwindcss.com/" target="_blank" class="text-[#35bef8]">Tailwind CSS
+                        </a>
                         and
                         <a href="https://daisyui.com/" target="_blank" class="text-[#1ad1a5]">DaisyUI</a>
                     </p>
@@ -574,9 +601,9 @@
     <!--Footer Section Start-->
 
     <script>
-        const elements = document.querySelectorAll('[data-sal]');
+        const elements = document.querySelectorAll("[data-sal]");
         elements.forEach(function (element) {
-            element.setAttribute('data-sal-duration', '1000');
+            element.setAttribute("data-sal-duration", "1000");
         });
     </script>
     <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
