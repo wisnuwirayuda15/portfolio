@@ -324,7 +324,7 @@ $(window).on("load", function () {
 
     const typewriterHeroDesc = new Typed("#typewriter-hero-desc", {
         strings: [
-            "I am a final-year undergraduate student at Telkom University. My passion lies in the field of web development, with a strong focus on the backend. I am deeply enthusiastic about pursuing a career as a web developer, where I can leverage my skills and knowledge to create innovative and efficient web solutions.",
+            "I'm a final-year undergraduate student at Telkom University with a passion for web development, particularly in the backend. I'm eager to launch a career as a web developer to create innovative web solutions.",
         ],
         typeSpeed: 1,
         showCursor: false,

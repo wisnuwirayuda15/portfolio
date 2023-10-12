@@ -3568,8 +3568,8 @@ path {
   }
 }
 
-.animate-bounce {
-  animation: bounce 1s infinite;
+.animate-bounce-slow {
+  animation: bounce 2s linear infinite;
 }
 
 @keyframes gradient {

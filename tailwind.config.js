@@ -22,6 +22,7 @@ module.exports = {
             animation: {
                 gradient: "gradient 2s linear infinite",
                 "spin-slow": "spin 5s linear infinite",
+                "bounce-slow": "bounce 2s linear infinite",
             },
             keyframes: {
                 gradient: {
