@@ -11,8 +11,8 @@ Halo teman-teman semuanya, dan tentunya juga sepuh kita Pak Sandhika Galih :D. P
 
 Web ini dibikin pure pake HTML, CSS, sama JS aja tanpa framework apapun kaya React (Rencana sih pengen belajar React juga dan kalo udah lumayan ngerti pengen migrasi project ini ke React)
 
-**Repo GitHub:** [wisnuwirayuda15/portfolio](https://github.com/wisnuwirayuda15/portfolio)
+**Repo:** [wisnuwirayuda15/portfolio](https://github.com/wisnuwirayuda15/portfolio)
 <br>
-**Demo Online:** [wisnuwirayuda.vercel.app](https://wisnuwirayuda.vercel.app/)
+**Demo:** [Vercel](https://wisnuwirayuda.vercel.app/) / [Netlify](https://wisnuwirayuda.netlify.app/)
 
 Makasih banyak buat semuanya yang udah mau mampir dan saya sangat berharap Pak Dhika buat review sekaligus ngasih feedback untuk project pertama saya disini 🙏

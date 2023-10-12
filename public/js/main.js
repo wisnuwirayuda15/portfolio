@@ -5,22 +5,27 @@ $(document).ready(function () {
         $("#sidebar-close").click();
     });
 
-    function scrollCheck() {
-        if ($(window).scrollTop() > 1) {
+    function fixedNavbar() {
+        if ($(this).scrollTop() > 1) {
             $("#navbar").addClass("navbar-fixed");
         } else {
             $("#navbar").removeClass("navbar-fixed");
         }
-        if ($(window).scrollTop() > 500) {
+    }
+    fixedNavbar();
+
+    function backToTop() {
+        if ($(this).scrollTop() > 500) {
             $("#back-to-top").fadeIn(500);
         } else {
             $("#back-to-top").fadeOut(500);
         }
     }
-    scrollCheck();
+    backToTop();
 
     $(window).scroll(function () {
-        scrollCheck();
+        fixedNavbar();
+        backToTop();
     });
 
     $("#back-to-top").click(function () {
