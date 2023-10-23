@@ -1,3 +1,28 @@
+function audioPlay(path = "", volume = 1) {
+    const audio = new Audio();
+    audio.src = `audio/${path}`;
+    audio.volume = volume;
+    audio.play();
+}
+
+function fixedNavbar() {
+    $(this).scrollTop() > 1
+        ? $("#navbar").addClass("navbar-fixed")
+        : $("#navbar").removeClass("navbar-fixed");
+}
+
+function favIconHover() {
+    $(this).scrollTop() > 1
+        ? $("#fav-icon").removeClass("peer/logo")
+        : $("#fav-icon").addClass("peer/logo");
+}
+
+function backToTop() {
+    $(this).scrollTop() > 500
+        ? $("#back-to-top").fadeIn(500)
+        : $("#back-to-top").fadeOut(500);
+}
+
 $(document).ready(function () {
     // Sidebar for mobile
     $(".drawer-side li").on("click", function () {
@@ -5,32 +30,25 @@ $(document).ready(function () {
         $("#sidebar-close").click();
     });
 
-    function fixedNavbar() {
-        if ($(this).scrollTop() > 1) {
-            $("#navbar").addClass("navbar-fixed");
-        } else {
-            $("#navbar").removeClass("navbar-fixed");
-        }
-    }
     fixedNavbar();
-
-    function backToTop() {
-        if ($(this).scrollTop() > 500) {
-            $("#back-to-top").fadeIn(500);
-        } else {
-            $("#back-to-top").fadeOut(500);
-        }
-    }
+    favIconHover();
     backToTop();
 
     $(window).scroll(function () {
         fixedNavbar();
+        favIconHover();
         backToTop();
     });
 
     $("#back-to-top").click(function () {
         document.body.scrollTop = 0; // For Safari
         document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE, and Opera
+    });
+
+    $(".theme-change").click(function (e) {
+        $("html").attr("data-theme")
+            ? audioPlay("sound/dark.mp3")
+            : audioPlay("sound/light.mp3");
     });
 
     const owl = $("#projects-carousel");
@@ -50,6 +68,9 @@ $(document).ready(function () {
                 items: 3,
             },
         },
+    });
+    owl.on("changed.owl.carousel", function (event) {
+        audioPlay("sound/interface.mp3");
     });
     $(".owl-custom-next").click(function () {
         owl.trigger("next.owl.carousel");
@@ -88,6 +109,7 @@ $(document).ready(function () {
                     "Your messages have been submitted.",
                 );
                 form_modal.showModal();
+                audioPlay("sound/send-success.mp3");
             },
             error: function (xhr, status, error) {
                 console.error("ERROR: form submit failed. " + error);
@@ -101,6 +123,7 @@ $(document).ready(function () {
                 );
                 $("#refresh").removeClass("hidden");
                 form_modal.showModal();
+                audioPlay("sound/send-failed.mp3");
             },
         });
     });
@@ -117,14 +140,26 @@ $(document).ready(function () {
             "_blank",
         );
     });
+
+    $("#secret-sign").click(function (e) {
+        audioPlay("sound/secret.mp3");
+        secret_modal.showModal();
+    });
+
+    $(".nav-link").each(function (index, element) {
+        $(element).click(function (e) {
+            audioPlay("sound/beepd.mp3");
+        });
+    });
 });
 
 $(window).on("load", function () {
     // window.scrollTo({ top: 0, behavior: "instant" });
 
     $("#preloader-content").fadeOut(500, function () {
+        $(this).hide();
         $("#preloader").slideUp(500, function () {
-            $(this).remove();
+            $(this).hide();
             $("html").css("overflow", "auto");
             console.log(`INFO: preloader end`);
             sal();
@@ -143,7 +178,15 @@ $(window).on("load", function () {
                     .attr("id")}`,
             );
         });
+
         const techDrag = dragula([document.querySelector("#tech-list")]);
+        techDrag.on("drag", function () {
+            audioPlay("sound/bubble.mp3");
+        });
+        techDrag.on("drop", function () {
+            audioPlay("sound/digital-beeping.mp3");
+        });
+
         $("#tech-draggable-text").text(
             $("#tech-draggable-text").text() + " It's draggable by the way 😀",
         );
@@ -152,6 +195,10 @@ $(window).on("load", function () {
             $("#tech-draggable-text").text() + " Click to see the detail 😉",
         );
     }
+
+    $("#tech-list").on("mouseenter", ".card-tech", function () {
+        audioPlay("sound/click-menu.mp3");
+    });
 
     VanillaTilt.init(document.querySelectorAll(".card-tech"), {
         scale: 1.2,
@@ -329,7 +376,7 @@ $(window).on("load", function () {
 
     const typewriterHeroDesc = new Typed("#typewriter-hero-desc", {
         strings: [
-            "I'm a final-year undergraduate student at Telkom University with a passion for web development, particularly in the backend. I'm eager to launch a career as a web developer to create innovative web solutions.",
+            "I'm a final-year undergraduate student at Telkom University with a passion for full-stack web development. I'm eager to launch a career as a web developer to create innovative web solutions.",
         ],
         typeSpeed: 1,
         showCursor: false,

@@ -4,13 +4,17 @@
 
 @layer base {
     html {
-        @apply custom-scrollbar select-none scroll-smooth;
+        @apply custom-scrollbar select-none !overflow-x-hidden scroll-smooth;
         overflow: hidden;
     }
 
-    path {
+    /* section {
+        scroll-snap-align: center;
+    } */
+
+    /* path {
         @apply transition-colors;
-    }
+    } */
 
     /* * {
         @apply border border-red-600;
@@ -65,7 +69,7 @@
     }
 
     .btn {
-        @apply normal-case hover:drop-shadow-lg;
+        @apply hover:drop-shadow-lg;
     }
 
     .btn-primary,
@@ -114,12 +118,20 @@
     .owl-custom-next {
         @apply right-5 xl:right-20;
     }
+
+    .blob {
+        @apply absolute -z-10 w-[50rem] origin-center animate-spin-slowest;
+    }
 }
 
 .navbar-fixed {
-    @apply !fixed z-10 bg-opacity-50 shadow-lg;
-    backdrop-filter: blur(5px);
+    @apply !fixed z-10 w-[95%] translate-y-2 rounded-full bg-base-100 bg-opacity-50 shadow-md md:w-[85%] xl:w-[75%];
+    /* backdrop-filter: blur(5px); */
     /* box-shadow: inset 0 -1px 0 0 rgba(0, 0, 0, 0.1); */
+}
+
+.navbar {
+    backdrop-filter: blur(5px);
 }
 
 .dev {

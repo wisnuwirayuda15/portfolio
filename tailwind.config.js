@@ -22,6 +22,7 @@ module.exports = {
             animation: {
                 gradient: "gradient 2s linear infinite",
                 "spin-slow": "spin 5s linear infinite",
+                "spin-slowest": "spin 100s linear infinite",
                 "bounce-slow": "bounce 2s linear infinite",
             },
             keyframes: {
@@ -40,17 +41,38 @@ module.exports = {
     },
     daisyui: {
         themes: [
-            "cupcake",
             {
+                light: {
+                    ...require("daisyui/src/theming/themes")[
+                        "[data-theme=light]"
+                    ],
+                    primary: "#65c3c8",
+                    secondary: "#ef9fbc",
+                    accent: "#eeaf3a",
+                    info: "#3abff8",
+                    success: "#36d399",
+                    warning: "#fbbd23",
+                    error: "#f87272",
+                    "--btn-text-case": "normal",
+                },
                 night: {
                     ...require("daisyui/src/theming/themes")[
-                        "[data-theme=night]"
+                        "[data-theme=dark]"
                     ],
-                    neutral: "#4b5563",
-                    "base-100": "#1d283a",
+                    primary: "#3abff8",
+                    secondary: "#828df8",
+                    accent: "#f471b5",
+                    info: "#0ca6e9",
+                    success: "#2bd4bd",
+                    warning: "#f4c152",
+                    error: "#fb6f84",
+                    "--btn-text-case": "normal",
                 },
             },
         ],
     },
-    plugins: [require("daisyui"), require("tailwind-scrollbar")({ nocompatible: true })],
+    plugins: [
+        require("daisyui"),
+        require("tailwind-scrollbar")({ nocompatible: true }),
+    ],
 };
