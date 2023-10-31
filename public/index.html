@@ -15,7 +15,7 @@
     <meta name="author" content="Wisnu Wirayuda" />
     <meta name="robots" content="index, follow" />
     <meta name="googlebot" content="index, follow" />
-    <meta name="theme-color" content="#faf7f5" />
+    <meta name="theme-color" content="#ffffff" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <link rel="icon" href="svg/logo-light.svg" type="image/svg+xml" />
@@ -23,9 +23,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Quicksand:wght@400;700&display=swap" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sal.js@0.8.5/dist/sal.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/theme-change@2.0.2/index.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dragula/3.7.3/dragula.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dragula/3.7.3/dragula.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
@@ -39,6 +39,7 @@
 <!-- Body Section Start -->
 
 <body>
+    <!-- Preloader Start -->
     <div id="preloader" class="center-all fixed inset-0 z-50 flex bg-base-200 font-poppins">
         <div id="preloader-content" class="center-all mx-5 grid h-full grid-cols-1 gap-10">
             <div aria-label="Orange and tan hamster running in a metal wheel" role="img" class="wheel-and-hamster">
@@ -64,11 +65,11 @@
                 access this website. If you don't want to, you can enjoy
                 this orange hamster running in a metal wheel instead :)
             </p>
-            <script>
+            <script type="application/javascript">
                 const loadingText = document.getElementById("loading-text");
                 loadingText.style.display = "none";
                 setTimeout(function () {
-                    loadingText.innerHTML =
+                    loadingText.innerText =
                         "If it takes too long, check your internet connection or use another browser. Google Chrome or Firefox is recommended by me.";
                     loadingText.style.display = "block";
                 }, 20000);
@@ -78,9 +79,23 @@
                 <a class="link text-primary" href="https://uiverse.io/Nawsome/wet-mayfly-23" target="_blank">Nawsome</a>
             </p>
         </div>
+        <div id="preloader-confirm" class="center-all mx-5 hidden">
+            <p class="mb-5">Do you want to enable sound? 🎵</p>
+            <div class="flex flex-wrap justify-center gap-5">
+                <button data-sound="true" class="btn btn-primary transition-all md:hover:px-8">
+                    <span class="text-lg">Why not?</span>
+                    <i class="ti ti-volume text-xl"></i>
+                </button>
+                <button data-sound="false" class="btn btn-accent transition-all md:hover:px-8">
+                    <span class="text-lg">No thanks</span>
+                    <i class="ti ti-volume-3 text-xl"></i>
+                </button>
+            </div>
+        </div>
     </div>
+    <!-- Preloader End -->
 
-    <button id="back-to-top" data-tip="Back to top" class="tooltip tooltip-left center-all fixed bottom-3 right-0 z-30 hidden h-12 w-12 rounded-s-full border border-base-100 bg-primary ring-primary transition-shadow hover:ring-4">
+    <button id="back-to-top" data-tip="Back to top" class="center-all tooltip tooltip-left fixed bottom-3 right-0 z-30 hidden h-12 w-12 rounded-s-full border border-base-100 bg-primary ring-primary transition-shadow hover:ring-4">
         <i class="ti ti-chevrons-up text-3xl text-base-100"></i>
     </button>
 
@@ -88,10 +103,10 @@
     <header class="font-quicksand">
         <div class="drawer drawer-end">
             <input id="sidebar-menu" type="checkbox" class="drawer-toggle" />
-            <div class="drawer-content justify-center flex">
+            <div class="drawer-content flex justify-center">
                 <nav id="navbar" class="navbar fixed px-3 font-quicksand transition-all lg:px-10">
                     <div class="navbar-start">
-                        <a id="fav-icon" href="/" class="peer/logo z-20 flex items-center gap-5 transition hover:scale-110">
+                        <a data-aos="fade-in" id="fav-icon" href="/" class="peer/logo z-20 flex items-center gap-5 transition hover:scale-110">
                             <svg class="h-[40px] w-[40px] lg:h-[50px] lg:w-[50px]" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0,0,256,256" width="480px" height="480px">
                                 <g transform="">
                                     <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
@@ -110,41 +125,77 @@
                             Wisnu Wirayuda
                         </div>
                     </div>
-                    <div class="navbar-center hidden justify-center gap-10 text-xl font-black md:flex lg:gap-14">
-                        <a href="#about" class="nav-link animate-underline underline-from-left hover:text-gradient">
-                            <i class="ti ti-info-circle-filled"></i> About</a>
-                        <a href="#projects" class="nav-link animate-underline underline-from-mid hover:text-gradient">
+                    <div class="navbar-center hidden justify-center gap-10 text-xl font-black lg:flex lg:gap-14">
+                        <a data-aos="fade-down" data-aos-delay="0" href="#about" class="nav-link animate-underline underline-from-left hover:text-gradient">
+                            <i class="ti ti-info-circle-filled"></i>
+                            About</a>
+                        <a data-aos="fade-down" data-aos-delay="200" href="#projects" class="nav-link animate-underline underline-from-mid hover:text-gradient">
                             <i class="ti ti-star-filled"></i> Projects</a>
-                        <a href="#skills" class="nav-link animate-underline underline-from-mid hover:text-gradient">
+                        <a data-aos="fade-down" data-aos-delay="400" href="#skills" class="nav-link animate-underline underline-from-mid hover:text-gradient">
                             <i class="ti ti-affiliate-filled"></i> Skills</a>
-                        <a href="#contacts" class="nav-link animate-underline underline-from-right hover:text-gradient">
+                        <a data-aos="fade-down" data-aos-delay="600" href="#contacts" class="nav-link animate-underline underline-from-right hover:text-gradient">
                             <i class="ti ti-phone-filled"></i> Contacts</a>
                     </div>
                     <div class="navbar-end">
-                        <div data-toggle-theme="night" data-act-class="swap-active" class="theme-change btn btn-ghost swap swap-rotate tooltip tooltip-left hidden transition-all md:inline-grid" data-tip="Toggle theme">
-                            <i class="ti ti-sun swap-off animate-spin-slow text-3xl"></i>
-                            <i class="ti ti-moon animate__animated animate__tada animate__infinite swap-on text-3xl"></i>
-                        </div>
-                        <label id="sidebar-open" onclick="$('html').css('overflow', 'hidden')" for="sidebar-menu" class="btn btn-ghost md:hidden">
+                        <label data-aos="fade-in" id="sidebar-open" onclick="$('html').css('overflow', 'hidden');" for="sidebar-menu" class="btn btn-ghost lg:hidden">
                             <i class="ti ti-menu-2 text-2xl"></i>
+                        </label>
+
+                        <label data-aos="fade-in" id="settings" onclick="settings_modal.showModal()" class="btn btn-ghost hidden px-2 lg:inline-grid">
+                            <i class="ti ti-settings-2 text-2xl"></i>
                         </label>
                     </div>
                 </nav>
+
+                <dialog id="settings_modal" class="modal">
+                    <div class="modal-box flex h-56 items-center justify-center overflow-hidden">
+                        <div class="flex w-full justify-evenly">
+                            <div class="tooltip tooltip-bottom hidden lg:inline-grid" data-tip="Toggle sound">
+                                <label class="btn-base-100 btn swap h-16 w-16 px-2 text-3xl">
+                                    <input class="sound-toggle" type="checkbox" checked />
+                                    <i class="ti ti-volume swap-off"></i>
+                                    <i class="ti ti-volume-3 swap-on"></i>
+                                </label>
+                            </div>
+                            <div data-toggle-theme="night" data-act-class="swap-active" class="theme-change btn-base-100 btn swap swap-rotate tooltip tooltip-bottom hidden h-16 w-16 px-2 transition-all lg:inline-grid" data-tip="Toggle theme">
+                                <i class="ti ti-sun swap-off animate-spin-slow text-3xl"></i>
+                                <i class="ti ti-moon animate__animated animate__tada animate__infinite swap-on text-3xl"></i>
+                            </div>
+                            <p class="text-center lg:hidden">
+                                You are in mobile resolution, click outside
+                                to close this box
+                            </p>
+                        </div>
+                    </div>
+                    <form method="dialog" class="modal-backdrop">
+                        <button class="cursor-default"></button>
+                    </form>
+                </dialog>
             </div>
-            <div class="drawer-side inset-0 z-40 md:hidden">
+
+            <div class="drawer-side inset-0 z-40 lg:hidden">
                 <div class="drawer-overlay"></div>
                 <div class="menu h-full w-full bg-base-100 p-4 text-base-content">
                     <div class="flex justify-between">
-                        <div data-toggle-theme="night" data-act-class="swap-active" class="theme-change swap-rotate btn btn-ghost swap transition-all">
-                            <i class="ti ti-sun swap-off animate-spin-slow text-3xl"></i>
-                            <i class="ti ti-moon animate__animated animate__tada animate__infinite swap-on text-3xl"></i>
+                        <div class="flex items-center">
+                            <div data-toggle-theme="night" data-act-class="swap-active" class="theme-change btn btn-ghost swap swap-rotate px-2 transition-all">
+                                <i class="ti ti-sun swap-off animate-spin-slow text-3xl"></i>
+                                <i class="ti ti-moon animate__animated animate__tada animate__infinite swap-on text-3xl"></i>
+                            </div>
+                            <div>
+                                <label class="btn btn-ghost swap px-2 text-3xl">
+                                    <input class="sound-toggle" type="checkbox" checked />
+                                    <i class="ti ti-volume swap-off"></i>
+                                    <i class="ti ti-volume-3 swap-on"></i>
+                                </label>
+                            </div>
                         </div>
-                        <label id="sidebar-close" onclick="$('html').css('overflow', 'auto')" for="sidebar-menu" class="btn btn-ghost">
+                        <label id="sidebar-close" onclick="$('html').css('overflow', 'auto')" for="sidebar-menu" class="btn btn-ghost px-2">
                             <i class="ti ti-x text-2xl"></i>
                         </label>
                     </div>
-                    <ul class="menu px-1 text-center text-lg font-extrabold">
-                        <label for="sidebar-menu">
+                    <ul class="menu flex items-center justify-center px-1 text-center text-lg font-extrabold">
+                        <div id="mobile-menu" class="w-full">
                             <li>
                                 <a href="#about" class="nav-link btn btn-ghost text-xl">About</a>
                             </li>
@@ -157,7 +208,7 @@
                             <li>
                                 <a href="#contacts" class="nav-link btn btn-ghost text-xl">Contacts</a>
                             </li>
-                        </label>
+                        </div>
                     </ul>
                 </div>
             </div>
@@ -178,28 +229,30 @@
         <section id="about" class="container mx-auto my-10 pt-12">
             <div class="md:center-all grid grid-cols-1 gap-10 lg:grid-cols-2 lg:gap-0">
                 <div id="hero-profile" class="flex h-full w-full justify-center lg:justify-end lg:pr-10">
-                    <div data-sal="slide-up" class="bg-gradient group mask mask-hexagon flex h-auto w-[350px] justify-center ring-4 transition ease-in-out hover:animate-gradient md:w-[450px] xl:w-[500px]" title="Hello :)">
+                    <div data-aos="flip-up" class="bg-gradient group mask mask-hexagon flex h-auto w-[350px] justify-center ring-4 transition ease-in-out hover:animate-gradient md:w-[450px] xl:w-[500px]" title="Hello :)">
                         <img src="img/profile.webp" class="group translate-y-16 grayscale transition ease-in-out group-hover:translate-y-5 group-hover:grayscale-0" alt="hero profile" />
                     </div>
                 </div>
                 <div id="hero-text" class="grid w-full justify-center gap-5 px-2 py-5 text-center lg:items-start lg:justify-start lg:text-start">
-
                     <h1 id="typewriter-hero-text" class="text-4xl font-semibold"></h1>
 
                     <p id="typewriter-hero-desc" class="text-lg lg:max-w-xl"></p>
 
                     <div>
-                        <div data-sal="slide-up" class="dropdown dropdown-hover">
+                        <div data-aos="fade-up" class="dropdown dropdown-hover">
                             <label id="download-resume" tabindex="0" class="group btn btn-primary btn-block md:!w-auto md:!px-11">
                                 Download Resume
-                                <i class="ti ti-chevron-down text-2xl group-hover:rotate-180 transition-transform"></i>
+                                <i class="ti ti-chevron-down text-2xl transition-transform group-hover:rotate-180"></i>
                             </label>
-                            <ul tabindex="0" class="dropdown-content z-[1] menu p-2 drop-shadow-lg bg-base-200 rounded-box w-52">
+                            <ul tabindex="0" class="menu dropdown-content rounded-box z-[1] w-52 bg-base-200 p-2 drop-shadow-lg">
                                 <li>
-                                    <a href="doc/Resume_Putu Wisnu Wirayuda Putra.pdf" target="_blank"><i class="ti ti-file-download text-xl"></i> Direct download
+                                    <a href="doc/Resume_Putu Wisnu Wirayuda Putra.pdf" target="_blank"><i class="ti ti-file-download text-xl"></i>
+                                        Direct download
                                     </a>
                                 </li>
-                                <li> <a href="https://drive.google.com/file/d/19dgdpZ56FVvNO2gTAFcp9ByzPxg59S4I/view?usp=sharing" target="_blank"><i class="ti ti-brand-google-drive text-xl"></i> Google Drive
+                                <li>
+                                    <a href="https://drive.google.com/file/d/19dgdpZ56FVvNO2gTAFcp9ByzPxg59S4I/view?usp=sharing" target="_blank"><i class="ti ti-brand-google-drive text-xl"></i>
+                                        Google Drive
                                     </a>
                                 </li>
                             </ul>
@@ -212,19 +265,24 @@
 
         <!--Projects Section Start-->
         <section id="projects" class="container mx-auto my-10 pt-24">
-            <h1 data-sal="slide-up" class="text-section-header">Projects</h1>
-            <p data-sal="slide-up" class="text-center text-lg">
+            <div data-aos="fade-up">
+                <h1 class="text-section-header">
+                    Projects
+                </h1>
+            </div>
+            <p data-aos="fade-up" data-aos-delay="100" class="text-center text-lg">
                 Some things I've worked on 😎
             </p>
             <div class="mx-auto my-5 flex w-10/12 place-items-center">
                 <!-- Carousel Start -->
-                <button data-sal="slide-right" aria-label="Project Previous" data-tip="Previous" class="owl-btn owl-custom-prev tooltip">
+                <button data-aos="fade-right" aria-label="Project Previous" data-tip="Previous" class="owl-btn owl-custom-prev tooltip">
                     <i class="ti ti-chevron-left text-4xl"></i>
                 </button>
-                <div data-sal="slide-up" id="projects-carousel" class="owl-carousel owl-theme">
+
+                <div data-aos="fade-up" id="projects-carousel" class="owl-carousel owl-theme">
                     <div id="bidji-course" class="card-project">
                         <div class="overflow-hidden">
-                            <div class="center-all absolute z-[1] flex aspect-video w-full bg-gradient-to-t from-base-200 group peer">
+                            <div class="center-all group peer absolute z-[1] flex aspect-video w-full bg-gradient-to-t from-base-200">
                                 <a href="https://youtu.be/065LOIBn_nk?si=0XBjiky5qyTCAUAr" target="_blank">
                                     <div class="tooltip opacity-0 transition delay-200 group-hover:scale-125 group-hover:opacity-100" data-tip="View demo on YouTube">
                                         <svg class="h-16 w-16" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="256" height="256" viewBox="0 0 256 256" xml:space="preserve">
@@ -384,7 +442,8 @@
                         </div>
                     </div>
                 </div>
-                <button data-sal="slide-left" aria-label="Project Next" data-tip="Next" class="owl-btn owl-custom-next tooltip">
+
+                <button data-aos="fade-left" aria-label="Project Next" data-tip="Next" class="owl-btn owl-custom-next tooltip">
                     <i class="ti ti-chevron-right text-4xl"></i>
                 </button>
                 <!-- Carousel End -->
@@ -394,11 +453,15 @@
 
         <!--Skills Section Start-->
         <section id="skills" class="container mx-auto my-10 pt-24">
-            <h1 data-sal="slide-up" class="text-section-header">Skills</h1>
-            <p data-sal="slide-up" id="tech-draggable-text" class="text-center text-lg">
+            <div data-aos="fade-up">
+                <h1 class="text-section-header">
+                    Skills
+                </h1>
+            </div>
+            <p data-aos="fade-up" data-aos-delay="100" id="tech-draggable-text" class="text-center text-lg">
                 Some technologies and tools that I have used 😊
             </p>
-            <div data-sal="fade" id="tech-list" class="my-10 flex flex-wrap justify-center gap-14 xl:mx-10" title="Hold and click to drag the item">
+            <div data-aos="fade-up" id="tech-list" class="my-10 flex flex-wrap justify-center gap-14 xl:mx-10" title="Hold and click to drag the item">
                 <div class="card-tech group tooltip tooltip-bottom ring-[#e44d26]" data-tip="HTML">
                     <img loading="lazy" src="img/brand/html.png" class="icon-tech w-20" alt="HTML" />
                 </div>
@@ -455,27 +518,31 @@
 
         <!--Contacts Section Start-->
         <section id="contacts" class="container mx-auto my-10 pt-24">
-            <h1 data-sal="slide-up" class="text-section-header">Contacts</h1>
-            <p data-sal="slide-up" class="text-center text-lg">
+            <div data-aos="fade-up">
+                <h1 class="text-section-header">
+                    Contacts
+                </h1>
+            </div>
+            <p data-aos="fade-up" data-aos-delay="100" class="text-center text-lg">
                 Do you want to work with me, or just want to say hi? Send me
                 a message via this form 😉
             </p>
             <div class="my-5 grid grid-cols-1 gap-10 md:gap-0 lg:grid-cols-2">
                 <div class="flex justify-center lg:pr-10 xl:justify-end">
-                    <form data-sal="slide-up" id="contact-form" action="https://formspree.io/f/mpzgoerv" method="POST" class="grid w-full max-w-lg gap-5">
-                        <div class="form-control">
+                    <form id="contact-form" action="https://formspree.io/f/mpzgoerv" method="POST" class="grid w-full max-w-lg gap-5">
+                        <div data-aos="fade-up" class="form-control">
                             <label class="label label-text" for="email">Name</label>
                             <input name="Name" type="text" placeholder="What is your name?" class="input input-bordered" autocomplete="off" required />
                         </div>
-                        <div class="form-control">
+                        <div data-aos="fade-up" class="form-control">
                             <label class="label label-text" for="email">Email</label>
                             <input name="Email" type="email" placeholder="What is your active email?" class="input input-bordered" autocomplete="off" required />
                         </div>
-                        <div class="form-control">
+                        <div data-aos="fade-up" class="form-control">
                             <label class="label label-text" for="messages">Messages</label>
                             <textarea name="Messages" class="textarea textarea-bordered textarea-lg resize-none" placeholder="What's on your mind?" rows="8" required></textarea>
                         </div>
-                        <div class="tooltip mt-5 w-full" data-tip="Send your messages to me 😄">
+                        <div data-aos="fade-up" class="tooltip mt-5 w-full" data-tip="Send your messages to me 😄">
                             <button id="form-submit" class="btn btn-primary btn-block">
                                 Submit <i class="ti ti-send text-lg"></i>
                             </button>
@@ -485,7 +552,7 @@
 
                 <div class="grid h-full grid-cols-1 items-center justify-center py-16 lg:py-0 lg:pl-10">
                     <div class="container mx-auto w-auto lg:w-full">
-                        <div data-sal="slide-up" class="box-social group">
+                        <div data-aos="fade-up" class="box-social group">
                             <a href="mailto:wisnuwirayuda15@gmail.com" target="_blank" class="card-social ring-[#fbbc05]">
                                 <i class="ti ti-mail icon-social group-hover:text-[#fbbc05]"></i>
                             </a>
@@ -494,7 +561,7 @@
                                 <p>wisnuwirayuda15@gmail.com</p>
                             </div>
                         </div>
-                        <div data-sal="slide-up" class="box-social group">
+                        <div data-aos="fade-up" class="box-social group">
                             <a href="https://github.com/wisnuwirayuda15" target="_blank" class="card-social ring-current">
                                 <i class="ti ti-brand-github icon-social"></i>
                             </a>
@@ -503,7 +570,7 @@
                                 <p>wisnuwirayuda15</p>
                             </div>
                         </div>
-                        <div data-sal="slide-up" class="box-social group">
+                        <div data-aos="fade-up" class="box-social group">
                             <a href="https://www.linkedin.com/in/wisnuwirayuda" target="_blank" class="card-social ring-[#0077b5]">
                                 <i class="ti ti-brand-linkedin icon-social group-hover:text-[#0077b5]"></i>
                             </a>
@@ -512,7 +579,7 @@
                                 <p>Putu Wisnu Wirayuda Putra</p>
                             </div>
                         </div>
-                        <div data-sal="slide-up" class="box-social group">
+                        <div data-aos="fade-up" class="box-social group">
                             <a href="https://www.youtube.com/c/WisnuWirayuda" target="_blank" class="card-social ring-[#ff0000]">
                                 <i class="ti ti-brand-youtube icon-social group-hover:text-[#ff0000]"></i>
                             </a>
@@ -521,7 +588,7 @@
                                 <p>Wisnu Wirayuda</p>
                             </div>
                         </div>
-                        <div data-sal="slide-up" class="box-social group">
+                        <div data-aos="fade-up" class="box-social group">
                             <a href="https://www.instagram.com/puutuuu_/" target="_blank" class="card-social ring-[#f50283]">
                                 <i class="ti ti-brand-instagram icon-social group-hover:text-[#f50283]"></i>
                             </a>
@@ -532,7 +599,7 @@
                                 <p>@puutuuu_</p>
                             </div>
                         </div>
-                        <div data-sal="slide-up" class="box-social group">
+                        <div data-aos="fade-up" class="box-social group">
                             <a href="https://www.reddit.com/user/wisnuwirayuda" target="_blank" class="card-social ring-[#ff4500]">
                                 <i class="ti ti-brand-reddit icon-social group-hover:text-[#ff4500]"></i>
                             </a>
@@ -572,73 +639,81 @@
     <!-- Main Section End -->
 
     <!--Footer Section Start-->
-    <footer>
-        <svg data-sal="slide-up" class="z-[-1] translate-y-2 transition-transform" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+    <footer data-aos="fade-in" data-aos-offset="400">
+        <dialog id="secret_modal" class="modal select-none">
+            <div class="modal-box text-center">
+                <h3 class="text-2xl font-bold">
+                    Oh, so you finally found the "Secret Gate",
+                    congratulations 🎊🎉
+                </h3>
+                <p class="mt-4 text-lg">
+                    Are you sure you want to see the secret? 🤔
+                </p>
+                <p id="warn-text" class="mt-5 text-sm opacity-0 transition-opacity">
+                    Please don't, I warned you 🙈
+                </p>
+                <div class="modal-action justify-center">
+                    <form method="dialog" class="flex flex-wrap justify-center gap-5">
+                        <button class="btn btn-accent">
+                            No, thanks.
+                        </button>
+                        <button id="lol-btn" class="btn btn-primary" onmouseenter="$('#warn-text').css('opacity', 100);" onmouseleave="$('#warn-text').css('opacity', 0);">
+                            Yes sir, take me there!
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </dialog>
+
+        <svg class="z-[-1] translate-y-2 transition-transform" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
             <path class="fill-base-200 transition-none" fill-opacity="1" d="M0,128L60,122.7C120,117,240,107,360,128C480,149,600,203,720,218.7C840,235,960,213,1080,186.7C1200,160,1320,128,1380,112L1440,96L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path>
         </svg>
+
         <div class="footer footer-center bg-base-200 p-5 font-quicksand text-base-content">
-            <div class="gap-5" data-sal="slide-up">
-                <nav class="grid grid-flow-col gap-4 font-bold">
-                    <a href="#about" class="hover:text-gradient">About</a>
-                    <a href="#projects" class="hover:text-gradient">Projects</a>
-                    <a href="#skills" class="hover:text-gradient">Skills</a>
-                    <a href="#contacts" class="hover:text-gradient">Contacts</a>
+            <div>
+                <nav class="grid grid-flow-col gap-4 font-bold mb-2">
+                    <a href="#about" class="animate-underline underline-from-left hover:text-gradient">About</a>
+                    <a href="#projects" class="animate-underline underline-from-mid hover:text-gradient">Projects</a>
+                    <a href="#skills" class="animate-underline underline-from-mid hover:text-gradient">Skills</a>
+                    <a href="#contacts" class="animate-underline underline-from-right hover:text-gradient">Contacts</a>
                 </nav>
-                <nav>
-                    <div class="grid grid-flow-col">
-                        <p id="secret-sign" class="ti ti-question-mark cursor-help text-2xl opacity-20"></p>
-                    </div>
-                    <dialog id="secret_modal" class="modal select-none">
-                        <div class="modal-box text-center">
-                            <h3 class="text-2xl font-bold">
-                                Oh, so you finally found the "Secret Gate",
-                                congratulations 🎊🎉
-                            </h3>
-                            <p class="mt-4 text-lg">
-                                Are you sure you want to see the secret? 🤔
-                            </p>
-                            <p id="warn-text" class="mt-5 text-sm opacity-0 transition-opacity">
-                                Please don't, I warned you 🙈
-                            </p>
-                            <div class="modal-action justify-center">
-                                <form method="dialog" class="flex flex-wrap justify-center gap-5">
-                                    <button class="btn btn-accent">
-                                        No, thanks.
-                                    </button>
-                                    <div id="lol-btn" class="btn btn-primary">
-                                        Yes sir, take me there!
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </dialog>
-                </nav>
-                <aside>
-                    <p class="text-base font-bold">
-                        Made with
-                        <i class="ti ti-heart-filled text-lg text-red-600"></i>
-                        by
-                        <span class="text-gradient animate-gradient">Wisnu Wirayuda</span>
-                        using
-                        <a data-tip="v3.3.3" href="https://tailwindcss.com/" target="_blank" class="text-[#35bef8] tooltip">Tailwind CSS
-                        </a>
-                        and
-                        <a data-tip="v3.9.2" href="https://daisyui.com/" target="_blank" class="text-[#1ad1a5] tooltip">DaisyUI</a>
-                    </p>
-                </aside>
+
+                <div class="grid grid-flow-col">
+                    <p id="secret-sign" class="ti ti-question-mark cursor-help text-2xl opacity-20"></p>
+                </div>
+
+                <p class="text-base font-bold">
+                    Made with
+                    <i class="ti ti-heart-filled text-lg text-red-600"></i>
+                    by
+                    <span class="text-gradient animate-gradient">Wisnu Wirayuda</span>
+                    using
+                    <a data-tip="v3.3.3" href="https://tailwindcss.com/" target="_blank" class="link tooltip text-[#35bef8]">Tailwind CSS
+                    </a>
+                    and
+                    <a data-tip="v3.9.2" href="https://daisyui.com/" target="_blank" class="link tooltip text-[#1ad1a5]">DaisyUI</a>
+                </p>
+
+                <div class="flex w-full justify-center">
+                    <a href="https://pixabay.com/" target="_blank" class="link tooltip" data-tip="Sounds">Pixabay
+                    </a>
+                    <div class="divider divider-horizontal"></div>
+                    <a href="https://tabler-icons.io/" target="_blank" class="link tooltip" data-tip="Icons">Tabler Icons
+                    </a>
+                    <div class="divider divider-horizontal"></div>
+                    <a href="https://formspree.io/" target="_blank" class="link tooltip" data-tip="Form">Formspree
+                    </a>
+                    <div class="divider divider-horizontal"></div>
+                    <a href="https://fonts.google.com/" target="_blank" class="link tooltip" data-tip="Fonts">Google Fonts
+                    </a>
+                </div>
             </div>
         </div>
     </footer>
     <!--Footer Section Start-->
 
-    <script>
-        const elements = document.querySelectorAll("[data-sal]");
-        elements.forEach(function (element) {
-            element.setAttribute("data-sal-duration", "1000");
-        });
-    </script>
     <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sal.js@0.8.5/dist/sal.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
     <script src="js/main.js"></script>

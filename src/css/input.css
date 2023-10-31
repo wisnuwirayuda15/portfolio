@@ -122,6 +122,10 @@
     .blob {
         @apply absolute -z-10 w-[50rem] origin-center animate-spin-slowest;
     }
+
+    .divider-horizontal {
+        @apply mx-0;
+    }
 }
 
 .navbar-fixed {
