@@ -39,66 +39,6 @@
 <!-- Body Section Start -->
 
 <body>
-    <!-- Preloader Start -->
-    <div id="preloader" class="center-all fixed inset-0 z-50 flex bg-base-200 font-poppins">
-        <div id="preloader-content" class="center-all mx-5 grid h-full grid-cols-1 gap-10">
-            <div aria-label="Orange and tan hamster running in a metal wheel" role="img" class="wheel-and-hamster">
-                <div class="wheel"></div>
-                <div class="hamster">
-                    <div class="hamster__body">
-                        <div class="hamster__head">
-                            <div class="hamster__ear"></div>
-                            <div class="hamster__eye"></div>
-                            <div class="hamster__nose"></div>
-                        </div>
-                        <div class="hamster__limb hamster__limb--fr"></div>
-                        <div class="hamster__limb hamster__limb--fl"></div>
-                        <div class="hamster__limb hamster__limb--br"></div>
-                        <div class="hamster__limb hamster__limb--bl"></div>
-                        <div class="hamster__tail"></div>
-                    </div>
-                </div>
-                <div class="spoke"></div>
-            </div>
-            <p id="loading-text" class="absolute top-3 max-w-xl text-lg text-red-500">
-                JavaScript is disabled in your browser, please enable it to
-                access this website. If you don't want to, you can enjoy
-                this orange hamster running in a metal wheel instead :)
-            </p>
-            <script type="application/javascript">
-                const loadingText = document.getElementById("loading-text");
-                loadingText.style.display = "none";
-                setTimeout(function () {
-                    loadingText.innerText =
-                        "If it takes too long, check your internet connection or use another browser. Google Chrome or Firefox is recommended by me.";
-                    loadingText.style.display = "block";
-                }, 20000);
-            </script>
-            <p class="absolute bottom-3">
-                Animation by
-                <a class="link text-primary" href="https://uiverse.io/Nawsome/wet-mayfly-23" target="_blank">Nawsome</a>
-            </p>
-        </div>
-        <div id="preloader-confirm" class="center-all mx-5 hidden">
-            <p class="mb-5">Do you want to enable sound? 🎵</p>
-            <div class="flex flex-wrap justify-center gap-5">
-                <button data-sound="true" class="btn btn-primary transition-all md:hover:px-8">
-                    <span class="text-lg">Why not?</span>
-                    <i class="ti ti-volume text-xl"></i>
-                </button>
-                <button data-sound="false" class="btn btn-accent transition-all md:hover:px-8">
-                    <span class="text-lg">No thanks</span>
-                    <i class="ti ti-volume-3 text-xl"></i>
-                </button>
-            </div>
-        </div>
-    </div>
-    <!-- Preloader End -->
-
-    <button id="back-to-top" data-tip="Back to top" class="center-all tooltip tooltip-left fixed bottom-3 right-0 z-30 hidden h-12 w-12 rounded-s-full border border-base-100 bg-primary ring-primary transition-shadow hover:ring-4">
-        <i class="ti ti-chevrons-up text-3xl text-base-100"></i>
-    </button>
-
     <!--Navbar Section Start-->
     <header class="font-quicksand">
         <div class="drawer drawer-end">
@@ -106,7 +46,7 @@
             <div class="drawer-content flex justify-center">
                 <nav id="navbar" class="navbar fixed px-3 font-quicksand transition-all lg:px-10">
                     <div class="navbar-start">
-                        <a data-aos="fade-in" id="fav-icon" href="/" class="peer/logo z-20 flex items-center gap-5 transition hover:scale-110">
+                        <a id="fav-icon" href="/" class="peer/logo z-20 flex items-center gap-5 transition hover:scale-110">
                             <svg class="h-[40px] w-[40px] lg:h-[50px] lg:w-[50px]" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0,0,256,256" width="480px" height="480px">
                                 <g transform="">
                                     <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
@@ -126,22 +66,30 @@
                         </div>
                     </div>
                     <div class="navbar-center hidden justify-center gap-10 text-xl font-black lg:flex lg:gap-14">
-                        <a data-aos="fade-down" data-aos-delay="0" href="#about" class="nav-link animate-underline underline-from-left hover:text-gradient">
-                            <i class="ti ti-info-circle-filled"></i>
-                            About</a>
-                        <a data-aos="fade-down" data-aos-delay="200" href="#projects" class="nav-link animate-underline underline-from-mid hover:text-gradient">
-                            <i class="ti ti-star-filled"></i> Projects</a>
-                        <a data-aos="fade-down" data-aos-delay="400" href="#skills" class="nav-link animate-underline underline-from-mid hover:text-gradient">
-                            <i class="ti ti-affiliate-filled"></i> Skills</a>
-                        <a data-aos="fade-down" data-aos-delay="600" href="#contacts" class="nav-link animate-underline underline-from-right hover:text-gradient">
-                            <i class="ti ti-phone-filled"></i> Contacts</a>
+                        <span data-aos="fade-down" data-aos-delay="0">
+                            <a href="#about" class="nav-link nav-page animate-underline underline-from-left hover:text-gradient">
+                                <i class="ti ti-info-circle-filled"></i>
+                                About</a>
+                        </span>
+                        <span data-aos="fade-down" data-aos-delay="200">
+                            <a href="#projects" class="nav-link nav-page animate-underline underline-from-mid hover:text-gradient">
+                                <i class="ti ti-star-filled"></i> Projects</a>
+                        </span>
+                        <span data-aos="fade-down" data-aos-delay="400">
+                            <a href="#skills" class="nav-link nav-page animate-underline underline-from-mid hover:text-gradient">
+                                <i class="ti ti-affiliate-filled"></i> Skills</a>
+                        </span>
+                        <span data-aos="fade-down" data-aos-delay="600">
+                            <a href="#contacts" class="nav-link nav-page animate-underline underline-from-right hover:text-gradient">
+                                <i class="ti ti-phone-filled"></i> Contacts</a>
+                        </span>
                     </div>
                     <div class="navbar-end">
-                        <label data-aos="fade-in" id="sidebar-open" onclick="$('html').css('overflow', 'hidden');" for="sidebar-menu" class="btn btn-ghost lg:hidden">
+                        <label id="sidebar-open" onclick="$('html').css('overflow', 'hidden');" for="sidebar-menu" class="btn btn-ghost btn-square lg:hidden">
                             <i class="ti ti-menu-2 text-2xl"></i>
                         </label>
 
-                        <label data-aos="fade-in" id="settings" onclick="settings_modal.showModal()" class="btn btn-ghost hidden px-2 lg:inline-grid">
+                        <label id="settings" onclick="settings_modal.showModal()" class="btn btn-ghost hidden btn-square lg:inline-grid">
                             <i class="ti ti-settings-2 text-2xl"></i>
                         </label>
                     </div>
@@ -150,14 +98,21 @@
                 <dialog id="settings_modal" class="modal">
                     <div class="modal-box flex h-56 items-center justify-center overflow-hidden">
                         <div class="flex w-full justify-evenly">
-                            <div class="tooltip tooltip-bottom hidden lg:inline-grid" data-tip="Toggle sound">
-                                <label class="btn-base-100 btn swap h-16 w-16 px-2 text-3xl">
+                            <div class="tooltip tooltip-top hidden lg:inline-grid" data-tip="Toggle sound">
+                                <label class="btn-base-100 btn swap btn-square text-3xl">
                                     <input class="sound-toggle" type="checkbox" checked />
                                     <i class="ti ti-volume swap-off"></i>
                                     <i class="ti ti-volume-3 swap-on"></i>
                                 </label>
                             </div>
-                            <div data-toggle-theme="night" data-act-class="swap-active" class="theme-change btn-base-100 btn swap swap-rotate tooltip tooltip-bottom hidden h-16 w-16 px-2 transition-all lg:inline-grid" data-tip="Toggle theme">
+                            <div class="tooltip tooltip-top hidden lg:inline-grid" data-tip="Toggle music">
+                                <label class="btn-base-100 btn swap btn-square text-3xl">
+                                    <input class="music-toggle" type="checkbox" checked />
+                                    <i class="ti ti-music swap-off"></i>
+                                    <i class="ti ti-music-off swap-on"></i>
+                                </label>
+                            </div>
+                            <div data-toggle-theme="night" data-act-class="swap-active" class="theme-change btn-base-100 btn swap swap-rotate tooltip tooltip-top hidden btn-square transition-all lg:inline-grid" data-tip="Toggle theme">
                                 <i class="ti ti-sun swap-off animate-spin-slow text-3xl"></i>
                                 <i class="ti ti-moon animate__animated animate__tada animate__infinite swap-on text-3xl"></i>
                             </div>
@@ -167,6 +122,7 @@
                             </p>
                         </div>
                     </div>
+
                     <form method="dialog" class="modal-backdrop">
                         <button class="cursor-default"></button>
                     </form>
@@ -177,36 +133,43 @@
                 <div class="drawer-overlay"></div>
                 <div class="menu h-full w-full bg-base-100 p-4 text-base-content">
                     <div class="flex justify-between">
-                        <div class="flex items-center">
-                            <div data-toggle-theme="night" data-act-class="swap-active" class="theme-change btn btn-ghost swap swap-rotate px-2 transition-all">
-                                <i class="ti ti-sun swap-off animate-spin-slow text-3xl"></i>
-                                <i class="ti ti-moon animate__animated animate__tada animate__infinite swap-on text-3xl"></i>
-                            </div>
+                        <div class="flex items-center gap-3">
                             <div>
-                                <label class="btn btn-ghost swap px-2 text-3xl">
+                                <label class="btn btn-ghost swap btn-square text-3xl">
                                     <input class="sound-toggle" type="checkbox" checked />
                                     <i class="ti ti-volume swap-off"></i>
                                     <i class="ti ti-volume-3 swap-on"></i>
                                 </label>
                             </div>
+                            <div>
+                                <label class="btn btn-ghost swap btn-square text-3xl">
+                                    <input class="music-toggle" type="checkbox" checked />
+                                    <i class="ti ti-music swap-off"></i>
+                                    <i class="ti ti-music-off swap-on"></i>
+                                </label>
+                            </div>
+                            <div data-toggle-theme="night" data-act-class="swap-active" class="theme-change btn btn-ghost swap swap-rotate btn-square transition-all">
+                                <i class="ti ti-sun swap-off animate-spin-slow text-3xl"></i>
+                                <i class="ti ti-moon animate__animated animate__tada animate__infinite swap-on text-3xl"></i>
+                            </div>
                         </div>
-                        <label id="sidebar-close" onclick="$('html').css('overflow', 'auto')" for="sidebar-menu" class="btn btn-ghost px-2">
+                        <label id="sidebar-close" onclick="$('html').css('overflow', 'auto')" for="sidebar-menu" class="btn btn-ghost btn-square">
                             <i class="ti ti-x text-2xl"></i>
                         </label>
                     </div>
-                    <ul class="menu flex items-center justify-center px-1 text-center text-lg font-extrabold">
+                    <ul class="menu flex items-center justify-center px-1 text-center text-lg font-extrabold mt-10">
                         <div id="mobile-menu" class="w-full">
                             <li>
-                                <a href="#about" class="nav-link btn btn-ghost text-xl">About</a>
+                                <a href="#about" class="nav-link nav-page btn btn-ghost text-xl">About</a>
                             </li>
                             <li>
-                                <a href="#projects" class="nav-link btn btn-ghost text-xl">Projects</a>
+                                <a href="#projects" class="nav-link nav-page btn btn-ghost text-xl">Projects</a>
                             </li>
                             <li>
-                                <a href="#skills" class="nav-link btn btn-ghost text-xl">Skills</a>
+                                <a href="#skills" class="nav-link nav-page btn btn-ghost text-xl">Skills</a>
                             </li>
                             <li>
-                                <a href="#contacts" class="nav-link btn btn-ghost text-xl">Contacts</a>
+                                <a href="#contacts" class="nav-link nav-page btn btn-ghost text-xl">Contacts</a>
                             </li>
                         </div>
                     </ul>
@@ -217,14 +180,82 @@
     <!--Navbar Section End-->
 
     <!-- Main Section Start -->
-    <!-- <svg class="blob -top-0 -left-0 -translate-y-1/2 -translate-x-1/2" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-        <path class="fill-base-200" d="M46.4,-61.5C59,-54.8,67.1,-39.6,73.7,-23.1C80.2,-6.5,85.3,11.4,79.4,24.7C73.6,38,56.9,46.6,41.8,55.3C26.8,63.9,13.4,72.6,-1.7,74.9C-16.7,77.1,-33.4,73,-41,61.9C-48.5,50.9,-47,32.8,-48,18.3C-49,3.8,-52.5,-7.2,-49.6,-16.2C-46.8,-25.2,-37.7,-32.3,-28.4,-40C-19,-47.7,-9.5,-56.2,3.7,-61.3C17,-66.4,33.9,-68.2,46.4,-61.5Z" transform="translate(100 100)" />
-    </svg>
-    <svg class="blob -top-0 -right-0 -translate-y-1/2 translate-x-1/2" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-        <path class="fill-base-200" d="M49,-65.3C61.1,-58.7,66.7,-41.1,69,-24.6C71.2,-8.1,70.3,7.2,66.5,22.5C62.7,37.8,56.2,53.1,44.7,63.6C33.1,74.1,16.6,79.7,4.6,73.4C-7.4,67.1,-14.8,48.8,-26.5,38.4C-38.2,27.9,-54.2,25.4,-64.4,15.8C-74.7,6.2,-79.1,-10.5,-72.8,-21.7C-66.5,-32.9,-49.4,-38.7,-35.4,-44.6C-21.5,-50.5,-10.8,-56.6,3.9,-61.9C18.5,-67.3,37,-71.8,49,-65.3Z" transform="translate(100 100)" />
-    </svg> -->
-
     <main class="mx-3 font-poppins lg:mx-10">
+        <!-- <svg class="blob -top-0 -left-0 -translate-y-1/2 -translate-x-1/2" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <path class="fill-base-200" d="M46.4,-61.5C59,-54.8,67.1,-39.6,73.7,-23.1C80.2,-6.5,85.3,11.4,79.4,24.7C73.6,38,56.9,46.6,41.8,55.3C26.8,63.9,13.4,72.6,-1.7,74.9C-16.7,77.1,-33.4,73,-41,61.9C-48.5,50.9,-47,32.8,-48,18.3C-49,3.8,-52.5,-7.2,-49.6,-16.2C-46.8,-25.2,-37.7,-32.3,-28.4,-40C-19,-47.7,-9.5,-56.2,3.7,-61.3C17,-66.4,33.9,-68.2,46.4,-61.5Z" transform="translate(100 100)" />
+        </svg>
+        <svg class="blob -top-0 -right-0 -translate-y-1/2 translate-x-1/2" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <path class="fill-base-200" d="M49,-65.3C61.1,-58.7,66.7,-41.1,69,-24.6C71.2,-8.1,70.3,7.2,66.5,22.5C62.7,37.8,56.2,53.1,44.7,63.6C33.1,74.1,16.6,79.7,4.6,73.4C-7.4,67.1,-14.8,48.8,-26.5,38.4C-38.2,27.9,-54.2,25.4,-64.4,15.8C-74.7,6.2,-79.1,-10.5,-72.8,-21.7C-66.5,-32.9,-49.4,-38.7,-35.4,-44.6C-21.5,-50.5,-10.8,-56.6,3.9,-61.9C18.5,-67.3,37,-71.8,49,-65.3Z" transform="translate(100 100)" />
+        </svg> -->
+
+        <!-- Preloader Start -->
+        <div id="preloader" class="center-all fixed inset-0 z-50 flex bg-base-200">
+            <div id="preloader-content" class="center-all mx-5 grid h-full grid-cols-1 gap-10">
+                <div aria-label="Orange and tan hamster running in a metal wheel" role="img" class="wheel-and-hamster">
+                    <div class="wheel"></div>
+                    <div class="hamster">
+                        <div class="hamster__body">
+                            <div class="hamster__head">
+                                <div class="hamster__ear"></div>
+                                <div class="hamster__eye"></div>
+                                <div class="hamster__nose"></div>
+                            </div>
+                            <div class="hamster__limb hamster__limb--fr"></div>
+                            <div class="hamster__limb hamster__limb--fl"></div>
+                            <div class="hamster__limb hamster__limb--br"></div>
+                            <div class="hamster__limb hamster__limb--bl"></div>
+                            <div class="hamster__tail"></div>
+                        </div>
+                    </div>
+                    <div class="spoke"></div>
+                </div>
+                <div id="loading-alert" class="alert alert-warning absolute top-3 w-[90%] lg:w-[70%]">
+                    <i class="ti ti-alert-triangle-filled text-3xl"></i>
+                    <span id="loading-text" class="text-md lg:text-lg">
+                        JavaScript is disabled in your browser, please enable it to
+                        access this website. If you don't want to, you can enjoy
+                        this orange hamster running in a metal wheel instead :)
+                    </span>
+                </div>
+                <script type="application/javascript">
+                    const loadingAlert = document.getElementById("loading-alert");
+                    const loadingText = document.getElementById("loading-text");
+                    loadingAlert.style.display = "none";
+                    setTimeout(function () {
+                        loadingText.innerText =
+                            "If it takes too long, check your internet connection or use another browser. Google Chrome or Firefox is recommended by me.";
+                        loadingAlert.style.display = "block";
+                    }, 20000);
+                </script>
+                <p class="absolute bottom-3">
+                    Animation by
+                    <a class="link text-primary" href="https://uiverse.io/Nawsome/wet-mayfly-23" target="_blank">Nawsome</a>
+                </p>
+            </div>
+            <div id="preloader-confirm" class="center-all mx-5 hidden">
+                <p class="mb-5 text-lg">Do you want to enable sound and background music? You can change it later.</p>
+                <div class="flex flex-wrap justify-center gap-5">
+                    <button data-sound="true" class="btn btn-primary transition-all md:hover:px-8">
+                        <span class="text-lg uppercase">Why not?</span>
+                        <i class="ti ti-volume text-xl"></i>
+                    </button>
+                    <button data-sound="false" class="btn btn-accent transition-all md:hover:px-8">
+                        <span class="text-lg uppercase">No thanks</span>
+                        <i class="ti ti-volume-3 text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Preloader End -->
+
+        <!-- Back To Top Start -->
+        <div id="back-to-top" class="tooltip tooltip-left fixed bottom-3 right-0 z-30 hidden" data-tip="Back to top">
+            <button class="center-all h-12 w-12 rounded-s-full border border-base-100 bg-primary ring-primary transition-all hover:w-24 hover:ring-4">
+                <i class="ti ti-chevrons-up text-3xl text-base-100"></i>
+            </button>
+        </div>
+        <!-- Back To Top End -->
+
         <!--About Section Start-->
         <section id="about" class="container mx-auto my-10 pt-12">
             <div class="md:center-all grid grid-cols-1 gap-10 lg:grid-cols-2 lg:gap-0">
@@ -238,24 +269,35 @@
 
                     <p id="typewriter-hero-desc" class="text-lg lg:max-w-xl"></p>
 
-                    <div>
-                        <div data-aos="fade-up" class="dropdown dropdown-hover">
-                            <label id="download-resume" tabindex="0" class="group btn btn-primary btn-block md:!w-auto md:!px-11">
-                                Download Resume
-                                <i class="ti ti-chevron-down text-2xl transition-transform group-hover:rotate-180"></i>
-                            </label>
-                            <ul tabindex="0" class="menu dropdown-content rounded-box z-[1] w-52 bg-base-200 p-2 drop-shadow-lg">
-                                <li>
-                                    <a href="doc/Resume_Putu Wisnu Wirayuda Putra.pdf" target="_blank"><i class="ti ti-file-download text-xl"></i>
-                                        Direct download
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="https://drive.google.com/file/d/19dgdpZ56FVvNO2gTAFcp9ByzPxg59S4I/view?usp=sharing" target="_blank"><i class="ti ti-brand-google-drive text-xl"></i>
+                    <div class="drawer drawer-end">
+                        <input id="resume-preview" type="checkbox" class="drawer-toggle" />
+                        <div class="drawer-content">
+                            <div data-aos="fade-up">
+                                <label id="pdf-preview" for="resume-preview" onclick="$('html').css('overflow', 'hidden'); !$('#pdf-iframe').attr('src') ? $('#pdf-iframe').attr('src', 'https://drive.google.com/file/d/19dgdpZ56FVvNO2gTAFcp9ByzPxg59S4I/preview') : null;" class="btn btn-primary btn-wide text-md">
+                                    Preview Resume
+                                    <i class="ti ti-file-type-pdf text-2xl"></i>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="drawer-side inset-0 z-40">
+                            <div class="drawer-overlay"></div>
+                            <div class="h-full w-full p-4 lg:p-6 bg-base-100 text-base-conten grid grid-cols-1 grid-rows-1">
+                                <iframe id="pdf-iframe" class="h-full w-full ring-2 lg:ring-4 transition-shadow ring-primary rounded-xl row-span-full bg-primary"></iframe>
+                                <div class="min-h-auto pt-4 lg:pt-6 flex flex-wrap justify-center gap-5 items-center">
+                                    <a href="https://drive.google.com/file/d/19dgdpZ56FVvNO2gTAFcp9ByzPxg59S4I/view" target="_blank" class="btn btn-primary">
                                         Google Drive
+                                        <i class="ti ti-brand-google-drive text-lg"></i>
                                     </a>
-                                </li>
-                            </ul>
+                                    <a href="doc/Resume_Putu Wisnu Wirayuda Putra.pdf" target="_blank" class="btn btn-accent">
+                                        Direct download
+                                        <i class="ti ti-file-download text-lg"></i>
+                                    </a>
+                                    <label class="btn btn-active" onclick="$('html').css('overflow', 'auto')" for="resume-preview">
+                                        Close
+                                        <i class="ti ti-x text-lg"></i>
+                                    </label>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -639,7 +681,7 @@
     <!-- Main Section End -->
 
     <!--Footer Section Start-->
-    <footer data-aos="fade-in" data-aos-offset="400">
+    <footer class="font-quicksand">
         <dialog id="secret_modal" class="modal select-none">
             <div class="modal-box text-center">
                 <h3 class="text-2xl font-bold">
@@ -669,13 +711,13 @@
             <path class="fill-base-200 transition-none" fill-opacity="1" d="M0,128L60,122.7C120,117,240,107,360,128C480,149,600,203,720,218.7C840,235,960,213,1080,186.7C1200,160,1320,128,1380,112L1440,96L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path>
         </svg>
 
-        <div class="footer footer-center bg-base-200 p-5 font-quicksand text-base-content">
-            <div>
+        <div class="footer footer-center bg-base-200 p-5 text-base-content">
+            <div data-aos="fade-in">
                 <nav class="grid grid-flow-col gap-4 font-bold mb-2">
-                    <a href="#about" class="animate-underline underline-from-left hover:text-gradient">About</a>
-                    <a href="#projects" class="animate-underline underline-from-mid hover:text-gradient">Projects</a>
-                    <a href="#skills" class="animate-underline underline-from-mid hover:text-gradient">Skills</a>
-                    <a href="#contacts" class="animate-underline underline-from-right hover:text-gradient">Contacts</a>
+                    <a href="#about" class="nav-page animate-underline underline-from-left hover:text-gradient">About</a>
+                    <a href="#projects" class="nav-page animate-underline underline-from-mid hover:text-gradient">Projects</a>
+                    <a href="#skills" class="nav-page animate-underline underline-from-mid hover:text-gradient">Skills</a>
+                    <a href="#contacts" class="nav-page animate-underline underline-from-right hover:text-gradient">Contacts</a>
                 </nav>
 
                 <div class="grid grid-flow-col">

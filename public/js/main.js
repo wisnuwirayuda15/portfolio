@@ -1,13 +1,36 @@
-let sound = false;
-let music = false;
+let sounds = false;
+let musics = false;
 
-function audioPlay(path = "", volume = 1) {
-    if (sound) {
-        const audio = new Audio();
-        audio.src = `audio/${path}`;
-        audio.volume = volume;
-        audio.play();
+function soundPlay(path, volume = 1) {
+    if (sounds) {
+        let sound = new Audio();
+
+        sound.src = `audio/sound/${path}`;
+        sound.volume = volume;
+        sound.play();
+
+        sound.onended = function () {
+            sound = null;
+        };
     }
+}
+
+function musicPlay(path, loop = false, volume = 1) {
+    const music = new Audio();
+
+    music.src = `audio/music/${path}`;
+    music.volume = volume;
+    music.loop = loop;
+    music.play();
+
+    if (!loop) {
+        music.onended = function () {
+            musics = false;
+            $(".music-toggle").prop("checked", true);
+        };
+    }
+
+    musics = music;
 }
 
 function fixedNavbar() {
@@ -57,7 +80,7 @@ function typewriter(delay = 500) {
         /**
          * @property {number} typeSpeed type speed in milliseconds
          */
-        typeSpeed: 50,
+        typeSpeed: 20,
 
         /**
          * @property {number} startDelay time before typing starts in milliseconds
@@ -67,7 +90,7 @@ function typewriter(delay = 500) {
         /**
          * @property {number} backSpeed backspacing speed in milliseconds
          */
-        backSpeed: 50,
+        backSpeed: 20,
 
         /**
          * @property {boolean} smartBackspace only backspace what doesn't match the previous string
@@ -255,20 +278,38 @@ $(document).ready(function () {
 
     $(".theme-change").click(function () {
         $("html").data("data-theme")
-            ? audioPlay("sound/light.mp3")
-            : audioPlay("sound/dark.mp3");
+            ? soundPlay("light.mp3")
+            : soundPlay("dark.mp3");
     });
 
     $(".sound-toggle").change(function () {
         if (this.checked) {
-            sound = false;
+            sounds = false;
             $(".sound-toggle").prop("checked", true);
-            console.log(`INFO: sound ${sound}`);
+            console.log(`INFO: sound ${sounds}`);
         } else {
-            sound = true;
-            audioPlay("sound/sound-on.mp3");
+            sounds = true;
+            soundPlay("beepd.mp3");
             $(".sound-toggle").prop("checked", false);
-            console.log(`INFO: sound ${sound}`);
+            console.log(`INFO: sound ${sounds}`);
+        }
+    });
+
+    $(".music-toggle").change(function () {
+        if (!musics) {
+            musicPlay("animal-crossing-new-horizons-lofi.mp3", true);
+            $(".music-toggle").prop("checked", false);
+            console.log(`INFO: music played`);
+        } else {
+            if (musics.paused) {
+                musics.play();
+                $(".music-toggle").prop("checked", false);
+                console.log(`INFO: music played`);
+            } else {
+                musics.pause();
+                $(".music-toggle").prop("checked", true);
+                console.log(`INFO: music paused`);
+            }
         }
     });
 
@@ -291,7 +332,7 @@ $(document).ready(function () {
         },
     });
     owl.on("changed.owl.carousel", function (event) {
-        audioPlay("sound/interface.mp3");
+        soundPlay("interface.mp3");
     });
     $(".owl-custom-next").click(function () {
         owl.trigger("next.owl.carousel");
@@ -330,7 +371,7 @@ $(document).ready(function () {
                     "Your messages have been submitted, I will send a reply to your message to the email you provided as soon as possible.",
                 );
                 form_modal.showModal();
-                audioPlay("sound/send-success.mp3");
+                soundPlay("send-success.mp3");
             },
             error: function (xhr, status, error) {
                 console.error("ERROR: form submit failed. " + error);
@@ -344,7 +385,7 @@ $(document).ready(function () {
                 );
                 $("#refresh").removeClass("hidden");
                 form_modal.showModal();
-                audioPlay("sound/send-failed.mp3");
+                soundPlay("send-failed.mp3");
             },
         });
     });
@@ -357,29 +398,30 @@ $(document).ready(function () {
     });
 
     $("#secret-sign").click(function (e) {
-        audioPlay("sound/secret.mp3");
+        soundPlay("secret.mp3");
         secret_modal.showModal();
     });
 
-    $(".nav-link").each(function (index, element) {
-        $(element).click(function (e) {
-            audioPlay("sound/beepd.mp3");
+    $(".nav-page").each(function (index, element) {
+        $(element).click(function () {
+            soundPlay("beepd.mp3");
         });
     });
 });
 
 $(window).on("load", function () {
     $("#preloader-content").fadeOut(500, function () {
-        $(this).hide();
         $("#preloader-confirm").removeClass("hidden");
         $("#preloader-confirm").on("click", "button", function () {
             if ($(this).data("sound") == true) {
-                sound = true;
-                $(".sound-toggle").prop("checked", false);
+                sounds = true;
+                soundPlay("beepd.mp3");
+                musicPlay("animal-crossing-new-horizons-lofi.mp3", true);
+                $(".sound-toggle, .music-toggle").prop("checked", false);
             }
             $("#preloader-confirm").fadeOut(500, function () {
                 $("#preloader").slideUp(500, function () {
-                    $(this).hide();
+                    $(this).remove();
                     $("html").css("overflow", "auto");
                     window.scrollTo({ top: 0, behavior: "instant" });
                     typewriter(1000);
@@ -409,10 +451,10 @@ $(window).on("load", function () {
 
         const techDrag = dragula([document.querySelector("#tech-list")]);
         techDrag.on("drag", function () {
-            audioPlay("sound/bubble.mp3");
+            soundPlay("bubble.mp3");
         });
         techDrag.on("drop", function () {
-            audioPlay("sound/digital-beeping.mp3");
+            soundPlay("digital-beeping.mp3");
         });
 
         $("#tech-draggable-text").text(
@@ -425,7 +467,7 @@ $(window).on("load", function () {
     }
 
     $("#tech-list").on("mouseenter", ".card-tech", function () {
-        audioPlay("sound/click-menu.mp3");
+        soundPlay("click-menu.mp3");
     });
 
     VanillaTilt.init(document.querySelectorAll(".card-tech"), {
