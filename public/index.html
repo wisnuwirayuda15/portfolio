@@ -25,6 +25,7 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/theme-change@2.0.2/index.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dragula/3.7.3/dragula.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lozad@1.16.0/dist/lozad.min.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dragula/3.7.3/dragula.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
@@ -273,7 +274,7 @@
                         <input id="resume-preview" type="checkbox" class="drawer-toggle" />
                         <div class="drawer-content">
                             <div data-aos="fade-up">
-                                <label id="pdf-preview" for="resume-preview" onclick="$('html').css('overflow', 'hidden'); !$('#pdf-iframe').attr('src') ? $('#pdf-iframe').attr('src', 'https://drive.google.com/file/d/19dgdpZ56FVvNO2gTAFcp9ByzPxg59S4I/preview') : null;" class="btn btn-primary btn-wide text-md">
+                                <label id="pdf-preview" for="resume-preview" onclick="$('html').css('overflow', 'hidden');" class="btn btn-primary btn-wide text-md">
                                     Preview Resume
                                     <i class="ti ti-file-type-pdf text-2xl"></i>
                                 </label>
@@ -282,7 +283,7 @@
                         <div class="drawer-side inset-0 z-40">
                             <div class="drawer-overlay"></div>
                             <div class="h-full w-full p-4 lg:p-6 bg-base-100 text-base-conten grid grid-cols-1 grid-rows-1">
-                                <iframe id="pdf-iframe" class="h-full w-full ring-2 lg:ring-4 transition-shadow ring-primary rounded-xl row-span-full bg-primary"></iframe>
+                                <iframe data-src="https://drive.google.com/file/d/19dgdpZ56FVvNO2gTAFcp9ByzPxg59S4I/preview" id="pdf-iframe" class="h-full w-full ring-2 lg:ring-4 transition-shadow ring-primary rounded-xl row-span-full bg-primary"></iframe>
                                 <div class="min-h-auto pt-4 lg:pt-6 flex flex-wrap justify-center gap-5 items-center">
                                     <a href="https://drive.google.com/file/d/19dgdpZ56FVvNO2gTAFcp9ByzPxg59S4I/view" target="_blank" class="btn btn-primary">
                                         Google Drive
@@ -364,7 +365,7 @@
                                     </div>
                                 </a>
                             </div>
-                            <img loading="lazy" src="https://raw.githubusercontent.com/SI-RPL-2023/SI4406_A_BidjiCourse/wisnu/public/img/screenshots/landing-page.png" class="aspect-video object-cover object-center transition peer-hover:rotate-2 peer-hover:scale-125" alt="bidji-course" />
+                            <img data-src="https://raw.githubusercontent.com/SI-RPL-2023/SI4406_A_BidjiCourse/wisnu/public/img/screenshots/landing-page.png" class="aspect-video object-cover object-center transition peer-hover:rotate-2 peer-hover:scale-125" alt="bidji-course" />
                         </div>
                         <div class="card-body">
                             <h2 class="card-title">Bidji Course</h2>
@@ -395,7 +396,7 @@
                     <div id="swiftwalk" class="card-project group">
                         <div class="overflow-hidden">
                             <div class="center-all peer absolute z-[1] flex aspect-video w-full bg-gradient-to-t from-base-200"></div>
-                            <img loading="lazy" src="https://raw.githubusercontent.com/wisnuwirayuda15/Swiftwalk/master/public/img/screenshots/homepage.png" class="aspect-video object-cover object-center transition peer-hover:rotate-2 peer-hover:scale-125" alt="swiftwalk" />
+                            <img data-src="https://raw.githubusercontent.com/wisnuwirayuda15/Swiftwalk/master/public/img/screenshots/homepage.png" class="aspect-video object-cover object-center transition peer-hover:rotate-2 peer-hover:scale-125" alt="swiftwalk" />
                         </div>
                         <div class="card-body">
                             <h2 class="card-title">Swiftwalk</h2>
@@ -425,7 +426,7 @@
                     <div id="aero-reserve" class="card-project group">
                         <div class="overflow-hidden" title="Image from Unsplash by Benjamin Wong">
                             <div class="center-all peer absolute z-[1] flex aspect-video w-full bg-gradient-to-t from-base-200"></div>
-                            <img loading="lazy" src="https://images.unsplash.com/photo-1512389810321-de6db6e2aba7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1969&q=80" class="aspect-video object-cover object-center transition peer-hover:rotate-2 peer-hover:scale-125" alt="aero-reserve" />
+                            <img data-src="https://images.unsplash.com/photo-1512389810321-de6db6e2aba7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1969&q=80" class="aspect-video object-cover object-center transition peer-hover:rotate-2 peer-hover:scale-125" alt="aero-reserve" />
                         </div>
                         <div class="card-body">
                             <h2 class="card-title">Aero Reserve</h2>
@@ -451,7 +452,7 @@
                     <div id="portfolio-web" class="card-project group">
                         <div class="overflow-hidden">
                             <div class="center-all peer absolute z-[1] flex aspect-video w-full bg-gradient-to-t from-base-200"></div>
-                            <img loading="lazy" src="img/portfolio-web.webp" class="aspect-video object-cover object-center transition peer-hover:rotate-2 peer-hover:scale-125" alt="Shoes" />
+                            <img data-src="img/portfolio-web.webp" class="aspect-video object-cover object-center transition peer-hover:rotate-2 peer-hover:scale-125" alt="Shoes" />
                         </div>
                         <div class="card-body">
                             <h2 class="card-title">Portfolio Website</h2>
@@ -505,46 +506,46 @@
             </p>
             <div data-aos="fade-up" id="tech-list" class="my-10 flex flex-wrap justify-center gap-14 xl:mx-10" title="Hold and click to drag the item">
                 <div class="card-tech group tooltip tooltip-bottom ring-[#e44d26]" data-tip="HTML">
-                    <img loading="lazy" src="img/brand/html.png" class="icon-tech w-20" alt="HTML" />
+                    <img data-src="img/brand/html.png" class="icon-tech w-20" alt="HTML" />
                 </div>
                 <div class="card-tech group tooltip tooltip-bottom ring-[#264de4]" data-tip="CSS">
-                    <img loading="lazy" src="img/brand/css.png" class="icon-tech w-20" alt="CSS" />
+                    <img data-src="img/brand/css.png" class="icon-tech w-20" alt="CSS" />
                 </div>
                 <div class="card-tech group tooltip tooltip-bottom ring-[#ffdf00]" data-tip="JavaScript">
-                    <img loading="lazy" src="img/brand/js.png" class="icon-tech w-20 rounded-lg" alt="JavaScript" />
+                    <img data-src="img/brand/js.png" class="icon-tech w-20 rounded-lg" alt="JavaScript" />
                 </div>
                 <div class="card-tech group tooltip tooltip-bottom ring-[#3178c6]" data-tip="TypeScript">
-                    <img loading="lazy" src="img/brand/ts.png" class="icon-tech w-20" alt="TypeScript" />
+                    <img data-src="img/brand/ts.png" class="icon-tech w-20" alt="TypeScript" />
                 </div>
                 <div class="card-tech group tooltip tooltip-bottom ring-[#787cb4]" data-tip="PHP">
-                    <img loading="lazy" src="img/brand/php.png" class="icon-tech w-20" alt="PHP" />
+                    <img data-src="img/brand/php.png" class="icon-tech w-20" alt="PHP" />
                 </div>
                 <div class="card-tech group tooltip tooltip-bottom ring-[#ff2d20]" data-tip="Laravel">
-                    <img loading="lazy" src="img/brand/laravel.png" class="icon-tech w-20" alt="Laravel" />
+                    <img data-src="img/brand/laravel.png" class="icon-tech w-20" alt="Laravel" />
                 </div>
                 <div class="card-tech group tooltip tooltip-bottom ring-[#35bef8]" data-tip="Tailwind CSS">
-                    <img loading="lazy" src="img/brand/tailwind.png" class="icon-tech w-20" alt="Tailwind CSS" />
+                    <img data-src="img/brand/tailwind.png" class="icon-tech w-20" alt="Tailwind CSS" />
                 </div>
                 <div class="card-tech group tooltip tooltip-bottom ring-[#61dafb]" data-tip="React">
-                    <img loading="lazy" src="img/brand/react.png" class="icon-tech w-20" alt="React" />
+                    <img data-src="img/brand/react.png" class="icon-tech w-20" alt="React" />
                 </div>
                 <div class="card-tech group tooltip tooltip-bottom ring-[#800af9]" data-tip="Bootstrap">
-                    <img loading="lazy" src="img/brand/bootstrap.png" class="icon-tech w-20" alt="Bootstrap" />
+                    <img data-src="img/brand/bootstrap.png" class="icon-tech w-20" alt="Bootstrap" />
                 </div>
                 <div class="card-tech group tooltip tooltip-bottom ring-[#1169ae]" data-tip="jQuery">
-                    <img loading="lazy" src="img/brand/jquery.png" class="icon-tech w-20" alt="jQuery" />
+                    <img data-src="img/brand/jquery.png" class="icon-tech w-20" alt="jQuery" />
                 </div>
                 <div class="card-tech group tooltip tooltip-bottom ring-[#e48e00]" data-tip="MySQL">
-                    <img loading="lazy" src="img/brand/mysql.png" class="icon-tech w-20" alt="MySQL" />
+                    <img data-src="img/brand/mysql.png" class="icon-tech w-20" alt="MySQL" />
                 </div>
                 <div class="card-tech group tooltip tooltip-bottom ring-[#f05033]" data-tip="Git">
-                    <img loading="lazy" src="img/brand/git.png" class="icon-tech w-20" alt="Git" />
+                    <img data-src="img/brand/git.png" class="icon-tech w-20" alt="Git" />
                 </div>
                 <div class="card-tech group tooltip tooltip-bottom ring-[#02d084]" data-tip="Figma">
-                    <img loading="lazy" src="img/brand/figma.png" class="icon-tech h-20" alt="Figma" />
+                    <img data-src="img/brand/figma.png" class="icon-tech h-20" alt="Figma" />
                 </div>
                 <div class="card-tech group tooltip tooltip-bottom ring-[#45c6fb]" data-tip="Flutter">
-                    <img loading="lazy" src="img/brand/flutter.png" class="icon-tech h-20" alt="Flutter" />
+                    <img data-src="img/brand/flutter.png" class="icon-tech h-20" alt="Flutter" />
                 </div>
                 <div class="card-tech group tooltip tooltip-bottom ring-current" data-tip="GitHub">
                     <svg class="icon-tech h-24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
@@ -552,7 +553,7 @@
                     </svg>
                 </div>
                 <div class="card-tech group tooltip tooltip-bottom ring-[#0b85d1]" data-tip="Visual Studio Code">
-                    <img loading="lazy" src="img/brand/vscode.png" class="icon-tech w-20 fill-current" alt="Visual Studio Code" />
+                    <img data-src="img/brand/vscode.png" class="icon-tech w-20 fill-current" alt="Visual Studio Code" />
                 </div>
             </div>
         </section>
@@ -754,6 +755,12 @@
     </footer>
     <!--Footer Section Start-->
 
+    <script>
+        const elements = document.querySelectorAll('img, iframe');
+        elements.forEach(element => {
+            element.classList.add('lozad');
+        });
+    </script>
     <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
     <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>

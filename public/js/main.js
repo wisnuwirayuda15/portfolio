@@ -1,6 +1,9 @@
 let sounds = false;
 let musics = false;
 
+const lazyLoad = lozad();
+const owl = $("#projects-carousel");
+
 function soundPlay(path, volume = 1) {
     if (sounds) {
         let sound = new Audio();
@@ -313,7 +316,6 @@ $(document).ready(function () {
         }
     });
 
-    const owl = $("#projects-carousel");
     owl.owlCarousel({
         margin: 40,
         center: true,
@@ -331,13 +333,16 @@ $(document).ready(function () {
             },
         },
     });
+    
     owl.on("changed.owl.carousel", function (event) {
         soundPlay("interface.mp3");
     });
+
     $(".owl-custom-next").click(function () {
         owl.trigger("next.owl.carousel");
         console.log("INFO: next button pressed, go to the next item");
     });
+
     $(".owl-custom-prev").click(function () {
         owl.trigger("prev.owl.carousel");
         console.log("INFO: previous button pressed, go to the previous item");
@@ -426,6 +431,7 @@ $(window).on("load", function () {
                     window.scrollTo({ top: 0, behavior: "instant" });
                     typewriter(1000);
                     console.log(`INFO: preloader end`);
+                    lazyLoad.observe();
                     AOS.init({
                         duration: 1000,
                         once: true,
@@ -475,3 +481,4 @@ $(window).on("load", function () {
         perspective: 300,
     });
 });
+
