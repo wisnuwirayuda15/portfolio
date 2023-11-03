@@ -1,23 +1,21 @@
-function getRandomItem(arr) {
-    const randomIndex = Math.floor(Math.random() * arr.length);
-    const item = arr[randomIndex];
-    return item;
-}
-
 let sounds = false;
-let musicPlaying = false;
+let rythm = false;
+let musicIsPlaying = false;
+const music = new Audio(); //prevent multiple music played at once
+const lazyLoad = lozad();
+const owl = $("#projects-carousel");
 const musics = [
     "bloom-intro.mp3",
     "bubblegum-animal-crossing-lofi.mp3",
     "new-horizons-animal-crossing-lofi.mp3",
     "route-101-pokémon-ruby-&-sapphire-lofi.mp3",
 ];
-let musicName = getRandomItem(musics);
 
-const music = new Audio(); //prevent multiple music played at once
-const rythm = new Rythm();
-const lazyLoad = lozad();
-const owl = $("#projects-carousel");
+function getRandomItem(arr) {
+    const randomIndex = Math.floor(Math.random() * arr.length);
+    const item = arr[randomIndex];
+    return item;
+}
 
 function soundPlay(path, volume = 1) {
     if (sounds) {
@@ -31,27 +29,39 @@ function soundPlay(path, volume = 1) {
     }
 }
 
-function musicPlay(path, loop = false, volume = 1) {
-    if (musicPlaying) {
-        music.load();
-    }
+function musicPlay(path, loopShuffle = true, rythm = true, volume = 1) {
+    musicIsPlaying && music.load();
     music.src = `audio/music/${path}`;
     music.volume = volume;
-    music.loop = loop;
     music.play();
-    rythm.connectExternalAudioElement(music);
-    rythm.start();
-    musicPlaying = true;
-    if (!loop) {
-        music.onended = function () {
-            // musicPlaying = false;
-            // $(".music-toggle").prop("checked", true);
+    musicIsPlaying = true;
+    rythm && startRythm(music);
+    music.onended = function () {
+        if (loopShuffle) {
             setTimeout(function () {
                 musicPlay(getRandomItem(musics));
-                $(".music-toggle").prop("checked", false);
             }, 1000);
-        };
-    }
+        } else {
+            musicIsPlaying = false;
+            $(".music-toggle").prop("checked", true);
+        }
+    };
+}
+
+function startRythm(musicElement) {
+    if (rythm) return "Rythm.js already initiated, no need to reinitiate";
+    const rythms = new Rythm();
+    rythm = rythms;
+    rythm.addRythm("rythm-pulse", "pulse", 0, 10, {
+        min: 1,
+        max: 1.3,
+    });
+    rythm.addRythm("rythm-kern", "kern", 0, 10, {
+        min: 1,
+        max: 10,
+    });
+    rythm.connectExternalAudioElement(musicElement);
+    rythm.start();
 }
 
 function fixedNavbar() {
@@ -276,16 +286,6 @@ function typewriter(delay = 500) {
 }
 
 $(document).ready(function () {
-    rythm.addRythm("rythm-pulse", "pulse", 0, 10, {
-        min: 1,
-        max: 1.3,
-    });
-
-    rythm.addRythm("rythm-kern", "kern", 0, 10, {
-        min: 1,
-        max: 10,
-    });
-
     // Sidebar for mobile
     $(".drawer-side li").on("click", function () {
         $("html").css("overflow", "auto");
@@ -329,15 +329,15 @@ $(document).ready(function () {
 
     $(".music-toggle").change(function (e) {
         e.preventDefault();
-        if (!musicPlaying) {
-            musicPlay(musicName);
+        if (!musicIsPlaying) {
+            musicPlay(getRandomItem(musics));
             $(".music-toggle").prop("checked", false);
             console.log(`INFO: music played`);
         } else {
             if (music.paused) {
                 music.play();
                 $(".music-toggle").prop("checked", false);
-                console.log(`INFO: music played`);
+                console.log(`INFO: music resumed`);
             } else {
                 music.pause();
                 $(".music-toggle").prop("checked", true);
@@ -491,7 +491,7 @@ $(window).on("load", function () {
             if ($(this).data("sound") == true) {
                 sounds = true;
                 soundPlay("beepd.mp3");
-                musicPlay(musicName);
+                musicPlay(getRandomItem(musics));
                 $(".sound-toggle, .music-toggle").prop("checked", false);
             }
             $("#preloader-confirm").fadeOut(500, function () {
