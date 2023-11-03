@@ -38,14 +38,14 @@ function musicPlay(path, loop = false, volume = 1) {
     music.src = `audio/music/${path}`;
     music.volume = volume;
     music.loop = loop;
+    music.play();
     rythm.connectExternalAudioElement(music);
     rythm.start();
-    music.play();
     musicPlaying = true;
     if (!loop) {
         music.onended = function () {
-            musicPlaying = false;
-            $(".music-toggle").prop("checked", true);
+            // musicPlaying = false;
+            // $(".music-toggle").prop("checked", true);
             setTimeout(function () {
                 musicPlay(getRandomItem(musics));
                 $(".music-toggle").prop("checked", false);
