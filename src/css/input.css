@@ -61,9 +61,14 @@
         @apply bg-gradient border-none text-base-100 transition-colors hover:animate-gradient;
     }
 
-    .text-section-header {
+    /* .text-section-header {
         @apply text-gradient divider animate-gradient !py-7 text-center text-4xl font-extrabold uppercase transition-all hover:tracking-wider md:text-5xl md:hover:tracking-widest lg:!py-10 lg:text-6xl;
+    } */
+
+    .text-section-header {
+        @apply text-gradient divider animate-gradient !py-7 text-center text-4xl font-extrabold uppercase md:text-5xl lg:!py-10 lg:text-6xl;
     }
+    
     .center-all {
         @apply place-items-center content-center items-center justify-center justify-items-center text-center;
     }

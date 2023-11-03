@@ -26,6 +26,7 @@
     <script src="https://cdn.jsdelivr.net/npm/theme-change@2.0.2/index.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dragula/3.7.3/dragula.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/lozad@1.16.0/dist/lozad.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/rythm.js/2.2.5/rythm.min.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dragula/3.7.3/dragula.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
@@ -48,7 +49,7 @@
                 <nav id="navbar" class="navbar fixed px-3 font-quicksand transition-all lg:px-10">
                     <div class="navbar-start">
                         <a id="fav-icon" href="/" class="peer/logo z-20 flex items-center gap-5 transition hover:scale-110">
-                            <svg class="h-[40px] w-[40px] lg:h-[50px] lg:w-[50px]" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0,0,256,256" width="480px" height="480px">
+                            <svg class="rythm-pulse h-[40px] w-[40px] lg:h-[50px] lg:w-[50px]" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0,0,256,256" width="480px" height="480px">
                                 <g transform="">
                                     <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
                                         <g transform="scale(5.33333,5.33333)">
@@ -109,7 +110,7 @@
                             <div class="tooltip tooltip-top hidden lg:inline-grid" data-tip="Toggle music">
                                 <label class="btn-base-100 btn swap btn-square text-3xl">
                                     <input class="music-toggle" type="checkbox" checked />
-                                    <i class="ti ti-music swap-off"></i>
+                                    <i class="ti ti-music swap-off rythm-pulse"></i>
                                     <i class="ti ti-music-off swap-on"></i>
                                 </label>
                             </div>
@@ -145,7 +146,7 @@
                             <div>
                                 <label class="btn btn-ghost swap btn-square text-3xl">
                                     <input class="music-toggle" type="checkbox" checked />
-                                    <i class="ti ti-music swap-off"></i>
+                                    <i class="ti ti-music swap-off rythm-pulse"></i>
                                     <i class="ti ti-music-off swap-on"></i>
                                 </label>
                             </div>
@@ -210,8 +211,7 @@
                     </div>
                     <div class="spoke"></div>
                 </div>
-                <div id="loading-alert" class="alert alert-warning absolute top-3 w-[90%] lg:w-[70%]">
-                    <i class="ti ti-alert-triangle-filled text-3xl"></i>
+                <div id="loading-alert" class="alert alert-warning text-center absolute top-3 w-[90%] lg:w-[70%]">
                     <span id="loading-text" class="text-md lg:text-lg">
                         JavaScript is disabled in your browser, please enable it to
                         access this website. If you don't want to, you can enjoy
@@ -224,7 +224,7 @@
                     loadingAlert.style.display = "none";
                     setTimeout(function () {
                         loadingText.innerText =
-                            "If it takes too long, check your internet connection or use another browser. Google Chrome or Firefox is recommended by me.";
+                            "If this takes too long, check your internet connection or use another browser. Google Chrome or Firefox is recommended by me.";
                         loadingAlert.style.display = "block";
                     }, 20000);
                 </script>
@@ -309,7 +309,7 @@
         <!--Projects Section Start-->
         <section id="projects" class="container mx-auto my-10 pt-24">
             <div data-aos="fade-up">
-                <h1 class="text-section-header">
+                <h1 class="text-section-header rythm-kern">
                     Projects
                 </h1>
             </div>
@@ -497,7 +497,7 @@
         <!--Skills Section Start-->
         <section id="skills" class="container mx-auto my-10 pt-24">
             <div data-aos="fade-up">
-                <h1 class="text-section-header">
+                <h1 class="text-section-header rythm-kern">
                     Skills
                 </h1>
             </div>
@@ -506,54 +506,101 @@
             </p>
             <div data-aos="fade-up" id="tech-list" class="my-10 flex flex-wrap justify-center gap-14 xl:mx-10" title="Hold and click to drag the item">
                 <div class="card-tech group tooltip tooltip-bottom ring-[#e44d26]" data-tip="HTML">
-                    <img data-src="img/brand/html.png" class="icon-tech w-20" alt="HTML" />
+                    <div class="icon-tech">
+                        <img data-src="img/brand/html.png" class="rythm-pulse w-16" alt="HTML" />
+                    </div>
                 </div>
+
                 <div class="card-tech group tooltip tooltip-bottom ring-[#264de4]" data-tip="CSS">
-                    <img data-src="img/brand/css.png" class="icon-tech w-20" alt="CSS" />
+                    <div class="icon-tech">
+                        <img data-src="img/brand/css.png" class="rythm-pulse w-16" alt="CSS" />
+                    </div>
                 </div>
+
                 <div class="card-tech group tooltip tooltip-bottom ring-[#ffdf00]" data-tip="JavaScript">
-                    <img data-src="img/brand/js.png" class="icon-tech w-20 rounded-lg" alt="JavaScript" />
+                    <div class="icon-tech">
+                        <img data-src="img/brand/js.png" class="rythm-pulse rounded-lg w-16" alt="JavaScript" />
+                    </div>
                 </div>
+
                 <div class="card-tech group tooltip tooltip-bottom ring-[#3178c6]" data-tip="TypeScript">
-                    <img data-src="img/brand/ts.png" class="icon-tech w-20" alt="TypeScript" />
+                    <div class="icon-tech">
+                        <img data-src="img/brand/ts.png" class="rythm-pulse w-16" alt="TypeScript" />
+                    </div>
                 </div>
+
                 <div class="card-tech group tooltip tooltip-bottom ring-[#787cb4]" data-tip="PHP">
-                    <img data-src="img/brand/php.png" class="icon-tech w-20" alt="PHP" />
+                    <div class="icon-tech">
+                        <img data-src="img/brand/php.png" class="rythm-pulse w-16" alt="PHP" />
+                    </div>
                 </div>
+
                 <div class="card-tech group tooltip tooltip-bottom ring-[#ff2d20]" data-tip="Laravel">
-                    <img data-src="img/brand/laravel.png" class="icon-tech w-20" alt="Laravel" />
+                    <div class="icon-tech">
+                        <img data-src="img/brand/laravel.png" class="rythm-pulse w-16" alt="Laravel" />
+                    </div>
                 </div>
+
                 <div class="card-tech group tooltip tooltip-bottom ring-[#35bef8]" data-tip="Tailwind CSS">
-                    <img data-src="img/brand/tailwind.png" class="icon-tech w-20" alt="Tailwind CSS" />
+                    <div class="icon-tech">
+                        <img data-src="img/brand/tailwind.png" class="rythm-pulse w-16" alt="Tailwind CSS" />
+                    </div>
                 </div>
+
                 <div class="card-tech group tooltip tooltip-bottom ring-[#61dafb]" data-tip="React">
-                    <img data-src="img/brand/react.png" class="icon-tech w-20" alt="React" />
+                    <div class="icon-tech">
+                        <img data-src="img/brand/react.png" class="rythm-pulse w-16" alt="React" />
+                    </div>
                 </div>
+
                 <div class="card-tech group tooltip tooltip-bottom ring-[#800af9]" data-tip="Bootstrap">
-                    <img data-src="img/brand/bootstrap.png" class="icon-tech w-20" alt="Bootstrap" />
+                    <div class="icon-tech">
+                        <img data-src="img/brand/bootstrap.png" class="rythm-pulse w-16" alt="Bootstrap" />
+                    </div>
                 </div>
+
                 <div class="card-tech group tooltip tooltip-bottom ring-[#1169ae]" data-tip="jQuery">
-                    <img data-src="img/brand/jquery.png" class="icon-tech w-20" alt="jQuery" />
+                    <div class="icon-tech">
+                        <img data-src="img/brand/jquery.png" class="rythm-pulse w-16" alt="jQuery" />
+                    </div>
                 </div>
+
                 <div class="card-tech group tooltip tooltip-bottom ring-[#e48e00]" data-tip="MySQL">
-                    <img data-src="img/brand/mysql.png" class="icon-tech w-20" alt="MySQL" />
+                    <div class="icon-tech">
+                        <img data-src="img/brand/mysql.png" class="rythm-pulse w-16" alt="MySQL" />
+                    </div>
                 </div>
+
                 <div class="card-tech group tooltip tooltip-bottom ring-[#f05033]" data-tip="Git">
-                    <img data-src="img/brand/git.png" class="icon-tech w-20" alt="Git" />
+                    <div class="icon-tech">
+                        <img data-src="img/brand/git.png" class="rythm-pulse w-16" alt="Git" />
+                    </div>
                 </div>
+
                 <div class="card-tech group tooltip tooltip-bottom ring-[#02d084]" data-tip="Figma">
-                    <img data-src="img/brand/figma.png" class="icon-tech h-20" alt="Figma" />
+                    <div class="icon-tech">
+                        <img data-src="img/brand/figma.png" class="rythm-pulse h-16" alt="Figma" />
+                    </div>
                 </div>
+
                 <div class="card-tech group tooltip tooltip-bottom ring-[#45c6fb]" data-tip="Flutter">
-                    <img data-src="img/brand/flutter.png" class="icon-tech h-20" alt="Flutter" />
+                    <div class="icon-tech">
+                        <img data-src="img/brand/flutter.png" class="rythm-pulse h-16" alt="Flutter" />
+                    </div>
                 </div>
-                <div class="card-tech group tooltip tooltip-bottom ring-current" data-tip="GitHub">
-                    <svg class="icon-tech h-24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-                        <path class="fill-gray-500 group-hover:fill-current" d="M32 6C17.641 6 6 17.641 6 32c0 12.277 8.512 22.56 19.955 25.286-.592-.141-1.179-.299-1.755-.479V50.85c0 0-.975.325-2.275.325-3.637 0-5.148-3.245-5.525-4.875-.229-.993-.827-1.934-1.469-2.509-.767-.684-1.126-.686-1.131-.92-.01-.491.658-.471.975-.471 1.625 0 2.857 1.729 3.429 2.623 1.417 2.207 2.938 2.577 3.721 2.577.975 0 1.817-.146 2.397-.426.268-1.888 1.108-3.57 2.478-4.774-6.097-1.219-10.4-4.716-10.4-10.4 0-2.928 1.175-5.619 3.133-7.792C19.333 23.641 19 22.494 19 20.625c0-1.235.086-2.751.65-4.225 0 0 3.708.026 7.205 3.338C28.469 19.268 30.196 19 32 19s3.531.268 5.145.738c3.497-3.312 7.205-3.338 7.205-3.338.567 1.474.65 2.99.65 4.225 0 2.015-.268 3.19-.432 3.697C46.466 26.475 47.6 29.124 47.6 32c0 5.684-4.303 9.181-10.4 10.4 1.628 1.43 2.6 3.513 2.6 5.85v8.557c-.576.181-1.162.338-1.755.479C49.488 54.56 58 44.277 58 32 58 17.641 46.359 6 32 6zM33.813 57.93C33.214 57.972 32.61 58 32 58 32.61 58 33.213 57.971 33.813 57.93zM37.786 57.346c-1.164.265-2.357.451-3.575.554C35.429 57.797 36.622 57.61 37.786 57.346zM32 58c-.61 0-1.214-.028-1.813-.07C30.787 57.971 31.39 58 32 58zM29.788 57.9c-1.217-.103-2.411-.289-3.574-.554C27.378 57.61 28.571 57.797 29.788 57.9z" />
-                    </svg>
-                </div>
+
                 <div class="card-tech group tooltip tooltip-bottom ring-[#0b85d1]" data-tip="Visual Studio Code">
-                    <img data-src="img/brand/vscode.png" class="icon-tech w-20 fill-current" alt="Visual Studio Code" />
+                    <div class="icon-tech">
+                        <img data-src="img/brand/vscode.png" class="rythm-pulse w-16" alt="Visual Studio Code" />
+                    </div>
+                </div>
+
+                <div class="card-tech group tooltip tooltip-bottom ring-current" data-tip="GitHub">
+                    <div class="icon-tech">
+                        <svg class="rythm-pulse h-20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+                            <path class="fill-gray-500 group-hover:fill-current" d="M32 6C17.641 6 6 17.641 6 32c0 12.277 8.512 22.56 19.955 25.286-.592-.141-1.179-.299-1.755-.479V50.85c0 0-.975.325-2.275.325-3.637 0-5.148-3.245-5.525-4.875-.229-.993-.827-1.934-1.469-2.509-.767-.684-1.126-.686-1.131-.92-.01-.491.658-.471.975-.471 1.625 0 2.857 1.729 3.429 2.623 1.417 2.207 2.938 2.577 3.721 2.577.975 0 1.817-.146 2.397-.426.268-1.888 1.108-3.57 2.478-4.774-6.097-1.219-10.4-4.716-10.4-10.4 0-2.928 1.175-5.619 3.133-7.792C19.333 23.641 19 22.494 19 20.625c0-1.235.086-2.751.65-4.225 0 0 3.708.026 7.205 3.338C28.469 19.268 30.196 19 32 19s3.531.268 5.145.738c3.497-3.312 7.205-3.338 7.205-3.338.567 1.474.65 2.99.65 4.225 0 2.015-.268 3.19-.432 3.697C46.466 26.475 47.6 29.124 47.6 32c0 5.684-4.303 9.181-10.4 10.4 1.628 1.43 2.6 3.513 2.6 5.85v8.557c-.576.181-1.162.338-1.755.479C49.488 54.56 58 44.277 58 32 58 17.641 46.359 6 32 6zM33.813 57.93C33.214 57.972 32.61 58 32 58 32.61 58 33.213 57.971 33.813 57.93zM37.786 57.346c-1.164.265-2.357.451-3.575.554C35.429 57.797 36.622 57.61 37.786 57.346zM32 58c-.61 0-1.214-.028-1.813-.07C30.787 57.971 31.39 58 32 58zM29.788 57.9c-1.217-.103-2.411-.289-3.574-.554C27.378 57.61 28.571 57.797 29.788 57.9z" />
+                        </svg>
+                    </div>
                 </div>
             </div>
         </section>
@@ -562,7 +609,7 @@
         <!--Contacts Section Start-->
         <section id="contacts" class="container mx-auto my-10 pt-24">
             <div data-aos="fade-up">
-                <h1 class="text-section-header">
+                <h1 class="text-section-header rythm-kern">
                     Contacts
                 </h1>
             </div>
@@ -721,7 +768,7 @@
                     <a href="#contacts" class="nav-page animate-underline underline-from-right hover:text-gradient">Contacts</a>
                 </nav>
 
-                <div class="grid grid-flow-col">
+                <div class="grid grid-flow-col rythm-pulse">
                     <p id="secret-sign" class="ti ti-question-mark cursor-help text-2xl opacity-20"></p>
                 </div>
 
@@ -758,7 +805,9 @@
     <script>
         const elements = document.querySelectorAll('img, iframe');
         elements.forEach(element => {
-            element.classList.add('lozad');
+            if (element.hasAttribute('data-src')) {
+                element.classList.add('lozad');
+            }
         });
     </script>
     <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>

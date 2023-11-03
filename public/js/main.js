@@ -1,39 +1,57 @@
-let sounds = false;
-let musics = false;
+function getRandomItem(arr) {
+    const randomIndex = Math.floor(Math.random() * arr.length);
+    const item = arr[randomIndex];
+    return item;
+}
 
+let sounds = false;
+let musicPlaying = false;
+const musics = [
+    "bloom-intro.mp3",
+    "bubblegum-animal-crossing-lofi.mp3",
+    "new-horizons-animal-crossing-lofi.mp3",
+    "route-101-pokémon-ruby-&-sapphire-lofi.mp3",
+];
+let musicName = getRandomItem(musics);
+
+const music = new Audio(); //prevent multiple music played at once
+const rythm = new Rythm();
 const lazyLoad = lozad();
 const owl = $("#projects-carousel");
 
 function soundPlay(path, volume = 1) {
     if (sounds) {
         let sound = new Audio();
-
         sound.src = `audio/sound/${path}`;
         sound.volume = volume;
         sound.play();
-
         sound.onended = function () {
-            sound = null;
+            sound = undefined;
         };
     }
 }
 
 function musicPlay(path, loop = false, volume = 1) {
-    const music = new Audio();
-
+    if (musicPlaying) {
+        music.load();
+    }
     music.src = `audio/music/${path}`;
     music.volume = volume;
     music.loop = loop;
+    rythm.connectExternalAudioElement(music);
+    rythm.start();
     music.play();
-
+    musicPlaying = true;
     if (!loop) {
         music.onended = function () {
-            musics = false;
+            musicPlaying = false;
             $(".music-toggle").prop("checked", true);
+            setTimeout(function () {
+                musicPlay(getRandomItem(musics));
+                $(".music-toggle").prop("checked", false);
+            }, 1000);
         };
     }
-
-    musics = music;
 }
 
 function fixedNavbar() {
@@ -258,6 +276,16 @@ function typewriter(delay = 500) {
 }
 
 $(document).ready(function () {
+    rythm.addRythm("rythm-pulse", "pulse", 0, 10, {
+        min: 1,
+        max: 1.3,
+    });
+
+    rythm.addRythm("rythm-kern", "kern", 0, 10, {
+        min: 1,
+        max: 10,
+    });
+
     // Sidebar for mobile
     $(".drawer-side li").on("click", function () {
         $("html").css("overflow", "auto");
@@ -285,7 +313,8 @@ $(document).ready(function () {
             : soundPlay("dark.mp3");
     });
 
-    $(".sound-toggle").change(function () {
+    $(".sound-toggle").change(function (e) {
+        e.preventDefault();
         if (this.checked) {
             sounds = false;
             $(".sound-toggle").prop("checked", true);
@@ -298,18 +327,19 @@ $(document).ready(function () {
         }
     });
 
-    $(".music-toggle").change(function () {
-        if (!musics) {
-            musicPlay("animal-crossing-new-horizons-lofi.mp3", true);
+    $(".music-toggle").change(function (e) {
+        e.preventDefault();
+        if (!musicPlaying) {
+            musicPlay(musicName);
             $(".music-toggle").prop("checked", false);
             console.log(`INFO: music played`);
         } else {
-            if (musics.paused) {
-                musics.play();
+            if (music.paused) {
+                music.play();
                 $(".music-toggle").prop("checked", false);
                 console.log(`INFO: music played`);
             } else {
-                musics.pause();
+                music.pause();
                 $(".music-toggle").prop("checked", true);
                 console.log(`INFO: music paused`);
             }
@@ -333,7 +363,7 @@ $(document).ready(function () {
             },
         },
     });
-    
+
     owl.on("changed.owl.carousel", function (event) {
         soundPlay("interface.mp3");
     });
@@ -412,35 +442,6 @@ $(document).ready(function () {
             soundPlay("beepd.mp3");
         });
     });
-});
-
-$(window).on("load", function () {
-    $("#preloader-content").fadeOut(500, function () {
-        $("#preloader-confirm").removeClass("hidden");
-        $("#preloader-confirm").on("click", "button", function () {
-            if ($(this).data("sound") == true) {
-                sounds = true;
-                soundPlay("beepd.mp3");
-                musicPlay("animal-crossing-new-horizons-lofi.mp3", true);
-                $(".sound-toggle, .music-toggle").prop("checked", false);
-            }
-            $("#preloader-confirm").fadeOut(500, function () {
-                $("#preloader").slideUp(500, function () {
-                    $(this).remove();
-                    $("html").css("overflow", "auto");
-                    window.scrollTo({ top: 0, behavior: "instant" });
-                    typewriter(1000);
-                    console.log(`INFO: preloader end`);
-                    lazyLoad.observe();
-                    AOS.init({
-                        duration: 1000,
-                        once: true,
-                        delay: 100,
-                    });
-                });
-            });
-        });
-    });
 
     //run the code only on device that has bigger screen than mobile phone
     if ($(window).width() >= 640) {
@@ -479,6 +480,35 @@ $(window).on("load", function () {
     VanillaTilt.init(document.querySelectorAll(".card-tech"), {
         scale: 1.2,
         perspective: 300,
+        gyroscope: false,
     });
 });
 
+$(window).on("load", function () {
+    $("#preloader-content").fadeOut(500, function () {
+        $("#preloader-confirm").removeClass("hidden");
+        $("#preloader-confirm").on("click", "button", function () {
+            if ($(this).data("sound") == true) {
+                sounds = true;
+                soundPlay("beepd.mp3");
+                musicPlay(musicName);
+                $(".sound-toggle, .music-toggle").prop("checked", false);
+            }
+            $("#preloader-confirm").fadeOut(500, function () {
+                $("#preloader").slideUp(500, function () {
+                    $(this).remove();
+                    $("html").css("overflow", "auto");
+                    window.scrollTo({ top: 0, behavior: "instant" });
+                    typewriter(1000);
+                    console.log(`INFO: preloader end`);
+                    lazyLoad.observe();
+                    AOS.init({
+                        duration: 1000,
+                        once: true,
+                        delay: 100,
+                    });
+                });
+            });
+        });
+    });
+});
