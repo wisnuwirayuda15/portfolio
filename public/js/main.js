@@ -4,12 +4,16 @@ let musicIsPlaying = false;
 const music = new Audio(); //prevent multiple music played at once
 const lazyLoad = lozad();
 const owl = $("#projects-carousel");
-const musics = [
-    "bloom-intro.mp3",
-    "bubblegum-animal-crossing-lofi.mp3",
-    "new-horizons-animal-crossing-lofi.mp3",
-    "route-101-pokémon-ruby-&-sapphire-lofi.mp3",
+const device = new MobileDetect(window.navigator.userAgent);
+const musicsLofi = [
+    "lofi/bloom-intro.mp3",
+    "lofi/pokémon-lofi.mp3",
+    "lofi/bubblegum-animal-crossing-lofi.mp3",
+    "lofi/new-horizons-animal-crossing-lofi.mp3",
+    "lofi/route-101-pokémon-ruby-&-sapphire-lofi.mp3",
 ];
+const musicsEDM = ["edm/kinetic.mp3"];
+const musics = [...musicsLofi, ...musicsEDM];
 
 function getRandomItem(arr) {
     const randomIndex = Math.floor(Math.random() * arr.length);
@@ -17,10 +21,10 @@ function getRandomItem(arr) {
     return item;
 }
 
-function soundPlay(path, volume = 1) {
+function soundPlay(soundName = "", volume = 1) {
     if (sounds) {
         let sound = new Audio();
-        sound.src = `audio/sound/${path}`;
+        sound.src = `audio/sound/${soundName}`;
         sound.volume = volume;
         sound.play();
         sound.onended = function () {
@@ -29,13 +33,18 @@ function soundPlay(path, volume = 1) {
     }
 }
 
-function musicPlay(path, loopShuffle = true, rythm = true, volume = 1) {
+function musicPlay(
+    musicName = "",
+    loopShuffle = true,
+    withRythm = true,
+    volume = 1,
+) {
     musicIsPlaying && music.load();
-    music.src = `audio/music/${path}`;
+    music.src = `audio/music/${musicName}`;
     music.volume = volume;
     music.play();
     musicIsPlaying = true;
-    rythm && startRythm(music);
+    withRythm ? startRythm(music) : rythm && rythm.stop(true);
     music.onended = function () {
         if (loopShuffle) {
             setTimeout(function () {
@@ -49,7 +58,10 @@ function musicPlay(path, loopShuffle = true, rythm = true, volume = 1) {
 }
 
 function startRythm(musicElement) {
-    if (rythm) return "Rythm.js already initiated, no need to reinitiate";
+    if (rythm) {
+        console.log("INFO: Rythm.js already initiated");
+        return;
+    }
     const rythms = new Rythm();
     rythm = rythms;
     rythm.addRythm("rythm-pulse", "pulse", 0, 10, {
@@ -261,32 +273,33 @@ function typewriter(delay = 500) {
         startDelay: delay,
     });
 
-    function typewriterIntersect(entries, observer) {
-        entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-                typewriterHeroText.start();
-                console.log("INFO: entering the viewport, typing started");
-            } else {
-                typewriterHeroText.stop();
-                console.log("INFO: out of viewport, typing stopped");
-            }
+    if (device.mobile() || device.phone()) {
+        function typewriterIntersect(entries, observer) {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    typewriterHeroText.start();
+                    console.log("INFO: entering the viewport, typing started");
+                } else {
+                    typewriterHeroText.stop();
+                    console.log("INFO: out of viewport, typing stopped");
+                }
+            });
+        }
+
+        const sectionObserver = new IntersectionObserver(typewriterIntersect, {
+            root: null, // use viewport sas root
+            rootMargin: "0px", // no additional margin
+            threshold: 0.5, // when half or more of element displayed
         });
-    }
 
-    const sectionObserver = new IntersectionObserver(typewriterIntersect, {
-        root: null, // use viewport sas root
-        rootMargin: "0px", // no additional margin
-        threshold: 0.5, // when half or more of element displayed
-    });
-
-    const heroText = document.querySelector("#hero-text");
-    if (heroText) {
-        sectionObserver.observe(heroText);
+        const heroText = document.querySelector("#hero-text");
+        if (heroText) {
+            sectionObserver.observe(heroText);
+        }
     }
 }
 
 $(document).ready(function () {
-    // Sidebar for mobile
     $(".drawer-side li").on("click", function () {
         $("html").css("overflow", "auto");
         $("#sidebar-close").click();
@@ -443,8 +456,22 @@ $(document).ready(function () {
         });
     });
 
-    //run the code only on device that has bigger screen than mobile phone
-    if ($(window).width() >= 640) {
+    $("#tech-list").on("mouseenter", ".card-tech", function () {
+        soundPlay("click-menu.mp3");
+    });
+
+    VanillaTilt.init(document.querySelectorAll(".card-tech"), {
+        scale: 1.2,
+        perspective: 300,
+        gyroscope: false,
+    });
+
+    //run the code only on mobile phone
+    if (device.mobile() || device.phone()) {
+        $("#tech-draggable-text").text(
+            $("#tech-draggable-text").text() + " Click to see the detail 😉",
+        );
+    } else {
         $(".owl-carousel").on("click", ".owl-item", function () {
             owlIndex = $(this).index();
             count = $(".owl-item.active").length;
@@ -457,9 +484,11 @@ $(document).ready(function () {
         });
 
         const techDrag = dragula([document.querySelector("#tech-list")]);
+
         techDrag.on("drag", function () {
             soundPlay("bubble.mp3");
         });
+
         techDrag.on("drop", function () {
             soundPlay("digital-beeping.mp3");
         });
@@ -467,21 +496,7 @@ $(document).ready(function () {
         $("#tech-draggable-text").text(
             $("#tech-draggable-text").text() + " It's draggable by the way 😀",
         );
-    } else {
-        $("#tech-draggable-text").text(
-            $("#tech-draggable-text").text() + " Click to see the detail 😉",
-        );
     }
-
-    $("#tech-list").on("mouseenter", ".card-tech", function () {
-        soundPlay("click-menu.mp3");
-    });
-
-    VanillaTilt.init(document.querySelectorAll(".card-tech"), {
-        scale: 1.2,
-        perspective: 300,
-        gyroscope: false,
-    });
 });
 
 $(window).on("load", function () {
