@@ -3,178 +3,178 @@
 @tailwind utilities;
 
 @layer base {
-    html {
-        @apply custom-scrollbar select-none !overflow-x-hidden scroll-smooth;
-        overflow: hidden;
-    }
+  html {
+    @apply custom-scrollbar select-none !overflow-x-hidden scroll-smooth;
+    overflow: hidden;
+  }
 
-    /* section {
+  /* section {
         scroll-snap-align: center;
     } */
 
-    /* path {
+  /* path {
         @apply transition-colors;
     } */
 
-    /* * {
+  /* * {
         @apply border border-red-600;
     } */
 }
 
 @layer components {
-    /* Hide scrollbar for Chrome, Safari and Opera */
-    .no-scrollbar::-webkit-scrollbar {
-        display: none;
-    }
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
 
-    /* Hide scrollbar for IE, Edge and Firefox */
-    .no-scrollbar {
-        -ms-overflow-style: none; /* IE and Edge */
-        scrollbar-width: none; /* Firefox */
-    }
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
 
-    .custom-scrollbar {
-        @apply scrollbar-thin scrollbar-track-base-300 scrollbar-thumb-primary scrollbar-thumb-rounded;
-    }
+  .custom-scrollbar {
+    @apply scrollbar-thin scrollbar-track-base-300 scrollbar-thumb-primary scrollbar-thumb-rounded;
+  }
 
-    .animate-underline {
-        @apply relative inline-block cursor-pointer before:absolute before:-bottom-2 before:rounded-full before:bg-gradient-to-r before:from-primary before:via-secondary before:to-accent before:opacity-0 before:transition-all before:content-[''] hover:before:w-full hover:before:opacity-100;
-    }
-    .underline-from-left {
-        @apply before:left-0 before:h-1.5 before:w-0;
-    }
-    .underline-from-right {
-        @apply before:right-0 before:h-1.5 before:w-0;
-    }
-    .underline-from-mid {
-        @apply before:left-1/2 before:h-1.5 before:w-0 before:-translate-x-1/2;
-    }
+  .animate-underline {
+    @apply relative inline-block cursor-pointer before:absolute before:-bottom-2 before:rounded-full before:bg-gradient-to-r before:from-primary before:via-secondary before:to-accent before:opacity-0 before:transition-all before:content-[''] hover:before:w-full hover:before:opacity-100;
+  }
+  .underline-from-left {
+    @apply before:left-0 before:h-1.5 before:w-0;
+  }
+  .underline-from-right {
+    @apply before:right-0 before:h-1.5 before:w-0;
+  }
+  .underline-from-mid {
+    @apply before:left-1/2 before:h-1.5 before:w-0 before:-translate-x-1/2;
+  }
 
-    .bg-gradient {
-        @apply bg-gradient-to-r from-primary via-secondary to-accent transition-colors;
-    }
-    .text-gradient {
-        @apply bg-gradient bg-clip-text text-transparent transition-colors;
-    }
+  .bg-gradient {
+    @apply bg-gradient-to-r from-primary via-secondary to-accent transition-colors;
+  }
+  .text-gradient {
+    @apply bg-gradient bg-clip-text text-transparent transition-colors;
+  }
 
-    .btn-gradient {
-        @apply bg-gradient border-none text-base-100 transition-colors hover:animate-gradient;
-    }
+  .btn-gradient {
+    @apply bg-gradient border-none text-base-100 transition-colors hover:animate-gradient;
+  }
 
-    /* .text-section-header {
+  /* .text-section-header {
         @apply text-gradient divider animate-gradient !py-7 text-center text-4xl font-extrabold uppercase transition-all hover:tracking-wider md:text-5xl md:hover:tracking-widest lg:!py-10 lg:text-6xl;
     } */
 
-    .text-section-header {
-        @apply text-gradient divider animate-gradient !py-7 text-center text-4xl font-extrabold uppercase md:text-5xl lg:!py-10 lg:text-6xl;
-    }
-    
-    .center-all {
-        @apply place-items-center content-center items-center justify-center justify-items-center text-center;
-    }
+  .text-section-header {
+    @apply text-gradient divider animate-gradient !py-7 text-center text-4xl font-extrabold uppercase md:text-5xl lg:!py-10 lg:text-6xl;
+  }
 
-    .btn {
-        @apply hover:drop-shadow-lg;
-    }
+  .center-all {
+    @apply place-items-center content-center items-center justify-center justify-items-center text-center;
+  }
 
-    .btn-primary,
-    .btn-secondary,
-    .btn-accent {
-        @apply text-base-100;
-    }
+  .btn {
+    @apply transition-all hover:drop-shadow-lg;
+  }
 
-    .input,
-    .textarea {
-        @apply bg-base-200 ring-primary transition-all hover:ring-4 hover:drop-shadow-xl focus:ring-4 focus:drop-shadow-xl;
-    }
+  .btn-primary,
+  .btn-secondary,
+  .btn-accent {
+    @apply text-base-100;
+  }
 
-    .card-project {
-        @apply card m-2 h-full w-auto overflow-hidden border-2 border-base-200 bg-base-200 shadow-primary ring-primary transition-shadow ease-in-out hover:ring-2;
-    }
+  .input,
+  .textarea {
+    @apply bg-base-200 ring-primary transition-all hover:ring-4 hover:drop-shadow-xl focus:ring-4 focus:drop-shadow-xl;
+  }
 
-    .card-tech {
-        @apply center-all card flex h-32 w-32 cursor-grabbing border-2 border-base-300 bg-base-200 transition-none hover:border-none hover:shadow-xl hover:ring-4;
-        transform-style: preserve-3d;
-    }
+  .card-project {
+    @apply card m-2 h-full w-auto overflow-hidden border-2 border-base-200 bg-base-200 shadow-primary ring-primary transition-shadow ease-in-out hover:ring-2;
+  }
 
-    .card-social {
-        @apply center-all card flex h-20 w-20 rounded-full border-2 border-base-300 bg-base-200 transition-shadow group-hover:ring-4 hover:border-none hover:shadow-xl;
-    }
-    .icon-tech {
-        @apply grayscale group-hover:grayscale-0;
-        transform: translateZ(20px);
-    }
+  .card-tech {
+    @apply center-all card flex h-32 w-32 cursor-grabbing border-2 border-base-300 bg-base-200 transition-none hover:border-none hover:shadow-xl hover:ring-4;
+    transform-style: preserve-3d;
+  }
 
-    .icon-social {
-        @apply text-5xl transition group-hover:rotate-12 group-hover:scale-110;
-    }
+  .card-social {
+    @apply center-all card flex h-20 w-20 rounded-full border-2 border-base-300 bg-base-200 transition-shadow group-hover:ring-4 hover:border-none hover:shadow-xl;
+  }
+  .icon-tech {
+    @apply grayscale group-hover:grayscale-0;
+    transform: translateZ(20px);
+  }
 
-    .box-social {
-        @apply my-5 flex items-center gap-5;
-    }
-    .owl-btn {
-        @apply center-all btn btn-primary absolute z-[2] hidden h-14 w-14 rounded-full md:flex;
-    }
+  .icon-social {
+    @apply text-5xl transition group-hover:rotate-12 group-hover:scale-110;
+  }
 
-    .owl-custom-prev {
-        @apply left-5 xl:left-20;
-    }
+  .box-social {
+    @apply my-5 flex items-center gap-5;
+  }
+  .owl-btn {
+    @apply center-all btn btn-primary absolute z-[2] hidden h-14 w-14 rounded-full md:flex;
+  }
 
-    .owl-custom-next {
-        @apply right-5 xl:right-20;
-    }
+  .owl-custom-prev {
+    @apply left-5 xl:left-20;
+  }
 
-    .blob {
-        @apply absolute -z-10 w-[50rem] origin-center animate-spin-slowest;
-    }
+  .owl-custom-next {
+    @apply right-5 xl:right-20;
+  }
 
-    .divider-horizontal {
-        @apply mx-0;
-    }
+  .blob {
+    @apply absolute -z-10 w-[50rem] origin-center animate-spin-slowest;
+  }
+
+  .divider-horizontal {
+    @apply mx-0;
+  }
 }
 
 .navbar-fixed {
-    @apply !fixed z-10 w-[95%] translate-y-2 rounded-full bg-base-100 bg-opacity-50 shadow-md md:w-[85%] xl:w-[75%];
-    /* backdrop-filter: blur(5px); */
-    /* box-shadow: inset 0 -1px 0 0 rgba(0, 0, 0, 0.1); */
+  @apply !fixed z-10 w-[95%] translate-y-2 rounded-full bg-base-100 bg-opacity-50 shadow-md md:w-[85%] xl:w-[75%];
+  /* backdrop-filter: blur(5px); */
+  /* box-shadow: inset 0 -1px 0 0 rgba(0, 0, 0, 0.1); */
 }
 
 .navbar {
-    backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
 }
 
 .dev {
-    @apply border border-red-600;
+  @apply border border-red-600;
 }
 
 .hero-title {
-    @apply text-gradient block animate-gradient py-3 text-6xl font-bold;
+  @apply text-gradient block animate-gradient py-3 text-6xl font-bold;
 }
 
 .owl-dot.active span {
-    @apply !w-8 !bg-primary transition-colors;
+  @apply !w-8 !bg-primary transition-colors;
 }
 
 .owl-stage {
-    @apply mb-9 mt-7 flex md:mb-12;
+  @apply mb-9 mt-7 flex md:mb-12;
 }
 
 .owl-item.active.center {
-    @apply scale-105 !cursor-default !opacity-100  md:scale-110;
+  @apply scale-105 !cursor-default !opacity-100  md:scale-110;
 }
 
 .owl-item {
-    @apply cursor-pointer px-[2px] opacity-50 transition sm:px-0;
+  @apply cursor-pointer px-[2px] opacity-50 transition sm:px-0;
 }
 
 .alert-success {
-    @apply text-[8rem] text-green-500;
+  @apply text-[8rem] text-green-500;
 }
 
 .alert-failed {
-    @apply text-[8rem] text-red-500;
+  @apply text-[8rem] text-red-500;
 }
 
 .submit-loading {
-    @apply loading loading-spinner;
+  @apply loading loading-spinner;
 }
