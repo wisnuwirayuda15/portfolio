@@ -1,7 +1,7 @@
 let sounds = false;
 let rythm = false;
 let musicIsPlaying = false;
-let musicVolume = 0.5;
+const musicVolume = 0.5;
 const music = new Audio(); //prevent multiple music played at once
 const lazyLoad = lozad();
 const owl = $("#projects-carousel");
@@ -31,14 +31,14 @@ function soundPlay(soundPath = "", volume = 1) {
     sound.onended = function () {
       sound = undefined;
     };
-    return soundPath;
+    return sound;
   }
 }
 
 function musicPlay(
   musicPath = "",
-  loopShuffle = true,
   withRythm = true,
+  loopShuffle = true,
   volume = musicVolume,
 ) {
   musicIsPlaying && music.load();
@@ -46,7 +46,7 @@ function musicPlay(
   music.volume = volume;
   music.play();
   musicIsPlaying = true;
-  withRythm ? startRythm(music) : rythm && rythm.stop(true);
+  withRythm ? startRythm(music) : rythm && rythm.stop();
   music.onended = function () {
     if (loopShuffle) {
       setTimeout(function () {
@@ -57,24 +57,25 @@ function musicPlay(
       $(".music-toggle").prop("checked", true);
     }
   };
-  return musicPath;
+  return music;
 }
 
 function startRythm(musicElement) {
   if (rythm) {
-    return;
+    rythm.stop();
+  } else {
+    const rythms = new Rythm();
+    rythm = rythms;
+    rythm.addRythm("rythm-pulse", "pulse", 0, 10, {
+      min: 1,
+      max: 1.3,
+    });
+    rythm.addRythm("rythm-kern", "kern", 0, 10, {
+      min: 1,
+      max: 10,
+    });
+    rythm.connectExternalAudioElement(musicElement);
   }
-  const rythms = new Rythm();
-  rythm = rythms;
-  rythm.addRythm("rythm-pulse", "pulse", 0, 10, {
-    min: 1,
-    max: 1.3,
-  });
-  rythm.addRythm("rythm-kern", "kern", 0, 10, {
-    min: 1,
-    max: 10,
-  });
-  rythm.connectExternalAudioElement(musicElement);
   rythm.start();
 }
 
@@ -317,12 +318,12 @@ $(function () {
     $("#sidebar-close").trigger("click");
   });
 
-  $("#back-to-top").click(function () {
+  $("#back-to-top").on("click", function () {
     document.body.scrollTop = 0; // For Safari
     document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE, and Opera
   });
 
-  $(".theme-change").click(function () {
+  $(".theme-change").on("click", function () {
     $("html").data("data-theme")
       ? soundPlay("light.mp3")
       : soundPlay("dark.mp3");
@@ -334,9 +335,28 @@ $(function () {
     v > 1 ? 1 : v < 0 ? 0 : v;
     music.volume = v;
     $(this)
-      .parent()
+      .closest(".tooltip")
       .attr("data-tip", `${$(this).val()} %`);
-    console.log(`INFO: music volume (${v})`);
+  });
+
+  $(".volume-slider").on("wheel", function (event) {
+    event.preventDefault();
+    const step = 10;
+    if (event.originalEvent.deltaY < 0) {
+      $(this).val(
+        Math.min(parseInt($(this).val()) + step, parseInt($(this).attr("max"))),
+      );
+    } else {
+      $(this).val(
+        Math.max(parseInt($(this).val()) - step, parseInt($(this).attr("min"))),
+      );
+    }
+    let v = $(this).val() * 0.01;
+    v > 1 ? 1 : v < 0 ? 0 : v;
+    music.volume = v;
+    $(this)
+      .closest(".tooltip")
+      .attr("data-tip", `${$(this).val()} %`);
   });
 
   $(".sound-toggle").on("change", function (e) {
@@ -353,9 +373,22 @@ $(function () {
     }
   });
 
+  // $(".rythm-toggle").on("change", function (e) {
+  //   e.preventDefault();
+  //   if (this.checked) {
+  //     rythm && rythm.stop();
+  //     $(this).prop("checked", true);
+  //     console.log(`INFO: sound ${sounds}`);
+  //   } else {
+  //     rythm && rythm.start();
+  //     $(this).prop("checked", false);
+  //     console.log(`INFO: sound ${sounds}`);
+  //   }
+  // });
+
   $(".music-shuffle").on("click", function (e) {
     const nowPlaying = musicPlay(getRandomItem(musics));
-    console.log(`INFO: now playing ${nowPlaying}`);
+    console.log(`INFO: now playing ${nowPlaying.src}`);
   });
 
   $(".music-toggle").on("change", function (e) {
@@ -402,18 +435,18 @@ $(function () {
     soundPlay("interface.mp3");
   });
 
-  $(".owl-custom-next").click(function () {
+  $(".owl-custom-next").on("click", function () {
     owl.trigger("next.owl.carousel");
     console.log("INFO: next button pressed, go to the next item");
   });
 
-  $(".owl-custom-prev").click(function () {
+  $(".owl-custom-prev").on("click", function () {
     owl.trigger("prev.owl.carousel");
     console.log("INFO: previous button pressed, go to the previous item");
   });
 
-  $("#contact-form").submit(function (event) {
-    event.preventDefault();
+  $("#contact-form").on("submit", function (e) {
+    e.preventDefault();
     $("#refresh").addClass("hidden");
     const formSubmit = $("#form-submit");
     const formModal = $("#form_modal");
@@ -459,17 +492,17 @@ $(function () {
     });
   });
 
-  $("#lol-btn").click(function () {
+  $("#lol-btn").on("click", function () {
     window.open("https://youtu.be/dQw4w9WgXcQ?si=6_hkLXumriYlFpfj", "_blank");
   });
 
-  $("#secret-sign").click(function (e) {
+  $("#secret-sign").on("click", function (e) {
     soundPlay("secret.mp3");
     secret_modal.showModal();
   });
 
   $(".nav-page").each(function (index, element) {
-    $(element).click(function () {
+    $(element).on("click", function () {
       soundPlay("beepd.mp3");
     });
   });

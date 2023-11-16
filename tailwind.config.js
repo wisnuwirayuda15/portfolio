@@ -40,8 +40,6 @@ module.exports = {
     },
   },
   daisyui: {
-    // darkTheme: "night",
-    logs: false,
     themes: [
       {
         light: {

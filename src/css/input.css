@@ -178,3 +178,7 @@
 .submit-loading {
   @apply loading loading-spinner;
 }
+
+.modal-full {
+  @apply !h-full !w-full !max-h-full !max-w-full !rounded-none;
+}

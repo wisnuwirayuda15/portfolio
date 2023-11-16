@@ -31,12 +31,12 @@
   <script src="https://hammerjs.github.io/dist/hammer.min.js"></script>
   <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dragula/3.7.3/dragula.min.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/preloader.css" />
+  <link rel="stylesheet" href="css/animation.css" />
   <title>Wisnu Wirayuda</title>
 </head>
 
@@ -101,15 +101,15 @@
 
         <!-- Settings Modal Start -->
         <dialog id="settings_modal" class="modal select-none">
-          <div class="modal-box flex h-72 items-center justify-center overflow-hidden">
+          <div class="modal-box flex h-72 items-center justify-center overflow-hidden !transition-all">
             <p class="absolute top-2 text-lg font-semibold">Settings</p>
             <form method="dialog">
               <div class="absolute right-2 top-2">
                 <div class="flex scale-90 justify-center gap-2">
-                  <div class="btn btn-circle btn-success btn-xs">
+                  <button class="btn btn-circle btn-success btn-xs">
                     <i class="ti ti-arrows-diagonal text-xs"></i>
-                  </div>
-                  <div class="btn btn-circle btn-warning btn-xs">
+                  </button>
+                  <div class="btn btn-circle btn-warning btn-xs" onclick="$(this).closest('.modal-box').toggleClass('modal-full');">
                     <i class="ti ti-square text-xs"></i>
                   </div>
                   <button class="btn btn-circle btn-error btn-xs" onclick="$('html').css('overflow', 'auto');">
@@ -133,6 +133,13 @@
                   <i class="ti ti-music-off swap-on"></i>
                 </label>
               </div>
+              <!-- <div class="tooltip inline-grid" data-tip="Toggle rythm">
+                <label class="btn btn-square swap text-3xl">
+                  <input class="rythm-toggle" type="checkbox" checked />
+                  <i class="ti ti-disc rythm-pulse swap-off"></i>
+                  <i class="ti ti-disc-off swap-on"></i>
+                </label>
+              </div> -->
               <div class="tooltip inline-grid" data-tip="Shuffle music">
                 <button class="music-shuffle btn btn-square text-3xl" disabled>
                   <i class="ti ti-arrows-shuffle"></i>
@@ -140,7 +147,7 @@
               </div>
               <div data-toggle-theme="night" data-act-class="swap-active" class="theme-change btn btn-square swap swap-rotate tooltip inline-grid transition-all" data-tip="Toggle theme">
                 <i class="ti ti-sun swap-off animate-spin-slow text-3xl"></i>
-                <i class="ti ti-moon animate__animated animate__tada animate__infinite swap-on text-3xl"></i>
+                <i class="ti ti-moon animate-pulsate-fwd swap-on text-3xl"></i>
               </div>
             </div>
             <div class="absolute bottom-4 w-[80%]">
@@ -153,7 +160,6 @@
           </div>
         </dialog>
         <!-- Settings Modal End -->
-
       </div>
 
       <div id="mobile-sidebar" class="drawer-side inset-0 z-40 lg:hidden">
@@ -162,7 +168,7 @@
           <div class="flex justify-between">
             <div data-toggle-theme="night" data-act-class="swap-active" class="theme-change btn btn-square btn-ghost swap swap-rotate transition-all">
               <i class="ti ti-sun swap-off animate-spin-slow text-3xl"></i>
-              <i class="ti ti-moon animate__animated animate__tada animate__infinite swap-on text-3xl"></i>
+              <i class="ti ti-moon animate-pulsate-fwd swap-on text-3xl"></i>
             </div>
             <label id="sidebar-close" onclick="$('html').css('overflow', 'auto')" for="sidebar-menu" class="btn btn-square btn-ghost">
               <i class="ti ti-x text-2xl"></i>
@@ -324,7 +330,7 @@
             <div class="drawer-side inset-0 z-40">
               <div class="drawer-overlay"></div>
               <div class="text-base-conten grid h-full w-full grid-cols-1 grid-rows-1 bg-base-100 p-4 lg:p-6">
-                <iframe data-src="https://drive.google.com/file/d/19dgdpZ56FVvNO2gTAFcp9ByzPxg59S4I/preview" id="pdf-iframe" class="row-span-full h-full w-full rounded-xl bg-primary ring-2 ring-primary transition-shadow lg:ring-4"></iframe>
+                <iframe data-src="https://drive.google.com/file/d/19dgdpZ56FVvNO2gTAFcp9ByzPxg59S4I/preview" id="pdf-iframe" class="row-span-full h-full w-full rounded-xl skeleton ring-2 ring-primary transition-shadow lg:ring-4"></iframe>
                 <div class="min-h-auto flex flex-wrap items-center justify-center gap-5 pt-4 lg:pt-6">
                   <a href="https://drive.google.com/file/d/19dgdpZ56FVvNO2gTAFcp9ByzPxg59S4I/view" target="_blank" class="btn btn-primary">
                     Google Drive
@@ -404,7 +410,7 @@
                   </div>
                 </a>
               </div>
-              <img data-src="https://raw.githubusercontent.com/SI-RPL-2023/SI4406_A_BidjiCourse/wisnu/public/img/screenshots/landing-page.png" class="aspect-video object-cover object-center transition peer-hover:rotate-2 peer-hover:scale-125" alt="bidji-course" />
+              <img data-src="https://raw.githubusercontent.com/SI-RPL-2023/SI4406_A_BidjiCourse/wisnu/public/img/screenshots/landing-page.png" class="skeleton aspect-video object-cover object-center transition peer-hover:rotate-2 peer-hover:scale-125" alt="bidji-course" />
             </div>
             <div class="card-body">
               <h2 class="card-title">Bidji Course</h2>
@@ -434,7 +440,7 @@
           <div id="swiftwalk" class="card-project group">
             <div class="overflow-hidden">
               <div class="center-all peer absolute z-[1] flex aspect-video w-full bg-gradient-to-t from-base-200"></div>
-              <img data-src="https://raw.githubusercontent.com/wisnuwirayuda15/Swiftwalk/master/public/img/screenshots/homepage.png" class="aspect-video object-cover object-center transition peer-hover:rotate-2 peer-hover:scale-125" alt="swiftwalk" />
+              <img data-src="https://raw.githubusercontent.com/wisnuwirayuda15/Swiftwalk/master/public/img/screenshots/homepage.png" class="skeleton aspect-video object-cover object-center transition peer-hover:rotate-2 peer-hover:scale-125" alt="swiftwalk" />
             </div>
             <div class="card-body">
               <h2 class="card-title">Swiftwalk</h2>
@@ -463,7 +469,7 @@
           <div id="aero-reserve" class="card-project group">
             <div class="overflow-hidden" title="Image from Unsplash by Benjamin Wong">
               <div class="center-all peer absolute z-[1] flex aspect-video w-full bg-gradient-to-t from-base-200"></div>
-              <img data-src="https://images.unsplash.com/photo-1512389810321-de6db6e2aba7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1969&q=80" class="aspect-video object-cover object-center transition peer-hover:rotate-2 peer-hover:scale-125" alt="aero-reserve" />
+              <img data-src="https://images.unsplash.com/photo-1512389810321-de6db6e2aba7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1969&q=80" class="skeleton aspect-video object-cover object-center transition peer-hover:rotate-2 peer-hover:scale-125" alt="aero-reserve" />
             </div>
             <div class="card-body">
               <h2 class="card-title">Aero Reserve</h2>
@@ -489,7 +495,7 @@
           <div id="portfolio-web" class="card-project group">
             <div class="overflow-hidden">
               <div class="center-all peer absolute z-[1] flex aspect-video w-full bg-gradient-to-t from-base-200"></div>
-              <img data-src="img/portfolio-web.webp" class="aspect-video object-cover object-center transition peer-hover:rotate-2 peer-hover:scale-125" alt="Shoes" />
+              <img data-src="img/portfolio-web.webp" class="skeleton aspect-video object-cover object-center transition peer-hover:rotate-2 peer-hover:scale-125" alt="Shoes" />
             </div>
             <div class="card-body">
               <h2 class="card-title">Portfolio Website</h2>
@@ -805,10 +811,10 @@
           by
           <span class="text-gradient animate-gradient">Wisnu Wirayuda</span>
           using
-          <a data-tip="v3.3.5" href="https://tailwindcss.com/" target="_blank" class="link tooltip text-[#35bef8]">Tailwind CSS
+          <a data-tip="v3" href="https://tailwindcss.com/" target="_blank" class="link tooltip text-[#35bef8]">Tailwind CSS
           </a>
           and
-          <a data-tip="v4.0.4" href="https://daisyui.com/" target="_blank" class="link tooltip text-[#1ad1a5]">DaisyUI</a>
+          <a data-tip="v4" href="https://daisyui.com/" target="_blank" class="link tooltip text-[#1ad1a5]">DaisyUI</a>
         </p>
 
         <div class="flex w-full justify-center">
