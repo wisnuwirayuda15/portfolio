@@ -48,9 +48,9 @@
     <div class="drawer drawer-end">
       <input id="sidebar-menu" type="checkbox" class="drawer-toggle" />
       <div class="drawer-content flex justify-center">
-        <nav id="navbar" class="navbar fixed px-3 font-quicksand transition-all lg:px-10">
+        <nav id="navbar" class="navbar backdrop-blur-sm fixed px-3 font-quicksand transition-all lg:px-10">
           <div class="navbar-start">
-            <a id="fav-icon" href="/" class="peer/logo z-20 flex items-center gap-5 transition hover:scale-110">
+            <div id="fav-icon" onclick="memes.showModal();" class="peer/logo cursor-help z-20 flex items-center gap-5 transition hover:scale-110">
               <svg class="rythm-pulse h-[40px] w-[40px] lg:h-[50px] lg:w-[50px]" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0,0,256,256" width="480px" height="480px">
                 <g transform="">
                   <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
@@ -64,7 +64,7 @@
                   </g>
                 </g>
               </svg>
-            </a>
+            </div>
             <div class="text-gradient absolute left-10 hidden animate-gradient cursor-default text-3xl font-black opacity-0 transition peer-hover/logo:translate-x-16 peer-hover/logo:opacity-100 xl:inline-flex">
               Wisnu Wirayuda
             </div>
@@ -93,7 +93,7 @@
               <i class="ti ti-menu-2 text-2xl"></i>
             </label>
 
-            <label id="settings" onclick="settings_modal.showModal(); $('html').css('overflow', 'hidden');" class="tooltip tooltip-left btn btn-square btn-ghost hidden lg:inline-grid" data-tip="Settings">
+            <label id="settings" onclick="settings_modal.showModal();" class="tooltip tooltip-left btn btn-square btn-ghost hidden lg:inline-grid" data-tip="Settings">
               <i class="ti ti-settings-2 text-2xl"></i>
             </label>
           </div>
@@ -106,13 +106,13 @@
             <form method="dialog">
               <div class="absolute right-2 top-2">
                 <div class="flex scale-90 justify-center gap-2">
-                  <button class="btn btn-circle btn-success btn-xs">
+                  <div class="btn btn-circle btn-success btn-xs">
                     <i class="ti ti-arrows-diagonal text-xs"></i>
-                  </button>
+                  </div>
                   <div class="btn btn-circle btn-warning btn-xs" onclick="$(this).closest('.modal-box').toggleClass('modal-full');">
                     <i class="ti ti-square text-xs"></i>
                   </div>
-                  <button class="btn btn-circle btn-error btn-xs" onclick="$('html').css('overflow', 'auto');">
+                  <button class="btn btn-circle btn-error btn-xs">
                     <i class="ti ti-x text-xs"></i>
                   </button>
                 </div>
@@ -151,7 +151,7 @@
               </div>
             </div>
             <div class="absolute bottom-4 w-[80%]">
-              <div class="flex items-center justify-center gap-0 font-semibold tooltip tooltip-open" data-tip="Music volume">
+              <div class="flex items-center justify-center gap-0 font-semibold tooltip tooltip-open" data-tip="50 %">
                 <i class="ti ti-volume-2 text-2xl"></i>
                 <input type="range" min="0" max="100" value="50" class="volume-slider range range-xs scale-[.80]" />
                 <i class="ti ti-volume text-2xl"></i>
@@ -191,7 +191,7 @@
             </div>
 
             <div class="absolute bottom-6 w-[90%]">
-              <div class="flex items-center justify-center gap-0 tooltip tooltip-open" data-tip="Music volume">
+              <div class="flex items-center justify-center gap-0 tooltip tooltip-open" data-tip="50 %">
                 <i class="ti ti-volume-2 text-2xl"></i>
                 <input type="range" min="0" max="100" value="50" class="volume-slider range range-xs scale-75" />
                 <i class="ti ti-volume text-2xl"></i>
@@ -277,18 +277,19 @@
           <a class="link text-primary" href="https://uiverse.io/Nawsome/wet-mayfly-23" target="_blank">Nawsome</a>
         </p>
       </div>
-      <div id="preloader-confirm" class="center-all mx-5 hidden">
-        <p class="mb-5 text-lg">
-          Do you want to enable sound and background music? You can change it
-          later.
-        </p>
+      <div id="preloader-confirm" class="mx-5 hidden">
+        <div class="flex justify-center">
+          <p class="mb-5 text-lg md:w-[50vw]">
+            This is the first time you visit my website, do you want to enable UI sound and background music? Don't worry, you can change it later 😉
+          </p>
+        </div>
         <div class="flex flex-wrap justify-center gap-5">
-          <button data-sound="true" class="btn btn-primary transition-all md:hover:px-8">
-            <span class="text-lg uppercase">Why not?</span>
+          <button data-sound="enable" class="btn btn-primary transition-all md:hover:px-8">
+            <span class="text-lg">Why not?</span>
             <i class="ti ti-volume text-xl"></i>
           </button>
-          <button data-sound="false" class="btn btn-accent transition-all md:hover:px-8">
-            <span class="text-lg uppercase">No thanks</span>
+          <button data-sound="disable" class="btn btn-accent transition-all md:hover:px-8">
+            <span class="text-lg">No thanks</span>
             <i class="ti ti-volume-3 text-xl"></i>
           </button>
         </div>
@@ -423,7 +424,7 @@
                 </div>
               </div>
               <p class="text-sm md:text-base">
-                A free educational website providing diverse learning
+                Belajar Sed'jak Dini, is a free educational website providing diverse learning
                 materials and instructional videos for Indonesian students,
                 spanning from elementary to high school levels.
               </p>
@@ -630,6 +631,12 @@
           </div>
         </div>
 
+        <div class="card-tech group tooltip tooltip-bottom ring-[#ff3e00]" data-tip="Svelte">
+          <div class="icon-tech">
+            <img data-src="img/brand/Svelte.png" class="rythm-pulse h-16" alt="Svelte" />
+          </div>
+        </div>
+
         <div class="card-tech group tooltip tooltip-bottom ring-[#0b85d1]" data-tip="Visual Studio Code">
           <div class="icon-tech">
             <img data-src="img/brand/vscode.png" class="rythm-pulse w-16" alt="Visual Studio Code" />
@@ -759,6 +766,35 @@
           </div>
         </div>
       </dialog>
+
+
+      <!-- <dialog id="modal" class="modal select-none">
+        <div class="modal-box text-center">
+          <div id="modal-icon">
+            <i class="ti ti-${icon}" style="font-size: ${iconSize}; color: ${iconColor}"></i>
+          </div>
+          <div class="mt-10">
+            <h3 id="modal-title" class="text-2xl font-bold">
+              ${title}
+            </h3>
+            <p id="modal-text" class="py-4">
+              ${text}
+            </p>
+          </div>
+          <div class="modal-action justify-center">
+            <form method="dialog" class="flex flex-wrap justify-center gap-3">
+              <button class="btn btn-primary">
+                ${closeButtonText}
+              </button>
+              <div class="btn btn-accent">
+                ${actionButtonText}
+              </div>
+            </form>
+          </div>
+        </div>
+      </dialog> -->
+
+
     </section>
     <!--Contacts Section End-->
   </main>
@@ -784,6 +820,18 @@
               Yes sir, take me there!
             </button>
           </form>
+        </div>
+      </div>
+    </dialog>
+
+    <dialog id="memes" class="modal select-none">
+      <div class="modal-box overflow-x-hidden no-scrollbar">
+        <form method="dialog">
+          <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+        </form>
+        <h3 class="font-bold text-xl mb-5">Random Memes</h3>
+        <div id="memes-div" class="skeleton rounded-lg h-72 w-full ring-2 ring-primary ">
+          <img id="memes-img" class="aspect-auto h-max w-max rounded-lg hidden" alt="memes"/>
         </div>
       </div>
     </dialog>

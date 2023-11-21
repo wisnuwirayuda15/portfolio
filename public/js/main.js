@@ -1,7 +1,10 @@
-let sounds = false;
 let rythm = false;
+let musicVolume = 0.5;
 let musicIsPlaying = false;
-const musicVolume = 0.5;
+let enableSound = localStorage.getItem("enableSound") ? true : false;
+let enableMusic = localStorage.getItem("enableMusic") ? true : false;
+const animationDuration = 500;
+const visited = localStorage.getItem("visited") ? true : false;
 const music = new Audio(); //prevent multiple music played at once
 const lazyLoad = lozad();
 const owl = $("#projects-carousel");
@@ -16,33 +19,34 @@ const musicsLofi = [
 const musicsEDM = ["edm/kinetic.mp3"];
 const musics = [...musicsLofi, ...musicsEDM];
 
-function getRandomItem(arr) {
+const getRandomItem = (arr) => {
   const randomIndex = Math.floor(Math.random() * arr.length);
   const item = arr[randomIndex];
   return item;
-}
+};
 
-function soundPlay(soundPath = "", volume = 1) {
-  if (sounds) {
+const soundPlay = (path, volume = 1) => {
+  if (enableSound) {
     let sound = new Audio();
-    sound.src = `audio/sound/${soundPath}`;
+    sound.src = `audio/sound/${path}`;
     sound.volume = volume;
     sound.play();
     sound.onended = function () {
       sound = undefined;
     };
+    $(".sound-toggle").prop("checked", false);
     return sound;
   }
-}
+};
 
-function musicPlay(
-  musicPath = "",
+const musicPlay = (
+  path,
   withRythm = true,
   loopShuffle = true,
   volume = musicVolume,
-) {
+) => {
   musicIsPlaying && music.load();
-  music.src = `audio/music/${musicPath}`;
+  music.src = `audio/music/${path}`;
   music.volume = volume;
   music.play();
   musicIsPlaying = true;
@@ -57,10 +61,19 @@ function musicPlay(
       $(".music-toggle").prop("checked", true);
     }
   };
+  showToast({
+    title: "Now Playing",
+    text: path,
+    icon: "disc",
+    iconAnimationClass: "animate-spin-slow",
+    autoCloseDelay: 10000,
+  });
+  $(".music-toggle").prop("checked", false);
+  $(".music-shuffle").prop("disabled", false);
   return music;
-}
+};
 
-function startRythm(musicElement) {
+const startRythm = (musicElement) => {
   if (rythm) {
     rythm.stop();
   } else {
@@ -77,27 +90,27 @@ function startRythm(musicElement) {
     rythm.connectExternalAudioElement(musicElement);
   }
   rythm.start();
-}
+};
 
-function fixedNavbar() {
+const fixedNavbar = () => {
   $(this).scrollTop() > 1
     ? $("#navbar").addClass("navbar-fixed")
     : $("#navbar").removeClass("navbar-fixed");
-}
+};
 
-function favIconHover() {
+const favIconHover = () => {
   $(this).scrollTop() > 1
     ? $("#fav-icon").removeClass("peer/logo")
     : $("#fav-icon").addClass("peer/logo");
-}
+};
 
-function backToTop() {
+const backToTop = () => {
   $(this).scrollTop() > 500
-    ? $("#back-to-top").fadeIn(500)
-    : $("#back-to-top").fadeOut(500);
-}
+    ? $("#back-to-top").fadeIn(animationDuration)
+    : $("#back-to-top").fadeOut(animationDuration);
+};
 
-function typewriter(delay = 500) {
+const typewriter = (delay = 500) => {
   const typewriterHeroText = new Typed("#typewriter-hero-text", {
     /**
      * @property {array} strings strings to be typed
@@ -281,28 +294,127 @@ function typewriter(delay = 500) {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           typewriterHeroText.start();
-          console.log("INFO: entering the viewport, typing started");
+          console.log("INFO: Typewriter entering the viewport, typing started");
         } else {
           typewriterHeroText.stop();
-          console.log("INFO: out of viewport, typing stopped");
+          console.log("INFO: Typewriter out of viewport, typing stopped");
         }
       });
     }
-
     const sectionObserver = new IntersectionObserver(typewriterIntersect, {
       root: null, // use viewport sas root
       rootMargin: "0px", // no additional margin
       threshold: 0.5, // when half or more of element displayed
     });
-
     const heroText = document.querySelector("#hero-text");
-    if (heroText) {
-      sectionObserver.observe(heroText);
-    }
+    heroText && sectionObserver.observe(heroText);
   }
-}
+};
+
+const showToast = ({
+  title = "",
+  text = "",
+  icon = "",
+  iconAnimationClass = "",
+  autoCloseDelay = 0,
+}) => {
+  $("#toast") && $("#toast").remove();
+  const toast = $(
+    `<div id="toast" class="toast toast-start toast-bottom z-[9999] animate-fade-in-left">
+      <div class="alert">
+        <div class="flex gap-4 items-center">
+          <i class="ti ti-${icon} text-4xl text-primary ${iconAnimationClass}"></i>
+          <div>
+            <p id="toast-title" class="font-bold text-xs">${title}</p>
+            <p id="toast-desc">${text}</p>
+          </div>
+        </div>
+        <button id="toast-close" class="btn btn-sm btn-ghost btn-square">
+          <i class="ti ti-x text-xl"></i>
+        </button>
+      </div>
+    </div>`,
+  );
+  const closeToast = () => {
+    toast.addClass("animate-fade-out-left");
+    setTimeout(function () {
+      toast.remove();
+    }, 500);
+  };
+  toast.find("#toast-close").on("click", function () {
+    closeToast();
+  });
+  if (autoCloseDelay !== 0) {
+    setTimeout(function () {
+      closeToast();
+    }, autoCloseDelay);
+  }
+  $("body").append(toast);
+  return toast;
+};
+
+const showCustomModal = ({
+  title = "",
+  text = "",
+  icon = "",
+  iconSize = "8rem",
+  iconColor = "",
+  closeButtonText = "OK",
+  actionButtonText = "",
+  customHtml = "",
+}) => {
+  $("#modal") && $("#modal").remove();
+  const modal = $(
+    `<div id="modal" class="modal modal-open select-none">
+      <div class="modal-box custom-scrollbar overflow-x-hidden text-center">
+        <div id="modal-icon">
+          <i class="ti ti-${icon} ${
+            !icon && "hidden"
+          }" style="font-size: ${iconSize}; color: ${iconColor}"></i>
+        </div>
+        <div class="mt-7">
+          <h3 id="modal-title" class="text-2xl font-bold">
+            ${title}
+          </h3>
+          <p id="modal-text" class="py-1">
+            ${text}
+          </p>
+        </div>
+        <div class>
+          ${customHtml}
+        </div>
+        <div class="modal-action justify-center">
+          <div class="flex flex-wrap justify-center gap-3">
+            <button id="modal-close" class="btn btn-primary">
+              ${closeButtonText}
+            </button>
+            <div class="btn btn-accent ${!actionButtonText && `hidden`}">
+              ${actionButtonText}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>`,
+  );
+  modal.find("#modal-close").on("click", function () {
+    modal.removeClass("modal-open");
+    setTimeout(function () {
+      modal.remove();
+    }, 500);
+  });
+  $("body").append(modal);
+  return modal;
+};
 
 $(function () {
+  if (localStorage.getItem("musicVolume")) {
+    musicVolume = localStorage.getItem("musicVolume") * 0.01;
+    $(".volume-slider").val(localStorage.getItem("musicVolume"));
+    $(".volume-slider")
+      .parent()
+      .attr("data-tip", `${localStorage.getItem("musicVolume")} %`);
+  }
+
   fixedNavbar();
   favIconHover();
   backToTop();
@@ -334,6 +446,7 @@ $(function () {
     let v = $(this).val() * 0.01;
     v > 1 ? 1 : v < 0 ? 0 : v;
     music.volume = v;
+    localStorage.setItem("musicVolume", $(this).val());
     $(this)
       .closest(".tooltip")
       .attr("data-tip", `${$(this).val()} %`);
@@ -354,6 +467,7 @@ $(function () {
     let v = $(this).val() * 0.01;
     v > 1 ? 1 : v < 0 ? 0 : v;
     music.volume = v;
+    localStorage.setItem("musicVolume", $(this).val());
     $(this)
       .closest(".tooltip")
       .attr("data-tip", `${$(this).val()} %`);
@@ -362,14 +476,16 @@ $(function () {
   $(".sound-toggle").on("change", function (e) {
     e.preventDefault();
     if (this.checked) {
-      sounds = false;
+      enableSound = false;
+      localStorage.removeItem("enableSound");
       $(this).prop("checked", true);
-      console.log(`INFO: sound ${sounds}`);
+      console.log(`INFO: sound ${enableSound}`);
     } else {
-      sounds = true;
+      enableSound = true;
+      localStorage.setItem("enableSound", true);
       soundPlay("beepd.mp3");
       $(this).prop("checked", false);
-      console.log(`INFO: sound ${sounds}`);
+      console.log(`INFO: sound ${enableSound}`);
     }
   });
 
@@ -378,17 +494,16 @@ $(function () {
   //   if (this.checked) {
   //     rythm && rythm.stop();
   //     $(this).prop("checked", true);
-  //     console.log(`INFO: sound ${sounds}`);
+  //     console.log(`INFO: sound ${enableSound}`);
   //   } else {
   //     rythm && rythm.start();
   //     $(this).prop("checked", false);
-  //     console.log(`INFO: sound ${sounds}`);
+  //     console.log(`INFO: sound ${enableSound}`);
   //   }
   // });
 
   $(".music-shuffle").on("click", function (e) {
-    const nowPlaying = musicPlay(getRandomItem(musics));
-    console.log(`INFO: now playing ${nowPlaying.src}`);
+    musicPlay(getRandomItem(musics));
   });
 
   $(".music-toggle").on("change", function (e) {
@@ -397,17 +512,20 @@ $(function () {
       musicPlay(getRandomItem(musics));
       $(this).prop("checked", false);
       $(".music-shuffle").attr("disabled", false);
+      localStorage.setItem("enableMusic", true);
       console.log(`INFO: music played`);
     } else {
       if (music.paused) {
         music.play();
         $(this).prop("checked", false);
         $(".music-shuffle").attr("disabled", false);
+        localStorage.setItem("enableMusic", true);
         console.log(`INFO: music resumed`);
       } else {
         music.pause();
         $(this).prop("checked", true);
         $(".music-shuffle").attr("disabled", true);
+        localStorage.removeItem("enableMusic");
         console.log(`INFO: music paused`);
       }
     }
@@ -431,7 +549,7 @@ $(function () {
     },
   });
 
-  owl.on("changed.owl.carousel", function (event) {
+  owl.on("changed.owl.carousel", function () {
     soundPlay("interface.mp3");
   });
 
@@ -493,7 +611,7 @@ $(function () {
   });
 
   $("#lol-btn").on("click", function () {
-    window.open("https://youtu.be/dQw4w9WgXcQ?si=6_hkLXumriYlFpfj", "_blank");
+    window.open("https://youtu.be/dQw4w9WgXcQ", "_blank");
   });
 
   $("#secret-sign").on("click", function (e) {
@@ -517,29 +635,28 @@ $(function () {
     gyroscope: false,
   });
 
-  // $.ajax({
-  //   url: "https://meme-api.com/gimme",
-  //   method: "GET",
-  //   dataType: "json",
-  //   success: function (data) {
-  //     if (data.preview && data.preview.length > 0) {
-  //       var largestPreview = data.preview.reduce(function (prev, current) {
-  //         return (prev.width > current.width) ? prev : current;
-  //       });
-  //       console.log("Largest Preview URL: " + largestPreview.url);
-  //     } else {
-  //       console.log("No preview data found");
-  //     }
-  //   },
-  //   error: function (error) {
-  //     console.log("Error fetching data: " + error);
-  //   }
-  // });
+  $("#fav-icon").on("click", function () {
+    $("#memes-img").addClass("hidden");
+    $("#memes-div").addClass("h-72").removeClass("h-full");
+    $.ajax({
+      url: "https://meme-api.com/gimme",
+      method: "GET",
+      dataType: "json",
+      success: function (data) {
+        $("#memes-div").removeClass("h-72").addClass("h-full");
+        $("#memes-img").attr("src", data.url).removeClass("hidden");
+      },
+      error: function (error) {
+        console.log("Error fetching data: " + error);
+      },
+    });
+  });
 
   //run the code only on mobile phone
   if (device.mobile() || device.phone()) {
     const mobileDrawer = new Hammer(document.getElementById("mobile-sidebar"));
-    mobileDrawer.on("swiperight", function (e) {
+
+    mobileDrawer.on("swiperight", function () {
       $("#sidebar-close").trigger("click");
     });
 
@@ -548,8 +665,8 @@ $(function () {
     );
   } else {
     $(".owl-carousel").on("click", ".owl-item", function () {
-      owlIndex = $(this).index();
-      count = $(".owl-item.active").length;
+      const owlIndex = $(this).index();
+      const count = $(".owl-item.active").length;
       $(".owl-stage-outer").trigger("to.owl.carousel", owlIndex - count);
       console.log(
         `INFO: #${$(this).children().attr("id")} selected on #${$(this)
@@ -575,31 +692,42 @@ $(function () {
 });
 
 $(window).on("load", function () {
-  $("#preloader-content").fadeOut(500, function () {
-    $("#preloader-confirm").removeClass("hidden");
-    $("#preloader-confirm").on("click", "button", function () {
-      if ($(this).data("sound") == true) {
-        sounds = true;
-        soundPlay("beepd.mp3");
-        musicPlay(getRandomItem(musics));
-        $(".sound-toggle, .music-toggle").prop("checked", false);
-        $(".music-shuffle").prop("disabled", false);
-      }
-      $("#preloader-confirm").fadeOut(500, function () {
-        $("#preloader").slideUp(500, function () {
-          $(this).remove();
-          $("html").css("overflow", "auto");
-          window.scrollTo({ top: 0, behavior: "instant" });
-          typewriter(1000);
-          console.log(`INFO: preloader end`);
-          lazyLoad.observe();
-          AOS.init({
-            duration: 1000,
-            once: true,
-            delay: 100,
-          });
+  const removeLoader = () => {
+    $("#preloader").slideUp(animationDuration, function () {
+      window.scrollTo({ top: 0, behavior: "instant" });
+      $("html").css("overflow", "auto");
+      enableSound && $(".sound-toggle").prop("checked", false);
+      enableMusic && musicPlay(getRandomItem(musics));
+      typewriter(1000);
+      lazyLoad.observe();
+      AOS.init({
+        duration: 1000,
+        once: true,
+        delay: 100,
+      });
+      $(this).remove();
+      console.log("INFO: preloader end");
+    });
+  };
+
+  $("#preloader-content").fadeOut(animationDuration, function () {
+    if (!visited) {
+      $("#preloader-confirm").removeClass("hidden");
+      $("#preloader-confirm").on("click", "button", function () {
+        if ($(this).data("sound") === "enable") {
+          enableSound = true;
+          enableMusic = true;
+          soundPlay("beepd.mp3");
+          localStorage.setItem("enableSound", true);
+          localStorage.setItem("enableMusic", true);
+        }
+        localStorage.setItem("visited", true);
+        $("#preloader-confirm").fadeOut(animationDuration, function () {
+          removeLoader();
         });
       });
-    });
+    } else {
+      removeLoader();
+    }
   });
 });
