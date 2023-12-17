@@ -50,7 +50,7 @@
       <div class="drawer-content flex justify-center">
         <nav id="navbar" class="navbar backdrop-blur-sm fixed px-3 font-quicksand transition-all lg:px-10">
           <div class="navbar-start">
-            <div id="fav-icon" onclick="memes.showModal();" class="peer/logo cursor-help z-20 flex items-center gap-5 transition hover:scale-110">
+            <div id="fav-icon" onclick="memes.showModal();" class="peer/logo cursor-help z-20 flex items-center gap-5 transition hover:scale-110" title="Click here to see memes :D">
               <svg class="rythm-pulse h-[40px] w-[40px] lg:h-[50px] lg:w-[50px]" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0,0,256,256" width="480px" height="480px">
                 <g transform="">
                   <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
@@ -133,13 +133,6 @@
                   <i class="ti ti-music-off swap-on"></i>
                 </label>
               </div>
-              <!-- <div class="tooltip inline-grid" data-tip="Toggle rythm">
-                <label class="btn btn-square swap text-3xl">
-                  <input class="rythm-toggle" type="checkbox" checked />
-                  <i class="ti ti-disc rythm-pulse swap-off"></i>
-                  <i class="ti ti-disc-off swap-on"></i>
-                </label>
-              </div> -->
               <div class="tooltip inline-grid" data-tip="Shuffle music">
                 <button class="music-shuffle btn btn-square text-3xl" disabled>
                   <i class="ti ti-arrows-shuffle"></i>
@@ -160,6 +153,33 @@
           </div>
         </dialog>
         <!-- Settings Modal End -->
+
+        <!-- Memes Modal End -->
+        <dialog id="memes" class="modal select-none">
+          <div class="modal-box overflow-x-hidden no-scrollbar">
+            <h3 class="font-bold text-xl mb-5">Random Memes</h3>
+            <form method="dialog">
+              <div class="absolute right-2 top-2">
+                <div class="flex scale-90 justify-center gap-2">
+                  <div class="btn btn-circle btn-success btn-xs">
+                    <i class="ti ti-arrows-diagonal text-xs"></i>
+                  </div>
+                  <div id="refresh-memes" class="btn btn-circle btn-warning btn-xs">
+                    <i class="ti ti-reload text-xs"></i>
+                  </div>
+                  <button class="btn btn-circle btn-error btn-xs">
+                    <i class="ti ti-x text-xs"></i>
+                  </button>
+                </div>
+              </div>
+            </form>
+            <div id="memes-div" class="skeleton rounded-lg h-72 w-full flex justify-center ring-2 ring-primary">
+              <img id="memes-img" class="aspect-auto h-full w-full rounded-lg hidden" alt="memes" />
+            </div>
+          </div>
+        </dialog>
+        <!-- Memes Modal End -->
+
       </div>
 
       <div id="mobile-sidebar" class="drawer-side inset-0 z-40 lg:hidden">
@@ -820,18 +840,6 @@
               Yes sir, take me there!
             </button>
           </form>
-        </div>
-      </div>
-    </dialog>
-
-    <dialog id="memes" class="modal select-none">
-      <div class="modal-box overflow-x-hidden no-scrollbar">
-        <form method="dialog">
-          <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
-        </form>
-        <h3 class="font-bold text-xl mb-5">Random Memes</h3>
-        <div id="memes-div" class="skeleton rounded-lg h-72 w-full ring-2 ring-primary ">
-          <img id="memes-img" class="aspect-auto h-max w-max rounded-lg hidden" alt="memes"/>
         </div>
       </div>
     </dialog>

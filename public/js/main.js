@@ -19,9 +19,9 @@ const musicsLofi = [
 const musicsEDM = ["edm/kinetic.mp3"];
 const musics = [...musicsLofi, ...musicsEDM];
 
-const getRandomItem = (arr) => {
-  const randomIndex = Math.floor(Math.random() * arr.length);
-  const item = arr[randomIndex];
+const getRandomItem = (array) => {
+  const randomIndex = Math.floor(Math.random() * array.length);
+  const item = array[randomIndex];
   return item;
 };
 
@@ -323,10 +323,14 @@ const showToast = ({
     `<div id="toast" class="toast toast-start toast-bottom z-[9999] animate-fade-in-left">
       <div class="alert">
         <div class="flex gap-4 items-center">
-          <i class="ti ti-${icon} text-4xl text-primary ${iconAnimationClass}"></i>
+          <i class="ti ti-${icon} text-4xl text-primary ${iconAnimationClass} ${
+            !icon && "hidden"
+          }"></i>
           <div>
-            <p id="toast-title" class="font-bold text-xs">${title}</p>
-            <p id="toast-desc">${text}</p>
+            <p id="toast-title" class="font-bold text-xs ${
+              !title && "hidden"
+            }">${title}</p>
+            <p id="toast-desc ${!text && "hidden"}">${text}</p>
           </div>
         </div>
         <button id="toast-close" class="btn btn-sm btn-ghost btn-square">
@@ -388,7 +392,7 @@ const showCustomModal = ({
             <button id="modal-close" class="btn btn-primary">
               ${closeButtonText}
             </button>
-            <div class="btn btn-accent ${!actionButtonText && `hidden`}">
+            <div class="btn btn-accent ${!actionButtonText && "hidden"}">
               ${actionButtonText}
             </div>
           </div>
@@ -404,6 +408,23 @@ const showCustomModal = ({
   });
   $("body").append(modal);
   return modal;
+};
+
+const randomMemes = () => {
+  $("#memes-img").addClass("hidden");
+  $("#memes-div").addClass("h-72").removeClass("h-full");
+  $.ajax({
+    url: "https://meme-api.com/gimme",
+    method: "GET",
+    dataType: "json",
+    success: function (data) {
+      $("#memes-div").removeClass("h-72").addClass("h-full");
+      $("#memes-img").attr("src", data.url).removeClass("hidden");
+    },
+    error: function (error) {
+      console.log("Error fetching data: " + error);
+    },
+  });
 };
 
 $(function () {
@@ -488,19 +509,6 @@ $(function () {
       console.log(`INFO: sound ${enableSound}`);
     }
   });
-
-  // $(".rythm-toggle").on("change", function (e) {
-  //   e.preventDefault();
-  //   if (this.checked) {
-  //     rythm && rythm.stop();
-  //     $(this).prop("checked", true);
-  //     console.log(`INFO: sound ${enableSound}`);
-  //   } else {
-  //     rythm && rythm.start();
-  //     $(this).prop("checked", false);
-  //     console.log(`INFO: sound ${enableSound}`);
-  //   }
-  // });
 
   $(".music-shuffle").on("click", function (e) {
     musicPlay(getRandomItem(musics));
@@ -635,21 +643,8 @@ $(function () {
     gyroscope: false,
   });
 
-  $("#fav-icon").on("click", function () {
-    $("#memes-img").addClass("hidden");
-    $("#memes-div").addClass("h-72").removeClass("h-full");
-    $.ajax({
-      url: "https://meme-api.com/gimme",
-      method: "GET",
-      dataType: "json",
-      success: function (data) {
-        $("#memes-div").removeClass("h-72").addClass("h-full");
-        $("#memes-img").attr("src", data.url).removeClass("hidden");
-      },
-      error: function (error) {
-        console.log("Error fetching data: " + error);
-      },
-    });
+  $("#fav-icon, #refresh-memes").on("click", function () {
+    randomMemes();
   });
 
   //run the code only on mobile phone
