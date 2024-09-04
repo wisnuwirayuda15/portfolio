@@ -4413,15 +4413,6 @@ html:has(.drawer-toggle:checked) {
   width: 100%;
 }
 
-.w-screen {
-  width: 100vw;
-}
-
-.w-min {
-  width: -moz-min-content;
-  width: min-content;
-}
-
 .max-w-lg {
   max-width: 32rem;
 }
@@ -4859,6 +4850,11 @@ html:has(.drawer-toggle:checked) {
   color: rgb(250 204 21 / var(--tw-text-opacity));
 }
 
+.text-\[\#fc70ab\] {
+  --tw-text-opacity: 1;
+  color: rgb(252 112 171 / var(--tw-text-opacity));
+}
+
 .opacity-0 {
   opacity: 0;
 }
@@ -5006,6 +5002,11 @@ html:has(.drawer-toggle:checked) {
 .ring-primary {
   --tw-ring-opacity: 1;
   --tw-ring-color: var(--fallback-p,oklch(var(--p)/var(--tw-ring-opacity)));
+}
+
+.ring-\[\#fc70ab\] {
+  --tw-ring-opacity: 1;
+  --tw-ring-color: rgb(252 112 171 / var(--tw-ring-opacity));
 }
 
 .blur {
