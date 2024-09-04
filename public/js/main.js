@@ -1,6 +1,7 @@
 let rythm = false;
 let musicVolume = 0.5;
 let musicIsPlaying = false;
+let projectScroll = 0;
 let enableSound = localStorage.getItem("enableSound") ? true : false;
 let enableMusic = localStorage.getItem("enableMusic") ? true : false;
 const animationDuration = 500;
@@ -211,103 +212,105 @@ const typewriter = (delay = 500) => {
      * Before it begins typing
      * @param {Typed} self
      */
-    onBegin: (self) => {},
+    onBegin: (self) => { },
 
     /**
      * All typing is complete
      * @param {Typed} self
      */
-    onComplete: (self) => {},
+    onComplete: (self) => { },
 
     /**
      * Before each string is typed
      * @param {number} arrayPos
      * @param {Typed} self
      */
-    preStringTyped: (arrayPos, self) => {},
+    preStringTyped: (arrayPos, self) => { },
 
     /**
      * After each string is typed
      * @param {number} arrayPos
      * @param {Typed} self
      */
-    onStringTyped: (arrayPos, self) => {},
+    onStringTyped: (arrayPos, self) => { },
 
     /**
      * During looping, after last string is typed
      * @param {Typed} self
      */
-    onLastStringBackspaced: (self) => {},
+    onLastStringBackspaced: (self) => { },
 
     /**
      * Typing has been stopped
      * @param {number} arrayPos
      * @param {Typed} self
      */
-    onTypingPaused: (arrayPos, self) => {},
+    onTypingPaused: (arrayPos, self) => { },
 
     /**
      * Typing has been started after being stopped
      * @param {number} arrayPos
      * @param {Typed} self
      */
-    onTypingResumed: (arrayPos, self) => {},
+    onTypingResumed: (arrayPos, self) => { },
 
     /**
      * After reset
      * @param {Typed} self
      */
-    onReset: (self) => {},
+    onReset: (self) => { },
 
     /**
      * After stop
      * @param {number} arrayPos
      * @param {Typed} self
      */
-    onStop: (arrayPos, self) => {},
+    onStop: (arrayPos, self) => { },
 
     /**
      * After start
      * @param {number} arrayPos
      * @param {Typed} self
      */
-    onStart: (arrayPos, self) => {},
+    onStart: (arrayPos, self) => { },
 
     /**
      * After destroy
      * @param {Typed} self
      */
-    onDestroy: (self) => {},
+    onDestroy: (self) => { },
   });
 
   const typewriterHeroDesc = new Typed("#typewriter-hero-desc", {
     strings: [
-      "I'm a final-year undergraduate student at Telkom University with a passion for full-stack web development. I'm eager to launch a career as a web developer to create innovative web solutions.",
+      "I am a fresh graduate student at Telkom University. My passion lies in the field of web development. I am deeply enthusiastic about pursuing a career as a full-stack web developer, where I can leverage my skills and knowledge to create innovative and efficient web solutions.",
     ],
     typeSpeed: 1,
     showCursor: false,
     startDelay: delay,
   });
 
-  if (device.mobile() || device.phone()) {
-    function typewriterIntersect(entries, observer) {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          typewriterHeroText.start();
-          console.log("INFO: Typewriter entering the viewport, typing started");
-        } else {
-          typewriterHeroText.stop();
-          console.log("INFO: Typewriter out of viewport, typing stopped");
-        }
+  if (false) {
+    if (device.mobile() || device.phone()) {
+      function typewriterIntersect(entries, observer) {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            typewriterHeroText.start();
+            console.log("INFO: Typewriter entering the viewport, typing started");
+          } else {
+            typewriterHeroText.stop();
+            console.log("INFO: Typewriter out of viewport, typing stopped");
+          }
+        });
+      }
+      const sectionObserver = new IntersectionObserver(typewriterIntersect, {
+        root: null, // use viewport sas root
+        rootMargin: "0px", // no additional margin
+        threshold: 0.5, // when half or more of element displayed
       });
+      const heroText = document.querySelector("#hero-text");
+      heroText && sectionObserver.observe(heroText);
     }
-    const sectionObserver = new IntersectionObserver(typewriterIntersect, {
-      root: null, // use viewport sas root
-      rootMargin: "0px", // no additional margin
-      threshold: 0.5, // when half or more of element displayed
-    });
-    const heroText = document.querySelector("#hero-text");
-    heroText && sectionObserver.observe(heroText);
   }
 };
 
@@ -315,21 +318,20 @@ const showToast = ({
   title = "",
   text = "",
   icon = "",
+  xPosition = "start",
+  yPosition = "bottom",
   iconAnimationClass = "",
   autoCloseDelay = 0,
 }) => {
   $("#toast") && $("#toast").remove();
   const toast = $(
-    `<div id="toast" class="toast toast-start toast-bottom z-[9999] animate-fade-in-left">
+    `<div>
+    <div id="toast" class="toast toast-${xPosition} toast-${yPosition} z-[9999] animate-fade-in-left">
       <div class="alert">
         <div class="flex gap-4 items-center">
-          <i class="ti ti-${icon} text-4xl text-primary ${iconAnimationClass} ${
-            !icon && "hidden"
-          }"></i>
+          <i class="ti ti-${icon} text-4xl text-primary ${iconAnimationClass} ${!icon && "hidden"}"></i>
           <div>
-            <p id="toast-title" class="font-bold text-xs ${
-              !title && "hidden"
-            }">${title}</p>
+            <p id="toast-title" class="font-bold text-xs ${!title && "hidden"}">${title}</p>
             <p id="toast-desc ${!text && "hidden"}">${text}</p>
           </div>
         </div>
@@ -337,6 +339,7 @@ const showToast = ({
           <i class="ti ti-x text-xl"></i>
         </button>
       </div>
+    </div>
     </div>`,
   );
   const closeToast = () => {
@@ -372,9 +375,7 @@ const showCustomModal = ({
     `<div id="modal" class="modal modal-open select-none">
       <div class="modal-box custom-scrollbar overflow-x-hidden text-center">
         <div id="modal-icon">
-          <i class="ti ti-${icon} ${
-            !icon && "hidden"
-          }" style="font-size: ${iconSize}; color: ${iconColor}"></i>
+          <i class="ti ti-${icon} ${!icon && "hidden"}" style="font-size: ${iconSize}; color: ${iconColor}"></i>
         </div>
         <div class="mt-7">
           <h3 id="modal-title" class="text-2xl font-bold">
@@ -384,7 +385,7 @@ const showCustomModal = ({
             ${text}
           </p>
         </div>
-        <div class>
+        <div>
           ${customHtml}
         </div>
         <div class="modal-action justify-center">
@@ -429,11 +430,10 @@ const randomMemes = () => {
 
 $(function () {
   if (localStorage.getItem("musicVolume")) {
-    musicVolume = localStorage.getItem("musicVolume") * 0.01;
-    $(".volume-slider").val(localStorage.getItem("musicVolume"));
-    $(".volume-slider")
-      .parent()
-      .attr("data-tip", `${localStorage.getItem("musicVolume")} %`);
+    musicVolume = localStorage.getItem("musicVolume");
+    $(".volume-slider").val(musicVolume);
+    $(".volume-slider").parent().attr("data-tip", `${musicVolume} %`);
+    musicVolume = musicVolume * 0.01;
   }
 
   fixedNavbar();
@@ -559,6 +559,15 @@ $(function () {
 
   owl.on("changed.owl.carousel", function () {
     soundPlay("interface.mp3");
+    projectScroll += 1;
+    if (projectScroll === 15) {
+      showToast({
+        title: "Wow...",
+        text: "You like scrolling the projects too much huh? I like that 😁",
+        icon: "star-filled",
+      });
+      projectScroll = 0;
+    }
   });
 
   $(".owl-custom-next").on("click", function () {
@@ -649,26 +658,22 @@ $(function () {
 
   //run the code only on mobile phone
   if (device.mobile() || device.phone()) {
-    const mobileDrawer = new Hammer(document.getElementById("mobile-sidebar"));
+    // const mobileDrawer = new Hammer(document.getElementById("mobile-sidebar"));
 
-    mobileDrawer.on("swiperight", function () {
-      $("#sidebar-close").trigger("click");
-    });
+    // mobileDrawer.on("swiperight", function () {
+    //   $("#sidebar-close").trigger("click");
+    // });
 
     $("#tech-draggable-text").text(
       $("#tech-draggable-text").text() + " Click to see the detail 😉",
     );
   } else {
-    $(".owl-carousel").on("click", ".owl-item", function () {
-      const owlIndex = $(this).index();
-      const count = $(".owl-item.active").length;
-      $(".owl-stage-outer").trigger("to.owl.carousel", owlIndex - count);
-      console.log(
-        `INFO: #${$(this).children().attr("id")} selected on #${$(this)
-          .closest(".owl-carousel")
-          .attr("id")}`,
-      );
-    });
+    // $(".owl-carousel").on("click", ".owl-item", function () {
+    //   const owlIndex = $(this).index();
+    //   const count = $(".owl-item.active").length;
+    //   $(".owl-stage-outer").trigger("to.owl.carousel", owlIndex - (count + 1));
+    //   console.log(`INFO: #${$(this).children().attr("id")} selected on #${$(this).closest(".owl-carousel").attr("id")}`);
+    // });
 
     const techDrag = dragula([document.querySelector("#tech-list")]);
 

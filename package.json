@@ -11,10 +11,13 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "daisyui": "^4.4.0",
-    "prettier": "^3.1.0",
-    "prettier-plugin-tailwindcss": "^0.5.7",
-    "tailwind-scrollbar": "^3.0.5",
-    "tailwindcss": "^3.3.5"
+    "daisyui": "^4.12.10",
+    "prettier": "^3.3.3",
+    "prettier-plugin-tailwindcss": "^0.6.6",
+    "tailwind-scrollbar": "^3.1.0",
+    "tailwindcss": "^3.4.10"
+  },
+  "dependencies": {
+    "jquery": "^3.7.1"
   }
 }

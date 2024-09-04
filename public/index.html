@@ -16,19 +16,22 @@
   <meta name="robots" content="index, follow" />
   <meta name="googlebot" content="index, follow" />
   <meta name="theme-color" content="#ffffff" />
+  <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <link rel="icon" href="svg/logo-light.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Quicksand:wght@400;700&display=swap" rel="stylesheet" />
-  <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <!-- <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script> -->
   <script src="https://cdn.jsdelivr.net/npm/theme-change@2.0.2/index.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/rythm.js/2.2.5/rythm.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/dragula/3.7.3/dragula.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/lozad@1.16.0/dist/lozad.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/mobile-detect@1.4.5/mobile-detect.min.js"></script>
-  <script src="https://hammerjs.github.io/dist/hammer.min.js"></script>
+  <!-- <script src="https://hammerjs.github.io/dist/hammer.min.js"></script> -->
+  <!-- <script src="https://cdn.jsdelivr.net/npm/iconify-icon@2.1.0/dist/iconify-icon.min.js"></script> -->
   <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dragula/3.7.3/dragula.min.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
@@ -144,7 +147,7 @@
               </div>
             </div>
             <div class="absolute bottom-4 w-[80%]">
-              <div class="flex items-center justify-center gap-0 font-semibold tooltip tooltip-open" data-tip="50 %">
+              <div class="flex items-center justify-center gap-0 font-semibold tooltip" data-tip="50 %">
                 <i class="ti ti-volume-2 text-2xl"></i>
                 <input type="range" min="0" max="100" value="50" class="volume-slider range range-xs scale-[.80]" />
                 <i class="ti ti-volume text-2xl"></i>
@@ -154,7 +157,7 @@
         </dialog>
         <!-- Settings Modal End -->
 
-        <!-- Memes Modal End -->
+        <!-- Memes Modal Start -->
         <dialog id="memes" class="modal select-none">
           <div class="modal-box overflow-x-hidden no-scrollbar">
             <h3 class="font-bold text-xl mb-5">Random Memes</h3>
@@ -351,16 +354,20 @@
             <div class="drawer-side inset-0 z-40">
               <div class="drawer-overlay"></div>
               <div class="text-base-conten grid h-full w-full grid-cols-1 grid-rows-1 bg-base-100 p-4 lg:p-6">
-                <iframe data-src="https://drive.google.com/file/d/19dgdpZ56FVvNO2gTAFcp9ByzPxg59S4I/preview" id="pdf-iframe" class="row-span-full h-full w-full rounded-xl skeleton ring-2 ring-primary transition-shadow lg:ring-4"></iframe>
+                <iframe data-src="https://drive.google.com/file/d/19dgdpZ56FVvNO2gTAFcp9ByzPxg59S4I/preview" id="resume-iframe" class="row-span-full h-full w-full rounded-xl skeleton ring-2 ring-primary transition-shadow lg:ring-4"></iframe>
                 <div class="min-h-auto flex flex-wrap items-center justify-center gap-5 pt-4 lg:pt-6">
                   <a href="https://drive.google.com/file/d/19dgdpZ56FVvNO2gTAFcp9ByzPxg59S4I/view" target="_blank" class="btn btn-primary">
-                    Google Drive
-                    <i class="ti ti-brand-google-drive text-lg"></i>
-                  </a>
-                  <a href="doc/Resume_Putu Wisnu Wirayuda Putra.pdf" target="_blank" class="btn btn-accent">
-                    Direct download
+                    Download
                     <i class="ti ti-file-download text-lg"></i>
                   </a>
+                  <!-- <a href="https://drive.google.com/file/d/19dgdpZ56FVvNO2gTAFcp9ByzPxg59S4I/view" target="_blank" class="btn btn-primary">
+                    Google Drive
+                    <i class="ti ti-brand-google-drive text-lg"></i>
+                  </a> -->
+                  <!-- <a href="doc/Resume_Putu Wisnu Wirayuda Putra.pdf" target="_blank" class="btn btn-accent">
+                    Direct download
+                    <i class="ti ti-file-download text-lg"></i>
+                  </a> -->
                   <label class="btn-base-100 btn" onclick="$('html').css('overflow', 'auto')" for="resume-preview">
                     Close
                     <i class="ti ti-x text-lg"></i>
@@ -389,6 +396,7 @@
         </button>
 
         <div data-aos="fade-up" id="projects-carousel" class="owl-carousel owl-theme">
+
           <div id="bidji-course" class="card-project">
             <div class="overflow-hidden">
               <div class="center-all group peer absolute z-[1] flex aspect-video w-full bg-gradient-to-t from-base-200">
@@ -444,13 +452,11 @@
                 </div>
               </div>
               <p class="text-sm md:text-base">
-                Belajar Sed'jak Dini, is a free educational website providing diverse learning
-                materials and instructional videos for Indonesian students,
-                spanning from elementary to high school levels.
+                Belajar Sed'jak Dini is a free educational website providing diverse learning materials and instructional videos for Indonesian students, spanning from elementary to high school levels.
               </p>
               <div class="card-actions">
                 <div class="tooltip w-full" data-tip="View code on Github">
-                  <a href=" https://github.com/wisnuwirayuda15/Bidji-Course" class="btn btn-primary btn-block" target="_blank">
+                  <a href="https://github.com/wisnuwirayuda15/Bidji-Course" class="btn btn-primary btn-block" target="_blank">
                     View More
                     <i class="ti ti-brand-github text-2xl"></i>
                   </a>
@@ -458,6 +464,7 @@
               </div>
             </div>
           </div>
+
           <div id="swiftwalk" class="card-project group">
             <div class="overflow-hidden">
               <div class="center-all peer absolute z-[1] flex aspect-video w-full bg-gradient-to-t from-base-200"></div>
@@ -474,8 +481,7 @@
                 </div>
               </div>
               <p class="text-sm md:text-base">
-                A simple e-commerce shoe-selling website with CRUD (Create,
-                Read, Update, Delete) functionality.
+                Swiftwalk is a simple e-commerce shoe-selling website with CRUD (Create, Read, Update, Delete) functionality.
               </p>
               <div class="card-actions">
                 <div class="tooltip w-full" data-tip="View code on Github">
@@ -487,6 +493,7 @@
               </div>
             </div>
           </div>
+
           <div id="aero-reserve" class="card-project group">
             <div class="overflow-hidden" title="Image from Unsplash by Benjamin Wong">
               <div class="center-all peer absolute z-[1] flex aspect-video w-full bg-gradient-to-t from-base-200"></div>
@@ -500,8 +507,7 @@
                 </div>
               </div>
               <p class="text-sm md:text-base">
-                A restful API service that offers flight ticket data from
-                various airlines.
+                Aero Reserve is a restful API service that offers flight ticket data from various airlines.
               </p>
               <div class="card-actions">
                 <div class="tooltip w-full" data-tip="View code and documentation on Github">
@@ -513,6 +519,42 @@
               </div>
             </div>
           </div>
+
+          <div id="yasuda-dashboard" class="card-project group">
+            <div class="overflow-hidden" title="Image from Unsplash by Benjamin Wong">
+              <div class="center-all peer absolute z-[1] flex aspect-video w-full bg-gradient-to-t from-base-200"></div>
+              <img data-src="https://raw.githubusercontent.com/wisnuwirayuda15/yasuda-dashboard/main/public/img/screenshot/dashboard.png" class="skeleton aspect-video object-cover object-center transition peer-hover:rotate-2 peer-hover:scale-125" alt="aero-reserve" />
+            </div>
+            <div class="card-body">
+              <h2 class="card-title">Yasuda Jaya Tour Admin Dashboard</h2>
+              <div class="flex items-center gap-2">
+                <div class="tooltip" data-tip="Laravel">
+                  <i class="ti ti-brand-laravel text-3xl text-red-600"></i>
+                </div>
+                <div class="tooltip" data-tip="Tailwind CSS">
+                  <i class="ti ti-brand-tailwind text-3xl text-[#38bdf8]"></i>
+                </div>
+                <div class="tooltip" data-tip="Alpine.js">
+                  <i class="ti ti-brand-alpine-js text-3xl text-[#77c1d2]"></i>
+                </div>
+                <div class="tooltip" data-tip="Livewire">
+                  <i class="ti ti-brand-livewire text-3xl text-[#c05a89]"></i>
+                </div>
+              </div>
+              <p class="text-sm md:text-base">
+                Yasuda Jaya Tour is a tourism company that has been operating since 2008 and is based in Tegal, Central Java. This company offers various travel packages and interesting destinations that meet the needs of their diverse customers.
+              </p>
+              <div class="card-actions">
+                <div class="tooltip w-full" data-tip="View code and documentation on Github">
+                  <a href="https://github.com/wisnuwirayuda15/yasuda-dashboard" class="btn btn-primary btn-block" target="_blank">
+                    View More
+                    <i class="ti ti-brand-github text-2xl"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <div id="portfolio-web" class="card-project group">
             <div class="overflow-hidden">
               <div class="center-all peer absolute z-[1] flex aspect-video w-full bg-gradient-to-t from-base-200"></div>
@@ -548,6 +590,83 @@
               </div>
             </div>
           </div>
+
+          <div id="climates-app" class="card-project group">
+            <div class="overflow-hidden">
+              <div class="center-all peer absolute z-[1] flex aspect-video w-full bg-gradient-to-t from-base-200"></div>
+              <img data-src="https://raw.githubusercontent.com/wisnuwirayuda15/climates-mobile-web-app/main/static/img/screenshot/mockup.png" class="skeleton aspect-video object-cover object-center transition peer-hover:rotate-2 peer-hover:scale-125" alt="Shoes" />
+            </div>
+            <div class="card-body">
+              <h2 class="card-title">Climates: Web App</h2>
+              <div class="flex items-center gap-2">
+                <div class="tooltip" data-tip="SvelteKit">
+                  <i class="ti ti-brand-svelte text-3xl text-[#ff3e00]"></i>
+                </div>
+                <div class="tooltip" data-tip="Tailwind CSS">
+                  <i class="ti ti-brand-tailwind text-3xl text-[#38bdf8]"></i>
+                </div>
+                <div class="tooltip" data-tip="Konsta UI">
+                  <i class="ti ti-device-mobile text-3xl text-[#ff6300]"></i>
+                </div>
+              </div>
+              <p class="text-sm md:text-base">
+                Climates is a web app who gives everyone who wishes to lower emissions, enhance lives, and take care of our planet with ideas and tools that are supported by science.
+              </p>
+              <div class="card-actions">
+                <div class="tooltip w-full" data-tip="View live demo on vercel">
+                  <a href="https://climates-app.vercel.app/" class="btn btn-secondary btn-block" target="_blank">
+                    Live Demo
+                    <i class="ti ti-link text-2xl"></i>
+                  </a>
+                </div>
+                <div class="tooltip w-full" data-tip="View code on Github">
+                  <a href="https://github.com/wisnuwirayuda15/climates-mobile-web-app" class="btn btn-primary btn-block" target="_blank">
+                    View More
+                    <i class="ti ti-brand-github text-2xl"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="climates-landing-page" class="card-project group">
+            <div class="overflow-hidden">
+              <div class="center-all peer absolute z-[1] flex aspect-video w-full bg-gradient-to-t from-base-200"></div>
+              <img data-src="https://raw.githubusercontent.com/wisnuwirayuda15/climates-landing-page/425ea9abdcd87be8740c1ad8ccd50938b9c66204/static/img/screenshot/home.png" class="skeleton aspect-video object-cover object-center transition peer-hover:rotate-2 peer-hover:scale-125" alt="Shoes" />
+            </div>
+            <div class="card-body">
+              <h2 class="card-title">Climates: Landing Page</h2>
+              <div class="flex items-center gap-2">
+                <div class="tooltip" data-tip="SvelteKit">
+                  <i class="ti ti-brand-svelte text-3xl text-[#ff3e00]"></i>
+                </div>
+                <div class="tooltip" data-tip="Tailwind CSS">
+                  <i class="ti ti-brand-tailwind text-3xl text-[#38bdf8]"></i>
+                </div>
+                <div class="tooltip" data-tip="DaisyUI">
+                  <i class="ti ti-flower text-3xl text-[#1ad1a5]"></i>
+                </div>
+              </div>
+              <p class="text-sm md:text-base">
+                A landing page for Climates app.
+              </p>
+              <div class="card-actions">
+                <div class="tooltip w-full" data-tip="View live demo on vercel">
+                  <a href="https://climates-team.vercel.app/" class="btn btn-secondary btn-block" target="_blank">
+                    Live Demo
+                    <i class="ti ti-link text-2xl"></i>
+                  </a>
+                </div>
+                <div class="tooltip w-full" data-tip="View code on Github">
+                  <a href="https://github.com/wisnuwirayuda15/climates-landing-page" class="btn btn-primary btn-block" target="_blank">
+                    View More
+                    <i class="ti ti-brand-github text-2xl"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
 
         <button data-aos="fade-left" aria-label="Project Next" data-tip="Next" class="owl-btn owl-custom-next tooltip">
@@ -569,97 +688,109 @@
       <div data-aos="fade-up" id="tech-list" class="my-10 flex flex-wrap justify-center gap-14 xl:mx-10" title="Hold and click to drag the item">
         <div class="card-tech group tooltip tooltip-bottom ring-[#e44d26]" data-tip="HTML">
           <div class="icon-tech">
-            <img data-src="img/brand/html.png" class="rythm-pulse w-16" alt="HTML" />
+            <img data-src="img/brand/html.webp" class="rythm-pulse w-16" alt="HTML" />
           </div>
         </div>
 
         <div class="card-tech group tooltip tooltip-bottom ring-[#264de4]" data-tip="CSS">
           <div class="icon-tech">
-            <img data-src="img/brand/css.png" class="rythm-pulse w-16" alt="CSS" />
+            <img data-src="img/brand/css.webp" class="rythm-pulse w-16" alt="CSS" />
           </div>
         </div>
 
         <div class="card-tech group tooltip tooltip-bottom ring-[#ffdf00]" data-tip="JavaScript">
           <div class="icon-tech">
-            <img data-src="img/brand/js.png" class="rythm-pulse w-16 rounded-lg" alt="JavaScript" />
+            <img data-src="img/brand/js.webp" class="rythm-pulse w-16 rounded-lg" alt="JavaScript" />
           </div>
         </div>
 
         <div class="card-tech group tooltip tooltip-bottom ring-[#3178c6]" data-tip="TypeScript">
           <div class="icon-tech">
-            <img data-src="img/brand/ts.png" class="rythm-pulse w-16" alt="TypeScript" />
+            <img data-src="img/brand/ts.webp" class="rythm-pulse w-16" alt="TypeScript" />
           </div>
         </div>
 
         <div class="card-tech group tooltip tooltip-bottom ring-[#787cb4]" data-tip="PHP">
           <div class="icon-tech">
-            <img data-src="img/brand/php.png" class="rythm-pulse w-16" alt="PHP" />
+            <img data-src="img/brand/php.webp" class="rythm-pulse w-16" alt="PHP" />
           </div>
         </div>
 
         <div class="card-tech group tooltip tooltip-bottom ring-[#ff2d20]" data-tip="Laravel">
           <div class="icon-tech">
-            <img data-src="img/brand/laravel.png" class="rythm-pulse w-16" alt="Laravel" />
+            <img data-src="img/brand/laravel.webp" class="rythm-pulse w-16" alt="Laravel" />
+          </div>
+        </div>
+
+        <div class="card-tech group tooltip tooltip-bottom ring-[#c05a89]" data-tip="Livewire">
+          <div class="icon-tech">
+            <img data-src="img/brand/livewire.webp" class="rythm-pulse w-16" alt="Livewire" />
+          </div>
+        </div>
+
+        <div class="card-tech group tooltip tooltip-bottom ring-[#77c1d2]" data-tip="Alpine.js">
+          <div class="icon-tech">
+            <img data-src="img/brand/alpine.webp" class="rythm-pulse w-16" alt="Alpine.js" />
           </div>
         </div>
 
         <div class="card-tech group tooltip tooltip-bottom ring-[#35bef8]" data-tip="Tailwind CSS">
           <div class="icon-tech">
-            <img data-src="img/brand/tailwind.png" class="rythm-pulse w-16" alt="Tailwind CSS" />
+            <img data-src="img/brand/tailwind.webp" class="rythm-pulse w-16" alt="Tailwind CSS" />
           </div>
         </div>
 
         <div class="card-tech group tooltip tooltip-bottom ring-[#61dafb]" data-tip="React">
           <div class="icon-tech">
-            <img data-src="img/brand/react.png" class="rythm-pulse w-16" alt="React" />
+            <img data-src="img/brand/react.webp" class="rythm-pulse w-16" alt="React" />
           </div>
         </div>
 
         <div class="card-tech group tooltip tooltip-bottom ring-[#800af9]" data-tip="Bootstrap">
           <div class="icon-tech">
-            <img data-src="img/brand/bootstrap.png" class="rythm-pulse w-16" alt="Bootstrap" />
+            <img data-src="img/brand/bootstrap.webp" class="rythm-pulse w-16" alt="Bootstrap" />
           </div>
         </div>
 
         <div class="card-tech group tooltip tooltip-bottom ring-[#1169ae]" data-tip="jQuery">
           <div class="icon-tech">
-            <img data-src="img/brand/jquery.png" class="rythm-pulse w-16" alt="jQuery" />
+            <img data-src="img/brand/jquery.webp" class="rythm-pulse w-16" alt="jQuery" />
           </div>
         </div>
 
         <div class="card-tech group tooltip tooltip-bottom ring-[#e48e00]" data-tip="MySQL">
           <div class="icon-tech">
-            <img data-src="img/brand/mysql.png" class="rythm-pulse w-16" alt="MySQL" />
+            <img data-src="img/brand/mysql.webp" class="rythm-pulse w-16" alt="MySQL" />
           </div>
         </div>
 
         <div class="card-tech group tooltip tooltip-bottom ring-[#f05033]" data-tip="Git">
           <div class="icon-tech">
-            <img data-src="img/brand/git.png" class="rythm-pulse w-16" alt="Git" />
+            <img data-src="img/brand/git.webp" class="rythm-pulse w-16" alt="Git" />
           </div>
         </div>
 
         <div class="card-tech group tooltip tooltip-bottom ring-[#02d084]" data-tip="Figma">
           <div class="icon-tech">
-            <img data-src="img/brand/figma.png" class="rythm-pulse h-16" alt="Figma" />
+            <img data-src="img/brand/figma.webp" class="rythm-pulse h-16" alt="Figma" />
           </div>
         </div>
 
         <div class="card-tech group tooltip tooltip-bottom ring-[#45c6fb]" data-tip="Flutter">
           <div class="icon-tech">
-            <img data-src="img/brand/flutter.png" class="rythm-pulse h-16" alt="Flutter" />
+            <img data-src="img/brand/flutter.webp" class="rythm-pulse h-16" alt="Flutter" />
           </div>
         </div>
 
         <div class="card-tech group tooltip tooltip-bottom ring-[#ff3e00]" data-tip="SvelteKit">
           <div class="icon-tech">
-            <img data-src="img/brand/svelte.png" class="rythm-pulse h-16" alt="SvelteKit" />
+            <img data-src="img/brand/svelte.webp" class="rythm-pulse h-16" alt="SvelteKit" />
           </div>
         </div>
 
         <div class="card-tech group tooltip tooltip-bottom ring-[#0b85d1]" data-tip="Visual Studio Code">
           <div class="icon-tech">
-            <img data-src="img/brand/vscode.png" class="rythm-pulse w-16" alt="Visual Studio Code" />
+            <img data-src="img/brand/vscode.webp" class="rythm-pulse w-16" alt="Visual Studio Code" />
           </div>
         </div>
 
@@ -869,8 +1000,9 @@
           using
           <a data-tip="v3" href="https://tailwindcss.com/" target="_blank" class="link tooltip text-[#35bef8]">Tailwind CSS
           </a>
-          and
+          with
           <a data-tip="v4" href="https://daisyui.com/" target="_blank" class="link tooltip text-[#1ad1a5]">DaisyUI</a>
+          component library
         </p>
 
         <div class="flex w-full justify-center">
